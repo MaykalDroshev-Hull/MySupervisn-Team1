@@ -108,5 +108,11 @@
   <ItemGroup>
     <Resource Include="Visuals\Logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Visuals\PoweredBy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Visuals\icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,18 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MySupervisn_Team1"
         mc:Ignorable="d"
-        
-        Title="Login" Height="370.322" Width="331.892">
-    <Grid HorizontalAlignment="Left" Width="321" Margin="0,0,0,1">
-        <Image HorizontalAlignment="Left" Height="137" Margin="70,3,0,0" VerticalAlignment="Top" Width="181" Source="Visuals/Logo.png"/>
-        <Label Content="Username:" HorizontalAlignment="Left" Margin="49,175,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <PasswordBox x:Name="passwordBox_pass" HorizontalAlignment="Left" Margin="122,214,0,0" VerticalAlignment="Top" Width="118" Height="23"/>
-        
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,175,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="49,212,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="139,287,0,0" VerticalAlignment="Top" Width="100" Height="25"/>
-        <CheckBox Content="Remember me" HorizontalAlignment="Left" Margin="49,254,0,0" VerticalAlignment="Top"/>
-        <Button Content="👁️" HorizontalAlignment="Left" Margin="240,214,0,0" VerticalAlignment="Top" Width="30" Height="23" Click="Visible_Click"/>
+        Icon="Visuals/icon.png"
+        Title="Login" Height="418.322" Width="273.892">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Image Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="181" Source="Visuals/Logo.png"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="Username:" HorizontalAlignment="Right"  VerticalAlignment="Center" FontWeight="Bold" Height="23"/>
+        <PasswordBox Grid.Row="2" Grid.Column="1" x:Name="passwordBox_pass" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="118" Height="23"/>
+
+        <TextBox  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="118"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Password:" HorizontalAlignment="Right"  VerticalAlignment="Center" FontWeight="Bold"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="25"/>
+        <CheckBox Grid.Row="3" Grid.Column="1" Content="Remember me" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="5"  Width="163" Source="Visuals/PoweredBy.png"/>
+
+
 
 
     </Grid>
