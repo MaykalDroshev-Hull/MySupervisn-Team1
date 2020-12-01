@@ -66,6 +66,7 @@
     <Compile Include="Classes\StudentHub.cs" />
     <Compile Include="Classes\Supervisor.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="SQLite_demo\SQLiteDemo.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
