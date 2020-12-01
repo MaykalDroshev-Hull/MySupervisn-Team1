@@ -16,6 +16,9 @@ namespace MySupervisn_Team1.SQLiteDemo
             CreateTable(sqlite_connection);
             InsertData(sqlite_connection);
             ReadData(sqlite_connection);
+
+            Console.WriteLine("Press any key to exit the program.");
+            Console.ReadKey();
         }
 
         static SQLiteConnection CreateConnection()
@@ -58,7 +61,6 @@ namespace MySupervisn_Team1.SQLiteDemo
             sqlite_cmd.CommandText = "INSERT INTO SampleTable (Col1, Col2) VALUES('Test2 Text2 ', 3); ";
            sqlite_cmd.ExecuteNonQuery();
 
-
             sqlite_cmd.CommandText = "INSERT INTO SampleTable1 (Col1, Col2) VALUES('Test3 Text3 ', 3); ";
            sqlite_cmd.ExecuteNonQuery();
         }
@@ -76,7 +78,7 @@ namespace MySupervisn_Team1.SQLiteDemo
                 string myreader = sqlite_datareader.GetString(0);
                 Console.WriteLine(myreader);
             }
-            pConnection.Close();
+            pConnection.Close(); // Close connection after reading 
         }
     }
 }
