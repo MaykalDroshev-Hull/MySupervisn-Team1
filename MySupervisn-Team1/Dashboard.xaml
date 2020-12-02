@@ -57,5 +57,5 @@
         <Label Content="Student Name:" HorizontalAlignment="Right"  Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold" Height="26" Margin="0,2" Width="94"/>
         <Label Content="Messages:" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="67"/>
         <Label Content="Calendar:" FontWeight="Bold" Grid.Row="2" Grid.Column="0" Margin="199,0,127,173" />
-    </Grid>
+    </Grid>    
 </Window>
