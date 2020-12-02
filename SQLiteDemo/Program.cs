@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace SQLiteDemo
 {
+   
     class Program
     {
         static void Main(string[] args)
         {
-            SQLiteConnection connection;
+            
+        SQLiteConnection connection;
             string tableName = "StudentMessage";
             int id = 123456;
             string name = "Sean Kirwin";
