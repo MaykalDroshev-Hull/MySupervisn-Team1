@@ -74,6 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\DatabaseManager.cs" />
     <Compile Include="Classes\DirectorOfStudy.cs" />
     <Compile Include="Classes\Inbox.cs" />
     <Compile Include="Classes\Message.cs" />
