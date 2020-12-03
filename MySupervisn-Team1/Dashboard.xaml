@@ -23,7 +23,7 @@
                 <Menu>
                     <MenuItem Header="Profile">
 
-                        <MenuItem Header="Change Credentials"/>
+                        <MenuItem Header="Edit Profile"/>
                         <Separator/>
                         <MenuItem Header="LogOut"/>
                     </MenuItem>
