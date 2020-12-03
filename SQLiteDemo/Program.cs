@@ -4,14 +4,18 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SQLiteDemo
 {
+    
+
     class Program
     {
         static void Main(string[] args)
         {
-            SQLiteConnection connection;
+            
+        SQLiteConnection connection;
             string tableName = "StudentMessage";
             int id = 123456;
             string name = "Sean Kirwin";
