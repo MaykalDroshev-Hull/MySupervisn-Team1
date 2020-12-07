@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySupervisn_Team1
 {
-    abstract class Staff:User
+    public class Staff:User
     {
         public void DeleteMessage()
         {

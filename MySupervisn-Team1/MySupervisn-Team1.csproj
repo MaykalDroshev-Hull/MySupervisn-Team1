@@ -109,8 +109,9 @@
     <Compile Include="Classes\StudentHub.cs" />
     <Compile Include="Classes\Supervisor.cs" />
     <Compile Include="Classes\User.cs" />
-    <Compile Include="Dashboard - Copy.xaml.cs">
-      <DependentUpon>Dashboard - Copy.xaml</DependentUpon>
+
+    <Compile Include="Dashboard_Staff.xaml.cs">
+      <DependentUpon>Dashboard_Staff.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -145,6 +146,10 @@
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Dashboard_Staff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

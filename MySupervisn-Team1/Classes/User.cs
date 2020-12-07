@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySupervisn_Team1
 {
+
     public abstract class User
     {
         private string mRole;
