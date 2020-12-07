@@ -109,8 +109,8 @@
     <Compile Include="Classes\StudentHub.cs" />
     <Compile Include="Classes\Supervisor.cs" />
     <Compile Include="Classes\User.cs" />
-    <Compile Include="StudentHub.xaml.cs">
-      <DependentUpon>StudentHub.xaml</DependentUpon>
+    <Compile Include="StudentHub_DirectorOfStudy.xaml.cs">
+      <DependentUpon>StudentHub_DirectorOfStudy.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -141,7 +141,7 @@
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="StudentHub.xaml">
+    <Page Include="StudentHub_DirectorOfStudy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

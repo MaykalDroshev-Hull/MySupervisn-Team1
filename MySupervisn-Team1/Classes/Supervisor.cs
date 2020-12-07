@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySupervisn_Team1
 {
-    class Supervisor:Staff
+    public class Supervisor:Staff
     {
         private List<Student> mStudents;
     }

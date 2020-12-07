@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySupervisn_Team1
 {
-    class Student:User
+    public class Student:User
     {
         private string mStudentNumber;
         private List<(string, byte)> mModuleMarks;//Module,Mark

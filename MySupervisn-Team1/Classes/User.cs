@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySupervisn_Team1
 {
-    abstract class User
+    public class User
     {
         private string idNumber;
         private string email;

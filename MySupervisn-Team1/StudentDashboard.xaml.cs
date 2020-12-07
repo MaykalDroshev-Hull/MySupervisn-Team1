@@ -15,15 +15,13 @@ using System.Windows.Shapes;
 namespace MySupervisn_Team1
 {
     /// <summary>
-    /// Interaction logic for StudentHub.xaml
+    /// Interaction logic for Dashboard.xaml
     /// </summary>
-    public partial class StudentHub : Window
+    public partial class Dashboard : Window
     {
-        public StudentHub()
+        public Dashboard()
         {
             InitializeComponent();
         }
-
-
     }
 }

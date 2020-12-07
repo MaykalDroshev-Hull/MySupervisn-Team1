@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySupervisn_Team1
 {
-    class StudentHub:Staff
+    partial class StudentHub
     {
         public void AssignStudentToPS(Student pStudent,Supervisor pPersonalSupervisor)
         {
