@@ -12,33 +12,29 @@ namespace MySupervisn_Team1
     {
         private string _TableName;
 
-        private int _Id;
-        private string _Name;
-        private DateTime _Date;
-        private List<string> _Messages;
-
-
-
-        public DatabaseManager(string pTableName, int pId, string pName, DateTime pDate, List<string> pMessage)
+        public DatabaseManager(Message pMessage)
         {
-            SQLiteConnection connection;
+            _TableName = "MESSAGES";
 
-            _TableName = pTableName;
-
-            _Id = pId;
-            _Name = pName;
-            _Date = pDate;
-            _Messages = pMessage;
-  
-            connection = CreateConnection(_TableName);
-            CreateTable(connection, _TableName);
-            InsertData(connection, _TableName, _Id, _Name, _Date, _Messages);
-            ReadData(connection, _TableName);
+            InitiateDatabse(_TableName,null, pMessage);
+        }
+        public DatabaseManager(User pUser)
+        {
+            _TableName = "USERS";
+            
+            InitiateDatabse(_TableName, pUser, null );
         }
  
+        private void InitiateDatabse(string pTableName, User pUser, Message pMessage)
+        {
+            SQLiteConnection connection = CreateConnection(pTableName);
+            CreateTable(connection, pTableName);
+            InsertData(connection, pTableName, pUser, pMessage);
+            ReadData(connection, pTableName);
+        }
 
         private SQLiteConnection CreateConnection(string pTableName)
-    {
+        {
         SQLiteConnection connection;
         // Create a new database connection:
         string fileName = String.Format("Data Source = database{0}.db; Version = 3; New = True; Compress = True; ", pTableName);
@@ -63,30 +59,32 @@ namespace MySupervisn_Team1
         cmdDrop.ExecuteNonQuery();
 
         SQLiteCommand cmdCreate = pConnection.CreateCommand();
-        cmdCreate.CommandText = String.Format("CREATE TABLE {0} (ID INT, NAME VARCHAR(20), MESSAGE VARCHAR(20))", pTableName); // column's title string or number
-        cmdCreate.ExecuteNonQuery();
+        if (pTableName != "MESSAGES")
+        {
+            cmdCreate.CommandText = String.Format("CREATE TABLE {0} (ID INT, NAME VARCHAR(20), DATE INT, MESSAGE VARCHAR(20))", pTableName); // column's title string or number
+        }
+        else if (pTableName != "USERS")
+            {
+            cmdCreate.CommandText = String.Format("CREATE TABLE {0} (ID INT, NAME VARCHAR(20), ROLE VARCHAR(20)", pTableName); // column's title string or number
+        }
+            cmdCreate.ExecuteNonQuery();
     }
 
-    private void InsertData(SQLiteConnection pConnection, string pTableName, int pId, string pName, DateTime pDate, List<string> pMessages)
+    private void InsertData(SQLiteConnection pConnection, string pTableName, User pUser, Message pMessage)
     {
         using (SQLiteTransaction transaction = pConnection.BeginTransaction())
         {
             SQLiteCommand cmdInsert = pConnection.CreateCommand();
 
-            foreach (string message in pMessages)
-            {
-                // Test how DATE output!!
-                cmdInsert.CommandText = String.Format("INSERT INTO {0} (ID, NAME, DATE, MESSAGE ) VALUES({1}, '{2}', '{3}', {4}, '{5}'); ", pTableName, pId, pName, pDate, message);
+                if (pMessage != null) {
+                    // Test how DATE output!!
+                    cmdInsert.CommandText = String.Format("INSERT INTO {0} (ID, NAME, DATE, MESSAGE ) VALUES({1}, '{2}', '{3}', {4}, '{5}'); ", pTableName, pMessage.Sender.IdNumber, pMessage.Sender.Name, pMessage.DateTime, pMessage.Caption);
+                }
+                else if (pUser != null)
+                {
+                    cmdInsert.CommandText = String.Format("INSERT INTO {0} (ID, NAME, ROLE) VALUES({1}, '{2}', '{3}', '{4}'); ", pTableName, pUser.IdNumber, pUser.Name, pUser.Role);
+                }
                 cmdInsert.ExecuteNonQuery();
-            }
-            /*
-             * Do something similar only for dates??
-            foreach (DateTime date in pDate)
-            {
-                cmdInsert.CommandText = String.Format("INSERT INTO {0} (DATE) VALUES({1}); ", pDate);
-                cmdInsert.ExecuteNonQuery();
-            }
-            */
                 transaction.Commit();
         }
     }

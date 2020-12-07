@@ -6,16 +6,29 @@ using System.Threading.Tasks;
 
 namespace MySupervisn_Team1
 {
-    public class User
+
+    public abstract class User
     {
-        private string idNumber;
-        private string email;
-        private string name;
-        private List<string> notifications;
-        private string password;
+        private string mRole;
+        private int mIdNumber;
+        private string mName;
+        private List<string> _Notifications;
+        private string _Password;
+
+        public string Role { set { mRole = value; }get{return mRole; } }
+        public int IdNumber { set { mIdNumber = value; } get { return mIdNumber; } }
+        public string Name { set { mName = value; } get { return mName; } }
+
+        public User(int pIdNumber, string pName)
+        {
+            mIdNumber = pIdNumber;
+            mName = pName;
+        }
 
         private void SendMessage(Message pMessage)
         {
+            DatabaseManager saveData = new DatabaseManager(pMessage);
+
             throw new NotImplementedException();
         }
         private void CreateMeeting(User pRecepient,Message pMessage)
@@ -24,6 +37,7 @@ namespace MySupervisn_Team1
         }
         private void LogIn()
         {
+
             throw new NotImplementedException();
         }
         /// <summary>

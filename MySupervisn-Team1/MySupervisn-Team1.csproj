@@ -109,6 +109,7 @@
     <Compile Include="Classes\StudentHub.cs" />
     <Compile Include="Classes\Supervisor.cs" />
     <Compile Include="Classes\User.cs" />
+
     <Compile Include="Dashboard_Staff.xaml.cs">
       <DependentUpon>Dashboard_Staff.xaml</DependentUpon>
     </Compile>
@@ -121,6 +122,10 @@
     <Page Include="AddDELETEUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dashboard - Copy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Dashboard.xaml">
       <SubType>Designer</SubType>
