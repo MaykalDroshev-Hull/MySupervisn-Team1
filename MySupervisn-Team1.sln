@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySupervisn-Team1", "MySupervisn-Team1\MySupervisn-Team1.csproj", "{F0FDBC60-B66E-4930-A029-A6087C5ABBEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteDemo", "SQLiteDemo\SQLiteDemo.csproj", "{0FFEE168-965F-47F6-9918-AEF83E901E5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQLiteDemo", "SQLiteDemo\SQLiteDemo.csproj", "{0FFEE168-965F-47F6-9918-AEF83E901E5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EB396289-BE51-43BF-88BC-F65441A051B8}"
+	ProjectSection(SolutionItems) = preProject
+		EditProfileStudent.xaml = EditProfileStudent.xaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
