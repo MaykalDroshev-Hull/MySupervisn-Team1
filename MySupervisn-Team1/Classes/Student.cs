@@ -12,7 +12,11 @@ namespace MySupervisn_Team1
         private List<(string, byte)> mModuleMarks;//Module,Mark
         private Dictionary<string, (byte, bool)> mModuleAttendance;//<Module code,(lecture number,IsAttended)>
 
-
+        public Student(int pIdNumber, string pName):(pIdNumber, pName)
+        {
+            mIdNumber = pIdNumber;
+            mName = pName;
+        }
         public void LectureCheck_in( string pModuleCode,byte pLectureNum)
         {
             throw new NotImplementedException();
