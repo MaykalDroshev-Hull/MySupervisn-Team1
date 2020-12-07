@@ -32,12 +32,12 @@
             <Label Content="[Message 3]"/>
             <Label Content="[Message 4]"/>
             <Label Content="[Message 5]"/>
-            <Label Content="[Message 6]"/>
-            <Label Content="[Message 7]"/>
+            <Label Content="[Message 6]" Margin="0,0,-0.4,0"/>
         </StackPanel>
         <Button Content="Search" HorizontalAlignment="Left" Margin="74,71.8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="19"/>
         <TextBox HorizontalAlignment="Left" Height="26" Margin="0,9.8,0,0" Grid.Row="4" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="230"/>
         <Label Content="Search student" HorizontalAlignment="Left" Margin="10,4.8,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="-12.823,5.523" FontWeight="Bold" Height="26" Width="94"/>
+        <Button Content="Open Inbox" Margin="136,10.6,19.4,8.8" Grid.Row="1"/>
     </Grid>
 
 </Window>
