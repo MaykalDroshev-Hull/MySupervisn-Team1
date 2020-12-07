@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace MySupervisn_Team1
 {
+    //class StudentHub : Staff
     partial class StudentHub
     {
+        /*
+        public StudentHub(int pIdNumber, string pName) : base(pIdNumber, pName)
+        {
+            Role = "Student Hub";
+            IdNumber = pIdNumber;
+            Name = pName;
+        }
+        */
         public void AssignStudentToPS(Student pStudent,Supervisor pPersonalSupervisor)
         {
             throw new NotImplementedException();
