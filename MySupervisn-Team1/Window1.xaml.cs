@@ -23,5 +23,23 @@ namespace MySupervisn_Team1
         {
             InitializeComponent();
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            MainBody.Text = "";
+        }
+
+        private void SendBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainBody == "")
+            {
+                MessageBox.Show()
+            }
+        }
     }
 }

@@ -12,11 +12,8 @@
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>        
         <Label Content="Overview of the students" />
-        <StackPanel Grid.Row="1">
-            
-            
-        </StackPanel>
-
+        <DataGrid Grid.Row="1"></DataGrid>
+        
     </Grid>
 
 </Window>
