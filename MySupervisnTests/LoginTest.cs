@@ -1,34 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Windows;
-using System.Windows.Forms;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data.SqlClient;
-using MessageBox = System.Windows.MessageBox;
+using MessageBox = System.Windows;
 
-namespace MySupervisn_Team1
+namespace MySupervisnTests
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    [TestClass]
+    public class LoginTest
     {
-        public MainWindow()
+        private bool username_match = false;
+        private bool password_match = false;
+
+        [TestMethod]
+        public void LoginValidCredentials()
         {
-            InitializeComponent();
+            // Pass - Both Username and Password are valid
+            string username = "";
+            string password = "";
+            string expected = "Valid";
+
+            // Arrange
+
+            // Act
+            bool username_match = false;
+            bool password_match = false;
+
+            // Assert
+            //double actual = account.Balance;
+           //Assert.AreEqual(expected, actual, 0.001, "Account not debited correctly");
         }
-        bool username_match = false;
-        bool password_match = false;
+
+        [TestMethod]
+        public void LoginNotValidCredentials()
+        {
+            // Not Pass - Username valid but Password Not valid
+            string username = "";
+            string password = "";
+
+            // Not Pass - Username Not valid but Password valid
+            //username = "";
+            //password = "";
+
+            // Arrange
+
+            // Act
+        
+
+            // Assert
+            //double actual = account.Balance;
+            //Assert.AreEqual(expected, actual, 0.001, "Account not debited correctly");
+        }
+
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             string username = Username.Text;
@@ -52,34 +74,31 @@ namespace MySupervisn_Team1
                         password_match = true;
                         break;
                     }
-                    
+
                 }
             }
-            
-            if (username_match && password_match) {
+
+            if (username_match && password_match)
+            {
                 switch (Classification)
                 {
                     case "Student":
                         break;
                     case "Student Hub":
-                        
+
                         break;
                     case "Personal Supervisor":
                         break;
                     case "Director of Study":
                         break;
-
-
                 }
             }
-            else {
-              
-                   MessageBox.Show("Invalid credentials", "Access Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
+            else
+            {
+                MessageBox.Show("Invalid credentials", "Access Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
                 InitializeComponent();
-            
             }
-
-
         }
+
     }
 }
