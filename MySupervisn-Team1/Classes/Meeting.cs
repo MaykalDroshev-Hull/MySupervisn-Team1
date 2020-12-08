@@ -27,7 +27,7 @@ namespace MySupervisn_Team1
         // DeleteMeeting
         public void SaveMeeting(string pTableName, int pId, string pName, DateTime pDate, List<string> pMessage)
         {
-            DatabaseManager saveMeetingToDatabase = new DatabaseManager(pTableName, pId, pName, pDate, pMessage);
+           // DatabaseManager saveMeetingToDatabase = new DatabaseManager(pTableName, pId, pName, pDate, pMessage);
         }
       
     }

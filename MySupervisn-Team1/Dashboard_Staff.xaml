@@ -34,7 +34,7 @@
             <Label Content="[Message 5]"/>
             <Label Content="[Message 6]" Margin="0,0,-0.4,0"/>
         </StackPanel>
-        <Button Content="Search" HorizontalAlignment="Left" Margin="278,23.8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="98" Click="Button_Click" Height="26"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="278,23.8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="98"  Height="26"/>
         <TextBox HorizontalAlignment="Left" Height="26" Margin="10,23.8,0,0" Grid.Row="4" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="240"/>
         <Label Content="Search student" HorizontalAlignment="Left" Margin="10,4.8,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="-12.823,5.523" FontWeight="Bold" Height="26" Width="94"/>
         <Button Content="Add Users" Grid.Column="2" HorizontalAlignment="Left" Margin="51.6,26.8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="90" Visibility="Hidden"/>
