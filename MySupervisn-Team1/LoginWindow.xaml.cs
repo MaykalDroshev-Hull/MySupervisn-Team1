@@ -37,7 +37,7 @@ namespace MySupervisn_Team1
             conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\micha\Documents\GitHub\MySupervisn-Team1\MySupervisn-Team1\DataBase\Users.mdf;Integrated Security=True";
             conn.Open();
             SqlCommand search = new SqlCommand();
-            search.CommandText = "select User_Id,password,Classification from [Table]";
+            search.CommandText = "select User_Id,password,Classification,FirstName, LastName,email,password,Supervisor from [Table]";
             search.Connection = conn;
             SqlDataReader rd = search.ExecuteReader();
             string Classification = "";
