@@ -4,12 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MySupervisn_Team1"
-        mc:Ignorable="d"
-        Title="Edit Details" Height="402.012" Width="800" Icon="Visuals/icon.png">
+        mc:Ignorable="d" ResizeMode="NoResize"
+        Title="Edit Details" Height="480.785" Width="800" Icon="Visuals/icon.png">
 
     <Grid>
         <Grid.ColumnDefinitions>
-          
+
             <ColumnDefinition Width="379*"/>
             <ColumnDefinition Width="397*"/>
         </Grid.ColumnDefinitions>
@@ -19,7 +19,7 @@
             <RowDefinition Height="198*"/>
             <RowDefinition Height="161*"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
+        <DockPanel Grid.Row="0" Grid.ColumnSpan="3" >
             <ToolBar>
                 <Menu>
                     <MenuItem Header="Profile">
@@ -37,11 +37,12 @@
         </Border>
         <Grid Grid.Row="2" RenderTransformOrigin="0.768,0.457" Grid.ColumnSpan="3"  >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="37*"/>
+                <ColumnDefinition Width="51*"/>
             </Grid.ColumnDefinitions>
-            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Margin="0,0,-0.2,-160.6" >
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Margin="0,0,0,-138" Grid.ColumnSpan="2" >
 
-                <StackPanel Margin="-0.8,25.2,-1,-0.6"  >
+                <StackPanel Margin="-1,25,-1,20"  >
                     <Label Content="User Name: [User Name]" Margin="0,0,0.4,0"/>
                     <StackPanel Orientation="Horizontal">
                         <TextBox x:Name="UserName"  Width="100" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
@@ -56,7 +57,7 @@
 
         </Grid>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-        <Label Content="[Student Name]" FontWeight="Bold"  />
+            <Label Content="[Student Name]" FontWeight="Bold"  />
             <Label Content="[Student Id]" FontWeight="Bold"/>
         </StackPanel>
         <Label Content="Details:" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="67" Grid.ColumnSpan="2"/>
