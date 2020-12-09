@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MySupervisn_Team1"
         mc:Ignorable="d"
-        Title="Edit Details" Height="402.012" Width="800" Icon="Visuals/icon.png">
+        Title="Edit Details" Height="450" Width="800" Icon="Visuals/icon.png">
 
     <Grid>
         <Grid.ColumnDefinitions>
-          
+            <ColumnDefinition Width="18*"/>
             <ColumnDefinition Width="379*"/>
             <ColumnDefinition Width="397*"/>
         </Grid.ColumnDefinitions>
@@ -19,10 +19,11 @@
             <RowDefinition Height="198*"/>
             <RowDefinition Height="161*"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
+        <DockPanel Grid.Row="0" Grid.ColumnSpan="3" Margin="0,0,-0.4,30" Grid.RowSpan="2">
             <ToolBar>
                 <Menu>
                     <MenuItem Header="Profile">
+
                         <MenuItem Header="Dashboard"/>
                         <Separator/>
                         <MenuItem Header="LogOut"/>
@@ -31,11 +32,11 @@
                 </Menu>
             </ToolBar>
         </DockPanel>
-        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.Column="2" />
-        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="2" >
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.ColumnSpan="3" Margin="0,0.4,396.6,0"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="2" Margin="0.2,0.4,-0.4,0">
             <Label Content="Change Details" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         </Border>
-        <Grid Grid.Row="2" RenderTransformOrigin="0.768,0.457" Grid.ColumnSpan="3"  >
+        <Grid Grid.Row="2" RenderTransformOrigin="0.768,0.457" Grid.ColumnSpan="3" Margin="0,0,396.6,0.4" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
@@ -43,22 +44,18 @@
 
                 <StackPanel Margin="-0.8,25.2,-1,-0.6"  >
                     <Label Content="User Name: [User Name]" Margin="0,0,0.4,0"/>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="UserName"  Width="100" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
-                        <Button Content="Change" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="50"/>
-                    </StackPanel>
+                    <Button Content="Change" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="50"/>
                     <Label Content="Email: [Email]"/>
                     <Button Content="Change" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="50"/>
+                    <Button Content="Change Password" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="150"/>
+                    <Button Content="Forgot Password" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="150"/>
                 </StackPanel>
 
             </Border>
 
 
         </Grid>
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-        <Label Content="[Student Name]" FontWeight="Bold"  />
-            <Label Content="[Student Id]" FontWeight="Bold"/>
-        </StackPanel>
+        <Label Content="[Student Name] [Student ID]:" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold" Height="26" Margin="0,2.4,0,2" Width="387" Grid.ColumnSpan="2"/>
         <Label Content="Details:" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="67" Grid.ColumnSpan="2"/>
 
 
@@ -73,9 +70,9 @@
             <StackPanel Margin="-1,28,-0.2,-12.4"  >
                 <Label Content="Enter Password" Margin="0,0,0.4,0"/>
                 <TextBox Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Margin="10,0,22.4,0"/>
-                <Label Content="Enter new password"/>
+                <Label Content="Enter new [Field Selected]"/>
                 <TextBox Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Margin="10,0,22.4,0"/>
-                <Button Content="Change Password" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="150"/>
+                <Button Content="Change [Field]" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="150"/>
                 <Button Content="Back To Dashboard" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="150"/>
             </StackPanel>
         </Grid>

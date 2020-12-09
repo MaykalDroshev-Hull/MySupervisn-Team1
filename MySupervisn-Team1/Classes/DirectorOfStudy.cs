@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySupervisn_Team1
 {
-    class DirectorOfStudy: Staff
+    public class DirectorOfStudy: Staff
     {
         public DirectorOfStudy(int pIdNumber, string pName) : base(pIdNumber, pName)
         {
