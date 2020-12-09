@@ -26,7 +26,7 @@ namespace MySupervisn_Team1
 
         public StaffDashboard(Staff staff)
         {
-            InitializeComponent();
+
         }
         private void GenerateOverview_Click(object sender, RoutedEventArgs e)
         {
