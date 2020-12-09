@@ -33,6 +33,9 @@ namespace MySupervisn_Team1
             throw new NotImplementedException();
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

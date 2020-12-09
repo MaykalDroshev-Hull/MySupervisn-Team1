@@ -21,7 +21,7 @@ namespace MySupervisn_Team1
     {
         public Lectire_checkin()
         {
-            InitializeComponent();
+
         }
     }
 }
