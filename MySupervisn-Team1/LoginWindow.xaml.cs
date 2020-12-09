@@ -34,7 +34,7 @@ namespace MySupervisn_Team1
             string username = Username.Text;
             string password = Password.Password;
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\micha\Documents\GitHub\MySupervisn-Team1\MySupervisn-Team1\DataBase\Users.mdf;Integrated Security=True";
+            conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\kmonroe\source\repos\MySupervisn-Team1\MySupervisn-Team1\DataBase\Users.mdf;Integrated Security=True";
             conn.Open();
             SqlCommand search = new SqlCommand();
             search.CommandText = "select User_Id,password,Classification from [Table]";
@@ -66,18 +66,19 @@ namespace MySupervisn_Team1
                         break;
                     case "Student Hub":
                         this.Hide();
-                        StudentHub staffDashboard = new StudentHub();
+                        Staff stf = new Staff(int.Parse(username), "");
+                        StaffDashboard staffDashboard = new StaffDashboard(stf);
                         staffDashboard.Show();
                         break;
                     case "Personal Supervisor":
                         this.Hide();
-                        StudentHub staffDashboard_PS = new StudentHub();
+                        StaffDashboard staffDashboard_PS = new StaffDashboard();
                         staffDashboard_PS.Show();
                         
                         break;
                     case "Director of Study":
                         this.Hide();
-                        StudentHub staffDashboard_DoS = new StudentHub();
+                        StaffDashboard staffDashboard_DoS = new StaffDashboard();
                         staffDashboard_DoS.Show();
                         break;
 
