@@ -12,9 +12,9 @@
             <ListBox Name="Modules" Height="200"   />
             <CheckBox Content="Check-in" IsChecked="False" IsEnabled="False"/>
 
-            <Button x:Name="Check_in" Content="Accept and Proceed" Width="120" IsEnabled="False" Click="Check_in_Click"/>
+            <Button x:Name="Check_in" Content="Accept and Proceed" Width="120" IsEnabled="False" />
             <Label/>
-            <Button x:Name="Go_Back" Content="Go Back" Width="120" IsEnabled="False" Click="Go_Back_Click"/>
+            <Button x:Name="Go_Back" Content="Go Back" Width="120" IsEnabled="False" />
 
         </StackPanel>
 

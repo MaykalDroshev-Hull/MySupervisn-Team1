@@ -34,7 +34,7 @@ namespace MySupervisn_Team1
             string username = Username.Text;
             string password = Password.Password;
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=.\\DataBase\Users.mdf;Integrated Security=True";
+            conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\micha\Documents\GitHub\MySupervisn-Team1\MySupervisn-Team1\DataBase\Users.mdf;Integrated Security=True";
             conn.Open();
             SqlCommand search = new SqlCommand();
             search.CommandText = "select User_Id,password,Classification,FirstName, LastName,email,password,Supervisor from [Table]";

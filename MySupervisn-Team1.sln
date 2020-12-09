@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		EditProfileStudent.xaml = EditProfileStudent.xaml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{64C3FE08-3A72-4B67-8506-C907058D6533}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,10 +26,6 @@ Global
 		{0FFEE168-965F-47F6-9918-AEF83E901E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FFEE168-965F-47F6-9918-AEF83E901E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FFEE168-965F-47F6-9918-AEF83E901E5B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{64C3FE08-3A72-4B67-8506-C907058D6533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64C3FE08-3A72-4B67-8506-C907058D6533}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64C3FE08-3A72-4B67-8506-C907058D6533}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64C3FE08-3A72-4B67-8506-C907058D6533}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
