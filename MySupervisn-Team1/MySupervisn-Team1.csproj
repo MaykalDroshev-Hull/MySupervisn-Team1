@@ -115,6 +115,9 @@
     <Compile Include="Inbox.xaml.cs">
       <DependentUpon>Inbox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lectire_checkin.xaml.cs">
+      <DependentUpon>Lectire_checkin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StudentSearch.xaml.cs">
       <DependentUpon>StudentSearch.xaml</DependentUpon>
     </Compile>
@@ -130,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditProfileStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lectire_checkin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

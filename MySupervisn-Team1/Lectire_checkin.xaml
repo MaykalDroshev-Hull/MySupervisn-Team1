@@ -1,0 +1,24 @@
+﻿<Window x:Class="MySupervisn_Team1.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MySupervisn_Team1" ResizeMode="NoResize"
+        mc:Ignorable="d" 
+        Title="Lecture Check In" Height="336.821" Width="249.497">
+    <Grid >
+        <StackPanel Orientation="Vertical" Margin="0,0,0,-2">
+            <Label Content="Modules(please click to choose)"/>
+            <ListBox Name="Modules" Height="200"   />
+            <CheckBox Content="Check-in" IsChecked="False" IsEnabled="False"/>
+
+            <Button x:Name="Check_in" Content="Accept and Proceed" Width="120" IsEnabled="False" Click="Check_in_Click"/>
+            <Label/>
+            <Button x:Name="Go_Back" Content="Go Back" Width="120" IsEnabled="False" Click="Go_Back_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
+
+
