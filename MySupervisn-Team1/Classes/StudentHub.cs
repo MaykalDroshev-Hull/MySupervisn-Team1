@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MySupervisn_Team1
 {
     //class StudentHub : Staff
-    partial class StaffDashboard
+    partial class StudentHub
     {
         /*
         public StudentHub(int pIdNumber, string pName) : base(pIdNumber, pName)
