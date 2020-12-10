@@ -26,7 +26,18 @@ namespace MySupervisn_Team1
 
         public StaffDashboard(Staff staff)
         {
-
+            switch (staff.Role)
+            {
+                case "Student Hub":
+                    // Make student hub elements visible
+                    break;
+                case "Personal Supervisor":
+                    // Make personal supervisor hub elements visible
+                    break;
+                case "Director of Study":
+                    // Make director of study hub elements visible
+                    break;
+            }
         }
         private void GenerateOverview_Click(object sender, RoutedEventArgs e)
         {

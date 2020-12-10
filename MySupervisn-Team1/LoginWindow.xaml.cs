@@ -72,15 +72,12 @@ namespace MySupervisn_Team1
                     case "Student":
                         this.Hide();
                         Student student = new Student(userId, userName);
-
                         StudentDashboard dashboard = new StudentDashboard(student);                        
                         dashboard.Show();
                         break;
                     case "Student Hub":
                         this.Hide();
-
                         Staff staff = new Staff(userId, userName);
-
                         StaffDashboard staffDashboard = new StaffDashboard(staff);
                         staffDashboard.Show();
                         break;
@@ -88,7 +85,6 @@ namespace MySupervisn_Team1
                         this.Hide();
                         StaffDashboard staffDashboard_PS = new StaffDashboard();
                         staffDashboard_PS.Show();
-                        
                         break;
                     case "Director of Study":
                         this.Hide();

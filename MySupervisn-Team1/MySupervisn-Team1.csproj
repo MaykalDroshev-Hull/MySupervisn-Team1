@@ -138,8 +138,8 @@
     <Compile Include="StudentSearch.xaml.cs">
       <DependentUpon>StudentSearch.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window4.xaml.cs">
-      <DependentUpon>Window4.xaml</DependentUpon>
+    <Compile Include="LectureCheck-in.xaml.cs">
+      <DependentUpon>LectureCheck-in.xaml</DependentUpon>
     </Compile>
     <Page Include="AddDELETEUserWindow.xaml">
       <SubType>Designer</SubType>
@@ -196,7 +196,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window4.xaml">
+    <Page Include="LectureCheck-in.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
