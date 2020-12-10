@@ -65,7 +65,7 @@ namespace MySupervisn_Team1
                 {
                     case "Student":
                         this.Hide();
-                        Dashboard dashboard = new Dashboard();                        
+                        StudentDashboard dashboard = new StudentDashboard();                        
                         dashboard.Show();
                         break;
                     case "Student Hub":

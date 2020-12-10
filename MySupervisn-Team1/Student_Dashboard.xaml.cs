@@ -23,12 +23,5 @@ namespace MySupervisn_Team1
         {
             InitializeComponent();
         }
-
-        private void Inbox_Click(object sender, RoutedEventArgs e)
-        {
-            //this.Close();
-            MySupervisn_Team1.InboxWindow inboxWindow = new MySupervisn_Team1.InboxWindow();
-            inboxWindow.Show();
-        }
     }
 }

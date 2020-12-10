@@ -17,11 +17,25 @@ namespace MySupervisn_Team1
     /// <summary>
     /// Interaction logic for Dashboard.xaml
     /// </summary>
-    public partial class Dashboard : Window
+    public partial class StudentDashboard : Window
     {
-        public Dashboard()
+        public StudentDashboard()
         {
             InitializeComponent();
+        }
+
+        private void Inbox_Click(object sender, RoutedEventArgs e)
+        {
+            //Close();
+            InboxWindow inboxWindow = new InboxWindow();
+            inboxWindow.Show();
+        }
+
+        private void EditProfile_Click(object sender, RoutedEventArgs e)
+        {
+            //Close();
+            EditProfileStudent editProfileWindow = new EditProfileStudent();
+            editProfileWindow.Show();
         }
     }
 }
