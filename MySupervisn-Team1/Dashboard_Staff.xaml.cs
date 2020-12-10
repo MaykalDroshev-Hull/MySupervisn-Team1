@@ -75,5 +75,10 @@ namespace MySupervisn_Team1
             InboxWindow inbox = new InboxWindow();
             inbox.Show();
         }
+
+        private void CreateMeeting_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
