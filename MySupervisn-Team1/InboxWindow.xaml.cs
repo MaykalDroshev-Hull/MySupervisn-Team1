@@ -17,9 +17,9 @@ namespace MySupervisn_Team1
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class InboxWindow : Window
     {
-        public Window1()
+        public InboxWindow()
         {
             InitializeComponent();
         }
@@ -27,6 +27,13 @@ namespace MySupervisn_Team1
         private void SendBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            StudentDashboard studentDashboardWindow = new StudentDashboard();
+            studentDashboardWindow.Show();
         }
     }
 }
