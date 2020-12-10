@@ -70,9 +70,7 @@ namespace MySupervisn_Team1
                         break;
                     case "Student Hub":
                         this.Hide();
-
                         Staff stf = new Staff(int.Parse(username), reader[3].ToString() + reader[4].ToString());
-
                         StaffDashboard staffDashboard = new StaffDashboard(stf);
                         staffDashboard.Show();
                         break;
