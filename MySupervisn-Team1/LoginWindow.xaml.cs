@@ -39,16 +39,16 @@ namespace MySupervisn_Team1
             SqlCommand search = new SqlCommand();
             search.CommandText = "select User_Id,password,Classification,FirstName, LastName,email,password,Supervisor from [Table]";
             search.Connection = conn;
-            SqlDataReader rd = search.ExecuteReader();
+            SqlDataReader reader = search.ExecuteReader();
             string Classification = "";
-            while (rd.Read())
+            while (reader.Read())
             {
-                if (rd[0].ToString() == username)
+                if (reader[0].ToString() == username)
                 {
                     username_match = true;
-                    if (rd[1].ToString() == password)
+                    if (reader[1].ToString() == password)
                     {
-                        Classification = rd[2].ToString();
+                        Classification = reader[2].ToString();
                         password_match = true;
                         break;
                     }

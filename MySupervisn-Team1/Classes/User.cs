@@ -21,6 +21,7 @@ namespace MySupervisn_Team1
 
         public User(int pIdNumber, string pName)
         {
+            //
             mIdNumber = pIdNumber;
             mName = pName;
         }
