@@ -51,5 +51,12 @@ namespace MySupervisn_Team1
             LectureCheckIn lectureCheckInWindow = new LectureCheckIn();
             lectureCheckInWindow.Show();
         }
+
+        private void BookMeeting_Click(object sender, RoutedEventArgs e)
+        {
+            //Close();
+            BookMeeting bookMeetingWindow = new BookMeeting();
+            bookMeetingWindow.Show();
+        }
     }
 }
