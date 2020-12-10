@@ -78,7 +78,7 @@ namespace MySupervisn_Team1
 
                 if (pMessage != null) {
                     // Test how DATE output!!
-                    cmdInsert.CommandText = String.Format("INSERT INTO {0} (ID, NAME, DATE, MESSAGE ) VALUES({1}, '{2}', '{3}', {4}, '{5}'); ", pTableName, pMessage.Sender.IdNumber, pMessage.Sender.Name, pMessage.DateTime, pMessage.Caption);
+                    cmdInsert.CommandText = String.Format("INSERT INTO {0} (ID, NAME, DATE, MESSAGE ) VALUES({1}, '{2}', '{3}', {4}, '{5}'); ", pTableName, pMessage.Sender.IdNumber, pMessage.Sender.Name, pMessage.DateTime, pMessage.Body);
                 }
                 else if (pUser != null)
                 {
