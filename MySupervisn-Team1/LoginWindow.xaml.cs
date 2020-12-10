@@ -71,6 +71,12 @@ namespace MySupervisn_Team1
                 {
                     case "Student":
                         this.Hide();
+                        //
+                        // select NAME, Modules.name, Module.Mark From student INNER JOIN Modules On id-Modules.Student_id
+                        //search.CommandText = "select* from Modules";
+                        // SELECT, UPDATE, DELETE
+                        //SELECT FirstName,LastName,ModuleName,Mark FROM Users_ INNER JOIN Modules ON User_Id=Modules.StudentID
+                        //
                         Student student = new Student(userId, userName);
                         StudentDashboard dashboard = new StudentDashboard(student);                        
                         dashboard.Show();
