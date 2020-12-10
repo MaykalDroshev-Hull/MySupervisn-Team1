@@ -76,7 +76,6 @@ namespace MySupervisn_Team1
                         this.Hide();
                         StaffDashboard staffDashboard_PS = new StaffDashboard();
                         staffDashboard_PS.Show();
-                        
                         break;
                     case "Director of Study":
                         this.Hide();
