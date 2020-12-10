@@ -44,7 +44,7 @@ namespace MySupervisn_Team1
             search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Table]";
             search.Connection = connection;
             SqlDataReader reader = search.ExecuteReader();
-            string Classification = "";
+            string Classification = ""; // What is it for?
             while (reader.Read())
             {
                 if (reader[0].ToString() == username)
@@ -77,7 +77,30 @@ namespace MySupervisn_Team1
                         // SELECT, UPDATE, DELETE
                         //SELECT FirstName,LastName,ModuleName,Mark FROM Users_ INNER JOIN Modules ON User_Id=Modules.StudentID
                         //
-                        Student student = new Student(userId, userName);
+                        List<(string, byte)> modulesAndMarks = new List<(string, byte)>();
+                        connection.Close();
+                        connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+                        connection.Open();
+                        search.CommandText = "SELECT ModuleName, Mark FROM Modules";
+                        search.Connection = connection;
+                        reader = search.ExecuteReader();
+
+                        string moduleChoices = reader[0].ToString();
+                        int moduleMarks = int.Parse(reader[1].ToString());
+                        /*
+                        foreach(string module in reader[0].ToString())
+                        {
+
+                        }
+                        for (int i = 0; i < reader[0].ToString().Length; i++)
+                        {
+                            modulesAndMarks.Add(reader[0].ToString()[i]);
+                        }
+                        */
+                        List<Message> messages = new List<Message>();
+                        //search.CommandText = "SELECT ModuleName, Mark FROM Users_ INNER JOIN Modules ON User_Id = Modules.StudentID";
+
+                        Student student = new Student(userId, userName, modulesAndMarks, messages);
                         StudentDashboard dashboard = new StudentDashboard(student);                        
                         dashboard.Show();
                         break;
