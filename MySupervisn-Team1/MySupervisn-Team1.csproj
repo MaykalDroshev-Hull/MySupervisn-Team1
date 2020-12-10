@@ -115,7 +115,7 @@
     <Compile Include="Classes\Staff.cs" />
     <Compile Include="Classes\Student.cs" />
     <Compile Include="Classes\StudentHub.cs" />
-    <Compile Include="Classes\Supervisor.cs" />
+    <Compile Include="Classes\PersonalSupervisor.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="EditProfileStudent.xaml.cs">
       <DependentUpon>EditProfileStudent.xaml</DependentUpon>
