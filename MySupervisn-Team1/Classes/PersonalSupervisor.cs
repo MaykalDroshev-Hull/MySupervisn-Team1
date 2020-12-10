@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MySupervisn_Team1
 {
-    public class Supervisor:Staff
+    public class PersonalSupervisor:Staff
     {
         private List<Student> mStudents;
 
-        public Supervisor(int pIdNumber, string pName) : base(pIdNumber, pName)
+        public PersonalSupervisor(int pIdNumber, string pName) : base(pIdNumber, pName)
         {
-            Role = "Supervisor";
+            Role = "Personal Supervisor";
             IdNumber = pIdNumber;
             Name = pName;
         }
