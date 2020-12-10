@@ -31,11 +31,18 @@ namespace MySupervisn_Team1
             inboxWindow.Show();
         }
 
-        private void EditProfile_Click(object sender, RoutedEventArgs e)
+        private void EditProfileStudent_Click(object sender, RoutedEventArgs e)
         {
             //Close();
-            EditProfileStudent editProfileWindow = new EditProfileStudent();
-            editProfileWindow.Show();
+            EditProfileStudent editProfileStudentWindow = new EditProfileStudent();
+            editProfileStudentWindow.Show();
+        }
+
+        private void Enquire_Click(object sender, RoutedEventArgs e)
+        {
+            //Close();
+            Enquire enquireWindow = new Enquire();
+            enquireWindow.Show();
         }
     }
 }

@@ -111,9 +111,9 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <Button Content="Edit Profile" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="EditProfile_Click"/>
+                <Button Content="Edit Profile" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="EditProfileStudent_Click"/>
                 <Button Content="Lecture Check-in" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" />
-                <Button Content="Enquire" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
+                <Button Content="Enquire" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="Enquire_Click"/>
                 <Button Content="Book meeting" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
             </Grid>
             
