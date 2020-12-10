@@ -15,13 +15,21 @@ using System.Windows.Shapes;
 namespace MySupervisn_Team1
 {
     /// <summary>
-    /// Interaction logic for Window2.xaml
+    /// Interaction logic for StudentSearch.xaml
     /// </summary>
-    public partial class Window2 : Window
+    public partial class StudentSearch : Window
     {
-        public Window2()
+        private StaffDashboard Dashboard { get; set; }
+        public StudentSearch(StaffDashboard dashboard)
         {
+            Dashboard = dashboard;
             InitializeComponent();
+        }
+
+        private void ReturnToDashboard_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            Dashboard.Show();
         }
     }
 }

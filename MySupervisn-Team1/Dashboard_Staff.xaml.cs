@@ -27,6 +27,8 @@ namespace MySupervisn_Team1
         public StaffDashboard(Staff staff)
         {
             InitializeComponent();
+            StaffName.Content = "Name: " + staff.Name;
+            StaffRole.Content = "Role: " + staff.Role;
             switch (staff.Role)
             {
                 case "Student Hub":
@@ -79,6 +81,13 @@ namespace MySupervisn_Team1
         private void CreateMeeting_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void SearchStudent_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            StudentSearch studentSearch = new StudentSearch(this);
+            studentSearch.Show();
         }
     }
 }
