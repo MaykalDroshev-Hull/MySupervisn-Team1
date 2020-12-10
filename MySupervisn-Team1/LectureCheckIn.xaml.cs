@@ -17,12 +17,12 @@ namespace MySupervisn_Team1
     /// <summary>
     /// Interaction logic for Lectire_checkin.xaml
     /// </summary>
-    public partial class Lectire_checkin : Window
+    public partial class LectureCheckIn : Window
     {
-        public Lectire_checkin()
+        public LectureCheckIn()
         {
-
+            InitializeComponent();
         }
-        
+
     }
 }
