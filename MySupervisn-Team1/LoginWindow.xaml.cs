@@ -59,6 +59,8 @@ namespace MySupervisn_Team1
             }
             
             if (username_match && password_match) {
+                int userId = int.Parse(username);
+                string userName = reader[3].ToString() + reader[4].ToString();
                 switch (Classification)
                 {
                     case "Student":
@@ -68,23 +70,22 @@ namespace MySupervisn_Team1
                         break;
                     case "Student Hub":
                         this.Hide();
-                        Staff stf = new Staff(int.Parse(username), reader[3].ToString() + reader[4].ToString());
-                        StaffDashboard staffDashboard = new StaffDashboard(stf);
+                        StudentHub studentHub = new StudentHub(userId, userName, Classification);
+                        StaffDashboard staffDashboard = new StaffDashboard(studentHub);
                         staffDashboard.Show();
                         break;
                     case "Personal Supervisor":
                         this.Hide();
-                        StaffDashboard staffDashboard_PS = new StaffDashboard();
-                        staffDashboard_PS.Show();
-                        
+                        Supervisor supervisor = new Supervisor(userId, userName, Classification);
+                        StaffDashboard staffDashboard_PS = new StaffDashboard(supervisor);
+                        staffDashboard_PS.Show();                      
                         break;
                     case "Director of Study":
                         this.Hide();
-                        StaffDashboard staffDashboard_DoS = new StaffDashboard();
+                        DirectorOfStudy director = new DirectorOfStudy(userId, userName, Classification);
+                        StaffDashboard staffDashboard_DoS = new StaffDashboard(director);
                         staffDashboard_DoS.Show();
                         break;
-
-
                 }
             }
             else {
@@ -93,8 +94,6 @@ namespace MySupervisn_Team1
                 InitializeComponent();
             
             }
-
-
         }
     }
 }

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace MySupervisn_Team1
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for InboxWindow.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class InboxWindow : Window
     {
-        public Window1()
+        public InboxWindow()
         {
             InitializeComponent();
         }
