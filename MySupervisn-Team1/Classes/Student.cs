@@ -12,10 +12,11 @@ namespace MySupervisn_Team1
         private List<(string, byte)> mModuleMarks;//Module,Mark
         private Dictionary<string, (byte, bool)> mModuleAttendance;//<Module code,(lecture number,IsAttended)>
 
-        public Student(int pIdNumber, string pName):(pIdNumber, pName)
+        public Student(int pIdNumber, string pName) : base(pIdNumber, pName)
         {
-            mIdNumber = pIdNumber;
-            mName = pName;
+            Role = "Student";
+            IdNumber = pIdNumber;
+            Name = pName;
         }
         public void LectureCheck_in( string pModuleCode,byte pLectureNum)
         {

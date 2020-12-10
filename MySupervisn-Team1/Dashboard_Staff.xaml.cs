@@ -17,14 +17,23 @@ namespace MySupervisn_Team1
     /// <summary>
     /// Interaction logic for StudentHub.xaml
     /// </summary>
-    public partial class StudentHub : Window
+    public partial class StaffDashboard : Window
     {
-        public StudentHub()
+        public StaffDashboard()
         {
             InitializeComponent();
         }
 
+        public StaffDashboard(Staff staff)
+        {
+
+        }
         private void GenerateOverview_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

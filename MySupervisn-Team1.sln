@@ -7,7 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySupervisn-Team1", "MySupe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQLiteDemo", "SQLiteDemo\SQLiteDemo.csproj", "{0FFEE168-965F-47F6-9918-AEF83E901E5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySupervisnTests", "MySupervisnTests\MySupervisnTests.csproj", "{B837A08D-41F5-4BAD-999A-4FB01BD9FFE9}"
+
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EB396289-BE51-43BF-88BC-F65441A051B8}"
+	ProjectSection(SolutionItems) = preProject
+		EditProfileStudent.xaml = EditProfileStudent.xaml
+	EndProjectSection
+
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
