@@ -44,5 +44,12 @@ namespace MySupervisn_Team1
             Enquire enquireWindow = new Enquire();
             enquireWindow.Show();
         }
+
+        private void LectureCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+            //Close();
+            LectureCheckIn lectureCheckInWindow = new LectureCheckIn();
+            lectureCheckInWindow.Show();
+        }
     }
 }

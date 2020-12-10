@@ -129,8 +129,8 @@
     <Compile Include="InboxWindow.xaml.cs">
       <DependentUpon>InboxWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lectire_checkin.xaml.cs">
-      <DependentUpon>Lectire_checkin.xaml</DependentUpon>
+    <Compile Include="LectureCheckIn.xaml.cs">
+      <DependentUpon>LectureCheckIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="SetMarks.xaml.cs">
       <DependentUpon>SetMarks.xaml</DependentUpon>
@@ -161,7 +161,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lectire_checkin.xaml">
+    <Page Include="LectureCheckIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
