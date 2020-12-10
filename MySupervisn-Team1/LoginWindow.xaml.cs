@@ -34,13 +34,15 @@ namespace MySupervisn_Team1
         {
             string username = Username.Text;
             string password = Password.Password;
+
             SqlConnection conn = new SqlConnection();
             var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
             conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
             conn.Open();
+
             SqlCommand search = new SqlCommand();
             search.CommandText = "select User_Id,password,Classification,FirstName, LastName,email,password,Supervisor from [Table]";
-            search.Connection = conn;
+            search.Connection = connection;
             SqlDataReader reader = search.ExecuteReader();
             string Classification = "";
             while (reader.Read())
@@ -68,7 +70,9 @@ namespace MySupervisn_Team1
                         break;
                     case "Student Hub":
                         this.Hide();
+
                         Staff stf = new Staff(int.Parse(username), reader[3].ToString() + reader[4].ToString());
+
                         StaffDashboard staffDashboard = new StaffDashboard(stf);
                         staffDashboard.Show();
                         break;

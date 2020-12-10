@@ -123,8 +123,8 @@
     <Compile Include="Enquire.xaml.cs">
       <DependentUpon>Enquire.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Inbox.xaml.cs">
-      <DependentUpon>Inbox.xaml</DependentUpon>
+    <Compile Include="InboxWindow.xaml.cs">
+      <DependentUpon>InboxWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lectire_checkin.xaml.cs">
       <DependentUpon>Lectire_checkin.xaml</DependentUpon>
@@ -181,7 +181,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Inbox.xaml">
+    <Page Include="InboxWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
