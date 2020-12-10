@@ -26,35 +26,35 @@ namespace MySupervisn_Team1
 
         private void Inbox_Click(object sender, RoutedEventArgs e)
         {
-            //Close();
+            Close();
             InboxWindow inboxWindow = new InboxWindow();
             inboxWindow.Show();
         }
 
         private void EditProfileStudent_Click(object sender, RoutedEventArgs e)
         {
-            //Close();
+            Close();
             EditProfileStudent editProfileStudentWindow = new EditProfileStudent();
             editProfileStudentWindow.Show();
         }
 
         private void Enquire_Click(object sender, RoutedEventArgs e)
         {
-            //Close();
+            Close();
             Enquire enquireWindow = new Enquire();
             enquireWindow.Show();
         }
 
         private void LectureCheckIn_Click(object sender, RoutedEventArgs e)
         {
-            //Close();
+            Close();
             LectureCheckIn lectureCheckInWindow = new LectureCheckIn();
             lectureCheckInWindow.Show();
         }
 
         private void BookMeeting_Click(object sender, RoutedEventArgs e)
         {
-            //Close();
+            Close();
             BookMeeting bookMeetingWindow = new BookMeeting();
             bookMeetingWindow.Show();
         }
