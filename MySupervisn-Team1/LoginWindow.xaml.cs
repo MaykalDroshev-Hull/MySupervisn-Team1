@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using MessageBox = System.Windows.MessageBox;
+using System.IO;
 
 namespace MySupervisn_Team1
 {
@@ -33,9 +34,12 @@ namespace MySupervisn_Team1
         {
             string username = Username.Text;
             string password = Password.Password;
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\micha\Documents\GitHub\MySupervisn-Team1\MySupervisn-Team1\DataBase\Users.mdf;Integrated Security=True";
-            connection.Open();
+
+            SqlConnection conn = new SqlConnection();
+            var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
+            conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+            conn.Open();
+
             SqlCommand search = new SqlCommand();
             search.CommandText = "select User_Id,password,Classification,FirstName, LastName,email,password,Supervisor from [Table]";
             search.Connection = connection;
@@ -66,7 +70,9 @@ namespace MySupervisn_Team1
                         break;
                     case "Student Hub":
                         this.Hide();
-                        Staff stf = new Staff(int.Parse(username), reader[3].ToString()+ reader[4].ToString());
+
+                        Staff stf = new Staff(int.Parse(username), reader[3].ToString() + reader[4].ToString());
+
                         StaffDashboard staffDashboard = new StaffDashboard(stf);
                         staffDashboard.Show();
                         break;
