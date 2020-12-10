@@ -22,9 +22,9 @@ namespace MySupervisn_Team1
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : Window
     {
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
         }
@@ -35,10 +35,10 @@ namespace MySupervisn_Team1
             string username = Username.Text;
             string password = Password.Password;
 
-            SqlConnection conn = new SqlConnection();
+            SqlConnection connection = new SqlConnection();
             var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
-            conn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
-            conn.Open();
+            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+            connection.Open();
 
             SqlCommand search = new SqlCommand();
             search.CommandText = "select User_Id,password,Classification,FirstName, LastName,email,password,Supervisor from [Table]";
