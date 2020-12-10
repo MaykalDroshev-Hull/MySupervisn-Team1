@@ -41,7 +41,7 @@ namespace MySupervisn_Team1
             connection.Open();
 
             SqlCommand search = new SqlCommand();
-            search.CommandText = "select User_Id,password,Classification,FirstName, LastName,email,password,Supervisor from [Table]";
+            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Table]";
             search.Connection = connection;
             SqlDataReader reader = search.ExecuteReader();
             string Classification = "";
@@ -61,19 +61,27 @@ namespace MySupervisn_Team1
             }
             
             if (username_match && password_match) {
+
+                int userId = int.Parse(reader[0].ToString());
+                string firstName = reader[3].ToString();
+                string lastName = reader[4].ToString();
+                string userName = firstName + " " + lastName;
+
                 switch (Classification)
                 {
                     case "Student":
                         this.Hide();
-                        StudentDashboard dashboard = new StudentDashboard();                        
+                        Student student = new Student(userId, userName);
+
+                        StudentDashboard dashboard = new StudentDashboard(student);                        
                         dashboard.Show();
                         break;
                     case "Student Hub":
                         this.Hide();
 
-                        Staff stf = new Staff(int.Parse(username), reader[3].ToString() + reader[4].ToString());
+                        Staff staff = new Staff(userId, userName);
 
-                        StaffDashboard staffDashboard = new StaffDashboard(stf);
+                        StaffDashboard staffDashboard = new StaffDashboard(staff);
                         staffDashboard.Show();
                         break;
                     case "Personal Supervisor":
