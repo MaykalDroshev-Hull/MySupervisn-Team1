@@ -14,7 +14,7 @@
 
             <Button x:Name="Check_in" Content="Accept and Proceed" Width="120" IsEnabled="False" />
             <Label/>
-            <Button x:Name="Go_Back" Content="Go Back" Width="120" IsEnabled="False" />
+            <Button x:Name="GoBack" Content="Go Back" Width="120" IsEnabled="true" Click="GoBack_Click" />
 
         </StackPanel>
 

@@ -14,9 +14,9 @@
             <ListBox x:Name="People" Height="150"/>
             <StackPanel Orientation="Horizontal" Height="25">
                 <Label/>
-                <Button Name="Go_Back_Button" Content="Back to DashBoard" />
+                <Button Name="GoBackButton" Content="Go Back" Width="100" Click="GoBack_Click" />
                 <Label/>
-                <Button Name="WriteMessageButton" IsEnabled="False" Content="Write message"/>
+                <Button Name="WriteMessageButton" Content="Write message" IsEnabled="False" Width="100"/>
                
             </StackPanel>
         </StackPanel>
