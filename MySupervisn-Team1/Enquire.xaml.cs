@@ -23,5 +23,12 @@ namespace MySupervisn_Team1
         {
             InitializeComponent();
         }
+
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            StudentDashboard studentDashboardWindow = new StudentDashboard();
+            studentDashboardWindow.Show();
+        }
     }
 }
