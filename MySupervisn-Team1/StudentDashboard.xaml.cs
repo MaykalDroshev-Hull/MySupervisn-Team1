@@ -58,5 +58,9 @@ namespace MySupervisn_Team1
             BookMeeting bookMeetingWindow = new BookMeeting();
             bookMeetingWindow.Show();
         }
+        private void Canvas_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://canvas.hull.ac.uk/");
+        }
     }
 }
