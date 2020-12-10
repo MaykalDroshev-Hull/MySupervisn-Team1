@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace MySupervisn_Team1
 {
@@ -19,9 +20,35 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class StudentDashboard : Window
     {
+        string mUsername;
+
         public StudentDashboard()
         {
             InitializeComponent();
+
+            //FromDatabase();
+            //module_1.Content = mUsername;
+        }
+
+        public StudentDashboard(Student student)
+        {
+
+        }
+
+        // WORK IN PROGRESS!!
+        private string FromDatabase()
+        {
+            SqlConnection connection = new SqlConnection();
+            var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
+            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+            connection.Open();
+
+            SqlCommand search = new SqlCommand();
+            search.CommandText = "select User_Id, Module1, Module2, Module3, from [Table]";
+            search.Connection = connection;
+            SqlDataReader reader = search.ExecuteReader();
+
+            return reader.ToString();
         }
 
         private void Inbox_Click(object sender, RoutedEventArgs e)
