@@ -11,26 +11,22 @@ namespace MySupervisn_Team1
 {
     public partial class EditProfileStudent : Window
     {
-        private Student mStudent;
-       
+
         Student temp; // ...
-
-
-        public EditProfileStudent(Student pStudent)
+        public EditProfileStudent(Student student)
         {
             InitializeComponent();
 
-            mStudent = pStudent;
             temp = student;
-        } 
+
+            LblStdName.Content = temp.Name;
+            LblStdID.Content += " "+ temp.IdNumber;
+        }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            // test
             Close();
-
-            StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
-            studentDashboardWindow.Show();
+            
         }
             
         private void BtnChangeName_Click(object sender, RoutedEventArgs e)
@@ -61,8 +57,8 @@ namespace MySupervisn_Team1
 
             try
             {
-                update.ExecuteNonQuery();
-                MessageBox.Show("Changes made.");
+                int rowsAffected = update.ExecuteNonQuery();
+                MessageBox.Show("Changes made. Rows affected:" + rowsAffected.ToString());
             }
             catch(Exception ex)
             {
