@@ -16,7 +16,7 @@ namespace MySupervisn_Team1
             Name = pName;
         }
         
-        public void AssignStudentToPS(Student pStudent,Supervisor pPersonalSupervisor)
+        public void AssignStudentToPS(Student pStudent, PersonalSupervisor pPersonalSupervisor)
         {
             throw new NotImplementedException();
         }

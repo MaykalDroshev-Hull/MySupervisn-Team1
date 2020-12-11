@@ -10,7 +10,7 @@ namespace MySupervisn_Team1
     {
         private List<Student> mStudents;
 
-        public Supervisor(int pIdNumber, string pName, string pRole) : base(pIdNumber, pName, pRole)
+        public PersonalSupervisor(int pIdNumber, string pName, string pRole) : base(pIdNumber, pName, pRole)
         {
             Role = pRole;
             IdNumber = pIdNumber;
