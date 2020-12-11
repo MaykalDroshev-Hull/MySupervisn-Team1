@@ -62,8 +62,6 @@ namespace MySupervisn_Team1
 
                 mConnection.Close();
             }
-
-            //insert.Connection = connection;
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
