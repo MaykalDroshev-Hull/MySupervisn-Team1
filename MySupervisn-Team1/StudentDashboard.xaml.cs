@@ -31,9 +31,11 @@ namespace MySupervisn_Team1
                 mStudent = pStudent;
 
                 module_1.Content = mStudent.ModulesAndMarks[0].ToString();
+
+                LblStudentName.Content += " " + stu.Name;
             }
         }
-  
+
         // WORK IN PROGRESS!!
         private string FromDatabase()
         {
@@ -57,9 +59,10 @@ namespace MySupervisn_Team1
             inboxWindow.Show();
         }
 
-        private void EditProfileStudent_Click(object sender, RoutedEventArgs e)
+        public void EditProfileStudent_Click(object sender, RoutedEventArgs e)
         {
             Close();
+
             EditProfileStudent editProfileStudentWindow = new EditProfileStudent(mStudent);
             editProfileStudentWindow.Show();
         }

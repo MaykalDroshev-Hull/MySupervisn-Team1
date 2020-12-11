@@ -13,9 +13,6 @@ namespace MySupervisn_Team1
         private Dictionary<string, (byte, bool)> mModuleAttendance;//<Module code,(lecture number,IsAttended)>
         private List<Message> mMessages;
 
-        public List<(string, byte)> ModulesAndMarks { set { mModulesAndMarks = value; } get { return mModulesAndMarks;  } }//Module,Mark
-        public Dictionary<string, (byte, bool)> ModuleAttendance { set { mModuleAttendance = value; } get { return mModuleAttendance; } }//<Module code,(lecture number,IsAttended)>
-        public List<Message> Messages { set { mMessages = value; } get { return mMessages; } }
 
         public Student(int pIdNumber, string pName, List<(string, byte)> pModulesAndMarks, List<Message> pMessages) : base(pIdNumber, pName)
         {

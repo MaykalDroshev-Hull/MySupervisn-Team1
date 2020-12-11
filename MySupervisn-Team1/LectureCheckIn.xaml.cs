@@ -15,20 +15,20 @@ using System.Windows.Shapes;
 namespace MySupervisn_Team1
 {
     /// <summary>
-    /// Interaction logic for Lectire_checkin.xaml
+    /// Interaction logic for InboxWindow.xaml
     /// </summary>
-    public partial class LectureCheckIn : Window
+    public partial class InboxWindow : Window
     {
         private Student mStudent;
         private Staff mStaff;
 
-        public LectureCheckIn(Student pStudent)
+        public InboxWindow(Student pStudent)
         {
             InitializeComponent();
 
             mStudent = pStudent;
         }
-        public LectureCheckIn(Staff pStaff)
+        public InboxWindow(Staff pStaff)
         {
             InitializeComponent();
 

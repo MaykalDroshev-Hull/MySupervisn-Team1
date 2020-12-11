@@ -41,10 +41,11 @@ namespace MySupervisn_Team1
             connection.Open();
 
             SqlCommand search = new SqlCommand();
-            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Table]";
-            search.Connection = connection;
+
+            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Users_]";
+            search.Connection = connection; 
             SqlDataReader reader = search.ExecuteReader();
-            string userRole = "";
+            string Classification = ""; 
             while (reader.Read())
             {
                 if (reader[0].ToString() == username)
@@ -67,7 +68,7 @@ namespace MySupervisn_Team1
                 string lastName = reader[4].ToString();
                 string userName = firstName + " " + lastName;
 
-                switch (userRole)
+                switch (Classification)
                 {
                     case "Student":
                         this.Hide();
@@ -109,27 +110,28 @@ namespace MySupervisn_Team1
                         modulesAndMarks.Add((moduleChoices, (byte)moduleMarks));
 
                         Student student = new Student(userId, userName, modulesAndMarks, messages);
+
                         StudentDashboard dashboard = new StudentDashboard(student);                        
                         dashboard.Show();
                         break;
                     case "Student Hub":
                         this.Hide();
-                        Staff staff = new Staff(userId, userName);
-                        StaffDashboard staffDashboard = new StaffDashboard(staff);
+                        StudentHub studentHub = new StudentHub(userId, userName, Classification);
+                        StaffDashboard staffDashboard = new StaffDashboard(studentHub);
                         staffDashboard.Show();
                         break;
                     case "Personal Supervisor":
                         this.Hide();
-                        StaffDashboard staffDashboard_PS = new StaffDashboard();
-                        staffDashboard_PS.Show();
+                        Supervisor supervisor = new Supervisor(userId, userName, Classification);
+                        StaffDashboard staffDashboard_PS = new StaffDashboard(supervisor);
+                        staffDashboard_PS.Show();                      
                         break;
                     case "Director of Study":
                         this.Hide();
-                        StaffDashboard staffDashboard_DoS = new StaffDashboard();
+                        DirectorOfStudy director = new DirectorOfStudy(userId, userName, Classification);
+                        StaffDashboard staffDashboard_DoS = new StaffDashboard(director);
                         staffDashboard_DoS.Show();
                         break;
-
-
                 }
             }
             else {
@@ -138,8 +140,6 @@ namespace MySupervisn_Team1
                 InitializeComponent();
             
             }
-
-
         }
     }
 }
