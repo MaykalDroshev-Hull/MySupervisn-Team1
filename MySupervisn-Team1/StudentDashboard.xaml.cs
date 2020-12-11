@@ -55,7 +55,7 @@ namespace MySupervisn_Team1
         private void Inbox_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            InboxWindow inboxWindow = new InboxWindow();
+            Inbox inboxWindow = new Inbox();
             inboxWindow.Show();
         }
 
@@ -66,12 +66,7 @@ namespace MySupervisn_Team1
             editProfileStudentWindow.Show();
         }
 
-        private void Enquire_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-            Enquire enquireWindow = new Enquire();
-            enquireWindow.Show();
-        }
+       
 
         private void LectureCheckIn_Click(object sender, RoutedEventArgs e)
         {

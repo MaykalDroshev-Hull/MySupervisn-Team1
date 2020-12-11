@@ -18,16 +18,15 @@ namespace MySupervisn_Team1
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class InboxWindow : Window
+    public partial class Inbox
     {
         SqlConnection connection = new SqlConnection();
 
-        public InboxWindow()
+        public Inbox()
         {
             InitializeComponent();
-
             var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+            this.connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)

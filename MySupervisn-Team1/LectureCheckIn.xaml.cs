@@ -17,9 +17,9 @@ namespace MySupervisn_Team1
     /// <summary>
     /// Interaction logic for InboxWindow.xaml
     /// </summary>
-    public partial class InboxWindow : Window
+    public partial class LectureCheckIn : Window
     {
-        public InboxWindow()
+        public LectureCheckIn()
         {
             InitializeComponent();
         }

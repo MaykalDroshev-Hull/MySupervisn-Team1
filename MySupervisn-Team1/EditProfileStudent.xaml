@@ -42,7 +42,7 @@
             </Grid.ColumnDefinitions>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Margin="0,0,0,-138" Grid.ColumnSpan="2" >
 
-                <StackPanel Margin="-1,25,-1,20"  >
+                <StackPanel Margin="-1,25,-1,7"  >
                     <Label Content=" First Name&#x9;&#x9;&#x9;Surname" Margin="0,0,0.4,0"/>
                     <StackPanel Orientation="Horizontal" Height="39" Margin="0,0,-0.4,0">
                         <TextBox x:Name="TbFirstName"  Width="165" Height="20" HorizontalAlignment="Left" Margin="10,0"/>

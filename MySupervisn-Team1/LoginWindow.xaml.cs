@@ -80,7 +80,7 @@ namespace MySupervisn_Team1
                         break;
                     case "Personal Supervisor":
                         this.Hide();
-                        Supervisor supervisor = new Supervisor(userId, userName, Classification);
+                        PersonalSupervisor supervisor = new PersonalSupervisor(userId, userName, Classification);
                         StaffDashboard staffDashboard_PS = new StaffDashboard(supervisor);
                         staffDashboard_PS.Show();                      
                         break;
