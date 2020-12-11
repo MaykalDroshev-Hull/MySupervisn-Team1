@@ -78,7 +78,8 @@ namespace MySupervisn_Team1
         private void Inbox_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            InboxWindow inbox = new InboxWindow(mStaff);
+
+            Inbox inbox = new Inbox(mStaff);
             inbox.Show();
         }
 

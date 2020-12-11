@@ -20,19 +20,18 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class StudentDashboard : Window
     {
-        private Student mStudent;
-
+        Student mStudent;
+       
         public StudentDashboard(Student pStudent)
-        {
-            if (pStudent.Role == "Student") 
+        { 
+            InitializeComponent();
+            mStudent = pStudent;
+            Name.Content = "Student Name: " + pStudent.Name.ToString()+"       ID number:"+ mStudent.IdNumber;
+            int counter = 1;
+            if (pStudent.mMessages[0].Body != null)//It displays only 1 message
             {
-                InitializeComponent();
-
-                mStudent = pStudent;
-
-               //module_1.Content = mStudent.ModulesAndMarks[0].ToString();
-
-                LblStudentName.Content += " " + mStudent.Name;
+                Messages.Items.Add(counter+". "+ pStudent.mMessages[0].Subject + " \n " + pStudent.mMessages[0].Body);
+                counter++;
             }
         }
 
@@ -55,24 +54,18 @@ namespace MySupervisn_Team1
         private void Inbox_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            InboxWindow inboxWindow = new InboxWindow(mStudent);
+            Inbox inboxWindow = new Inbox(mStudent);
             inboxWindow.Show();
         }
 
         public void EditProfileStudent_Click(object sender, RoutedEventArgs e)
         {
             Close();
-
             EditProfileStudent editProfileStudentWindow = new EditProfileStudent(mStudent);
             editProfileStudentWindow.Show();
         }
 
-        private void Enquire_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-            Enquire enquireWindow = new Enquire(mStudent);
-            enquireWindow.Show();
-        }
+       
 
         private void LectureCheckIn_Click(object sender, RoutedEventArgs e)
         {
@@ -90,6 +83,18 @@ namespace MySupervisn_Team1
         private void Canvas_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://canvas.hull.ac.uk/");
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            EditProfileStudent_Click(sender, e);
         }
     }
 }

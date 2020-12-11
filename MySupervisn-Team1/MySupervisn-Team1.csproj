@@ -109,7 +109,6 @@
     </Compile>
     <Compile Include="Classes\DatabaseManager.cs" />
     <Compile Include="Classes\DirectorOfStudy.cs" />
-    <Compile Include="Classes\Inbox.cs" />
     <Compile Include="Classes\Message.cs" />
     <Compile Include="Classes\RecordEngagement.cs" />
     <Compile Include="Classes\Meeting.cs" />
@@ -122,20 +121,14 @@
     <Compile Include="EditProfileStudent.xaml.cs">
       <DependentUpon>EditProfileStudent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Inbox.xaml.cs">
+      <DependentUpon>Inbox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StaffDashboard.xaml.cs">
       <DependentUpon>StaffDashboard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Enquire.xaml.cs">
-      <DependentUpon>Enquire.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="InboxWindow.xaml.cs">
-      <DependentUpon>InboxWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="LectureCheckIn.xaml.cs">
       <DependentUpon>LectureCheckIn.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SetMarks.xaml.cs">
-      <DependentUpon>SetMarks.xaml</DependentUpon>
     </Compile>
     <Compile Include="StudentSearch.xaml.cs">
       <DependentUpon>StudentSearch.xaml</DependentUpon>
@@ -148,15 +141,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Inbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StudentDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditProfileStudent.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Enquire.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -180,14 +173,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="StaffDashboard.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="InboxWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SetMarks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

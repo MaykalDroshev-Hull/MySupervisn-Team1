@@ -20,7 +20,6 @@ namespace MySupervisn_Team1
     public partial class LectureCheckIn : Window
     {
         private Student mStudent;
-
         public LectureCheckIn(Student pStudent)
         {
             InitializeComponent();

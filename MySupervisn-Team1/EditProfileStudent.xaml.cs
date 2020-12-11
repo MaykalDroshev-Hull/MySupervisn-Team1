@@ -13,11 +13,14 @@ namespace MySupervisn_Team1
     {
         private Student mStudent;
 
-        public EditProfileStudent(Student pStudent)
+        public EditProfileStudent(Student student)
         {
             InitializeComponent();
 
-            mStudent = pStudent;
+            mStudent = student;
+
+            LblStdName.Content = mStudent.Name;
+            LblStdID.Content += " "+ mStudent.IdNumber;
         }
             
         private void BtnChangeName_Click(object sender, RoutedEventArgs e)
@@ -26,7 +29,7 @@ namespace MySupervisn_Team1
             //"Kunle, edit the database"
             //"???"
 
-            //TODO (If we have time): Refactor so all of this in the DatabaseManager class;
+            //TO DO (If we have time): Refactor so all of this in the DatabaseManager class;
 
             SqlConnection connection = new SqlConnection();
             var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
@@ -45,11 +48,10 @@ namespace MySupervisn_Team1
             update.Parameters.Add("@ID", System.Data.SqlDbType.Int);
             update.Parameters["@ID"].Value = mStudent.IdNumber;
                 
-
             try
             {
-                update.ExecuteNonQuery();
-                MessageBox.Show("Changes made.");
+                int rowsAffected = update.ExecuteNonQuery();
+                MessageBox.Show("Changes made. Rows affected:" + rowsAffected.ToString());
             }
             catch(Exception ex)
             {
