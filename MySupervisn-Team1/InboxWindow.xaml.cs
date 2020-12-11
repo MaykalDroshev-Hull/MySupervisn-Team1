@@ -20,7 +20,7 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class InboxWindow : Window
     {
-        private User mUser;
+        private Staff mStaff;
         private Student mStudent;
         SqlConnection mConnection = new SqlConnection();
 
@@ -32,11 +32,11 @@ namespace MySupervisn_Team1
 
             CreateConnectionToDatabase();
         }
-        public InboxWindow(User pUser)
+        public InboxWindow(Staff pStaff)
         {
             InitializeComponent();
        
-            mUser = pUser;
+            mStaff = pStaff;
 
             CreateConnectionToDatabase();
         }
@@ -66,8 +66,18 @@ namespace MySupervisn_Team1
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
-            studentDashboardWindow.Show();
+
+            if (mStudent != null)
+            {
+                StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
+                studentDashboardWindow.Show();
+
+            }
+            else
+            {
+                StaffDashboard staffDashboardWindow = new StaffDashboard(mStaff);
+                staffDashboardWindow.Show();
+            }
         }
     }
 }

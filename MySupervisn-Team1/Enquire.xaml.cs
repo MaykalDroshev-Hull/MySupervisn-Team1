@@ -20,7 +20,6 @@ namespace MySupervisn_Team1
     public partial class Enquire : Window
     {
         private Student mStudent;
-        private Staff mStaff;
 
         public Enquire(Student pStudent)
         {
@@ -28,25 +27,14 @@ namespace MySupervisn_Team1
 
             mStudent = pStudent;
         }
-        public Enquire(Staff pStaff)
-        {
-            InitializeComponent();
 
-            mStaff = pStaff;
-        }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            if (mStudent != null)
-            {
-                StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
-                studentDashboardWindow.Show();
-            }
-            else
-            {
-                StaffDashboard staffDashboardWindow = new StaffDashboard(mStaff);
-                staffDashboardWindow.Show();
-            }
+            Close();
+
+            StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
+            studentDashboardWindow.Show();
         }
     }
 }

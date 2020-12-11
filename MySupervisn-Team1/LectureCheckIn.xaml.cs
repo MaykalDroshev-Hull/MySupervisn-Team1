@@ -17,36 +17,21 @@ namespace MySupervisn_Team1
     /// <summary>
     /// Interaction logic for InboxWindow.xaml
     /// </summary>
-    public partial class InboxWindow : Window
+    public partial class LectureCheckIn : Window
     {
         private Student mStudent;
-        private Staff mStaff;
 
-        public InboxWindow(Student pStudent)
+        public LectureCheckIn(Student pStudent)
         {
             InitializeComponent();
 
             mStudent = pStudent;
         }
-        public InboxWindow(Staff pStaff)
-        {
-            InitializeComponent();
-
-            mStaff = pStaff;
-        }
-
+      
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            if (mStudent != null)
-            {
                 StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
                 studentDashboardWindow.Show();
-            }
-            else
-            {
-                StaffDashboard staffDashboardWindow = new StaffDashboard(mStaff);
-                staffDashboardWindow.Show();
-            }
         }
     }
 }
