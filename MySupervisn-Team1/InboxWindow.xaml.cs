@@ -20,27 +20,44 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class InboxWindow : Window
     {
-        SqlConnection connection = new SqlConnection();
+        private User mUser;
+        private Student mStudent;
+        SqlConnection mConnection = new SqlConnection();
 
-        public InboxWindow()
+        public InboxWindow(Student pStudent)
         {
             InitializeComponent();
+         
+            mStudent = pStudent;
 
+            CreateConnectionToDatabase();
+        }
+        public InboxWindow(User pUser)
+        {
+            InitializeComponent();
+       
+            mUser = pUser;
+
+            CreateConnectionToDatabase();
+        }
+
+        private void CreateConnectionToDatabase()
+        {
             var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+            mConnection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
             if (MainBody.Text != null)
             {
-                SqlCommand insert = new SqlCommand("Insert into Messages(body, Subject) Values('" + MainBody.Text + "', '" + Subject.Text + "')", connection);
-                connection.Open();
+                SqlCommand insert = new SqlCommand("Insert into Messages(body, Subject) Values('" + MainBody.Text + "', '" + Subject.Text + "')", mConnection);
+                mConnection.Open();
                 insert.ExecuteNonQuery();
 
                 MessageBox.Show("Message saved and sent");
 
-                connection.Close();
+                mConnection.Close();
             }
 
             //insert.Connection = connection;
@@ -49,7 +66,7 @@ namespace MySupervisn_Team1
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            StudentDashboard studentDashboardWindow = new StudentDashboard();
+            StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
             studentDashboardWindow.Show();
         }
     }
