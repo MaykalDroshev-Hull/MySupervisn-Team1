@@ -43,10 +43,10 @@
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Margin="0,0,0,-138" Grid.ColumnSpan="2" >
 
                 <StackPanel Margin="-1,25,-1,20"  >
-                    <Label Content="User Name: [User Name]" Margin="0,0,0.4,0"/>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="UserName"  Width="100" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
-                        <Button x:Name="ChangeName" Content="Change" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="50" Click="btnChangeName_Click"/>
+                    <Label Content=" First Name&#x9;&#x9;&#x9;Surname" Margin="0,0,0.4,0"/>
+                    <StackPanel Orientation="Horizontal" Height="39" Margin="0,0,-0.4,0">
+                        <TextBox x:Name="TbFirstName"  Width="165" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
+                        <TextBox x:Name="TbUSurName"  Width="165" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
                     </StackPanel>
                     <Label Content="Email: [Email]"/>
                     <Button Content="Change" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="50"/>

@@ -339,3 +339,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+MySupervisn-Team1/EditProfileStudent.xaml
+MySupervisn-Team1/MySupervisn-Team1.csproj
+MySupervisn-Team1/MySupervisn-Team1.csproj
+*.csproj
