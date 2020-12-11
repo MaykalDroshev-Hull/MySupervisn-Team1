@@ -41,11 +41,11 @@ namespace MySupervisn_Team1
             connection.Open();
 
             SqlCommand search = new SqlCommand();
-
-            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Users_]";
+            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor,Message.Body,Message.Subject from [Users_] full outer join Message on FirstName+' '+LastName=Message.Receiver ";
             search.Connection = connection; 
             SqlDataReader reader = search.ExecuteReader();
-            string Classification = ""; 
+            string Classification = ""; // What is it for?
+            
             while (reader.Read())
             {
                 if (reader[0].ToString() == username)
@@ -53,13 +53,14 @@ namespace MySupervisn_Team1
                     username_match = true;
                     if (reader[1].ToString() == password)
                     {
-                        userRole = reader[2].ToString();
+                        Classification = reader[2].ToString();
                         password_match = true;
                         break;
                     }
                     
                 }
             }
+
             
             if (username_match && password_match) {
 
@@ -67,71 +68,37 @@ namespace MySupervisn_Team1
                 string firstName = reader[3].ToString();
                 string lastName = reader[4].ToString();
                 string userName = firstName + " " + lastName;
-
+                string MessageSubject= reader[9].ToString();
+                string messageBody = reader[8].ToString();
+                Message message = new Message(0, DateTime.Now, MessageSubject, messageBody, null, null);
                 switch (Classification)
                 {
                     case "Student":
-                        this.Hide();
-                        //
-                        // select NAME, Modules.name, Module.Mark From student INNER JOIN Modules On id-Modules.Student_id
-                        //search.CommandText = "select* from Modules";
-                        // SELECT, UPDATE, DELETE
-                        //SELECT FirstName,LastName,ModuleName,Mark FROM Users_ INNER JOIN Modules ON User_Id=Modules.StudentID
-                        //
-                        /*
-                        List<(string, byte)> modulesAndMarks = new List<(string, byte)>();
-                        connection.Close();
-                        connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
-                        connection.Open();
-                        search.CommandText = "SELECT ModuleName, Mark FROM Modules";
-                        search.Connection = connection;
-                        reader = search.ExecuteReader();
-                        
-                        string moduleChoices = reader[0].ToString();
-                        int moduleMarks = int.Parse(reader[1].ToString());
-                        */
-                        /*
-                        foreach(string module in reader[0].ToString())
-                        {
-
-                        }
-                        for (int i = 0; i < reader[0].ToString().Length; i++)
-                        {
-                            modulesAndMarks.Add(reader[0].ToString()[i]);
-                        }
-                        */
+                        this.Hide();    
                         List<Message> messages = new List<Message>();
-                        //search.CommandText = "SELECT ModuleName, Mark FROM Users_ INNER JOIN Modules ON User_Id = Modules.StudentID";
-
-                        // TO TEST
-                        string moduleChoices = "AI";
-                        int moduleMarks = 70;
-                        List<(string, byte)> modulesAndMarks = new List<(string, byte)>();
-                        modulesAndMarks.Add((moduleChoices, (byte)moduleMarks));
-
-                        Student student = new Student(userId, userName, modulesAndMarks, messages);
-
+                        messages.Add(message);
+                        Student student = new Student(userId, userName, messages);
                         StudentDashboard dashboard = new StudentDashboard(student);                        
                         dashboard.Show();
                         break;
                     case "Student Hub":
                         this.Hide();
-                        StudentHub studentHub = new StudentHub(userId, userName, Classification);
-                        StaffDashboard staffDashboard = new StaffDashboard(studentHub);
+                        Staff staff = new Staff(userId, userName);
+                        StaffDashboard staffDashboard = new StaffDashboard(staff);
                         staffDashboard.Show();
                         break;
                     case "Personal Supervisor":
                         this.Hide();
-                        PersonalSupervisor supervisor = new PersonalSupervisor(userId, userName, Classification);
-                        StaffDashboard staffDashboard_PS = new StaffDashboard(supervisor);
-                        staffDashboard_PS.Show();                      
+                        StaffDashboard staffDashboard_PS = new StaffDashboard();
+                        staffDashboard_PS.Show();
                         break;
                     case "Director of Study":
                         this.Hide();
-                        DirectorOfStudy director = new DirectorOfStudy(userId, userName, Classification);
-                        StaffDashboard staffDashboard_DoS = new StaffDashboard(director);
+                        StaffDashboard staffDashboard_DoS = new StaffDashboard();
                         staffDashboard_DoS.Show();
                         break;
+
+
                 }
             }
             else {
@@ -140,6 +107,8 @@ namespace MySupervisn_Team1
                 InitializeComponent();
             
             }
+
+
         }
     }
 }

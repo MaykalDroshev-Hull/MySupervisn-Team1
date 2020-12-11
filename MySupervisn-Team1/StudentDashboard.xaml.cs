@@ -20,8 +20,8 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class StudentDashboard : Window
     {
-        string mUsername;
-        Student stu; //oof.
+        Student student1;
+       
 
         public StudentDashboard()
         {
@@ -32,8 +32,14 @@ namespace MySupervisn_Team1
         public StudentDashboard(Student student)
         { 
             InitializeComponent();
-            stu = student;
-            LblStudentName.Content += " " + stu.Name;
+            student1 = student;
+            Name.Content = "Student Name: " + student.Name.ToString()+"       ID number:"+student1.IdNumber;
+            int counter = 1;
+            if (student.mMessages[0].Body != null)//It displays only 1 message
+            {
+                Messages.Items.Add(counter+". "+ student.mMessages[0].Subject + " \n " + student.mMessages[0].Body);
+                counter++;
+            }
         }
 
         // WORK IN PROGRESS!!
@@ -62,7 +68,7 @@ namespace MySupervisn_Team1
         public void EditProfileStudent_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            EditProfileStudent editProfileStudentWindow = new EditProfileStudent(stu);
+            EditProfileStudent editProfileStudentWindow = new EditProfileStudent(student1);
             editProfileStudentWindow.Show();
         }
 
@@ -84,6 +90,18 @@ namespace MySupervisn_Team1
         private void Canvas_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://canvas.hull.ac.uk/");
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            EditProfileStudent_Click(sender, e);
         }
     }
 }
