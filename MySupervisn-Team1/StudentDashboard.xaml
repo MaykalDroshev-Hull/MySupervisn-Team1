@@ -59,9 +59,8 @@
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
-                <Label Content="Upcoming Lecture:"  FontWeight="Bold"/>
-                <Label Name="upcomingLecture" Content="[Lecture]"/>
-            </StackPanel>
+                <Label Content="Actions:"  FontWeight="Bold"/>
+                </StackPanel>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
