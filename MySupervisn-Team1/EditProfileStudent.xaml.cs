@@ -50,7 +50,7 @@ namespace MySupervisn_Team1
             update.Parameters["@LN"].Value = tLastName;
             update.Parameters.Add("@ID", System.Data.SqlDbType.Int);
             update.Parameters["@ID"].Value = temp.IdNumber;
-
+                
 
             try
             {
