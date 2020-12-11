@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace MySupervisn_Team1
 {
-    //class StudentHub : Staff
-    partial class StaffDashboard
+    public class StudentHub : Staff
     {
-        /*
-        public StudentHub(int pIdNumber, string pName) : base(pIdNumber, pName)
+        
+        public StudentHub(int pIdNumber, string pName, string pRole) : base(pIdNumber, pName, pRole)
         {
-            Role = "Student Hub";
+            Role = pRole;
             IdNumber = pIdNumber;
             Name = pName;
         }
-        */
-        public void AssignStudentToPS(Student pStudent,PersonalSupervisor pPersonalSupervisor)
+        
+        public void AssignStudentToPS(Student pStudent,Supervisor pPersonalSupervisor)
         {
             throw new NotImplementedException();
         }
