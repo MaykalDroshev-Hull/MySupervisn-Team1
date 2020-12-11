@@ -41,7 +41,7 @@ namespace MySupervisn_Team1
             connection.Open();
 
             SqlCommand search = new SqlCommand();
-            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Users]";
+            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from Users_";
             search.Connection = connection;
             SqlDataReader reader = search.ExecuteReader();
             string Classification = ""; // What is it for?
@@ -81,7 +81,11 @@ namespace MySupervisn_Team1
                         connection.Close();
                         connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
                         connection.Open();
-                        search.CommandText = "SELECT ModuleName, Mark FROM Modules";
+                        search.CommandText = "SELECT ModuleName, Mark FROM Modules WHERE StudentID=@userId";
+                        using(SqlConnection sqlConnection =new SqlConnection(connectionString))
+                        {
+
+                        }
                         search.Connection = connection;
                         reader = search.ExecuteReader();
 
