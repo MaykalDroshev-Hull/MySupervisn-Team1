@@ -21,18 +21,19 @@ namespace MySupervisn_Team1
     public partial class StudentDashboard : Window
     {
         string mUsername;
+        Student stu; //oof.
 
         public StudentDashboard()
         {
-            InitializeComponent();
-
             //FromDatabase();
             //module_1.Content = mUsername;
         }
 
         public StudentDashboard(Student student)
-        {
-
+        { 
+            InitializeComponent();
+            stu = student;
+            LblStudentName.Content += " " + stu.Name;
         }
 
         // WORK IN PROGRESS!!
@@ -58,10 +59,10 @@ namespace MySupervisn_Team1
             inboxWindow.Show();
         }
 
-        private void EditProfileStudent_Click(object sender, RoutedEventArgs e)
+        public void EditProfileStudent_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            EditProfileStudent editProfileStudentWindow = new EditProfileStudent();
+            EditProfileStudent editProfileStudentWindow = new EditProfileStudent(stu);
             editProfileStudentWindow.Show();
         }
 
