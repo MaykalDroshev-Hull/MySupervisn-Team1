@@ -20,46 +20,48 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class Inbox
     {
+        private SqlConnection mConnection = DatabaseManager.CreateConnectionToDatabase();
+
         private Staff mStaff;
         private Student mStudent;
-        SqlConnection mConnection = new SqlConnection();
+
+        private int mId;
+        private string mSender;
 
         public Inbox(Student pStudent)
         {
             InitializeComponent();
 
             mStudent = pStudent;
-
-            CreateConnectionToDatabase();
+            mId = pStudent.IdNumber;
+            mSender = pStudent.Name;
         }
         public Inbox(Staff pStaff)
         {
             InitializeComponent();
        
             mStaff = pStaff;
-
-            CreateConnectionToDatabase();
-        }
-
-        private void CreateConnectionToDatabase()
-        {
-            var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
-            this.mConnection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+            mId = pStaff.IdNumber;
+            mSender = pStaff.Name;
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
             if (MainBody.Text != null)
             {
-                SqlCommand insert = new SqlCommand("Insert into Messages(body, Subject) Values('" + MainBody.Text + "', '" + Subject.Text + "')", connection);
+                DateTime nowTime = new DateTime();
+
                 mConnection.Open();
+                SqlCommand insert = new SqlCommand("Insert into Message(Id, Sender, Receiver, Subject, Date, Body) Values('" + mId + "', '" + mSender + "', '"+ Receiver.Text + "', '" + Subject.Text + "', '"+ nowTime +"', '" + MainBody.Text + "')", mConnection);
                 insert.ExecuteNonQuery();
 
                 MessageBox.Show("Message saved and sent");
+                Receiver.Clear();
+                Subject.Clear();
+                MainBody.Clear();
 
                 mConnection.Close();
             }
-            //insert.Connection = connection;
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)

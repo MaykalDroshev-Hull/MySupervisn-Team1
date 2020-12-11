@@ -12,6 +12,7 @@ namespace MySupervisn_Team1
     public partial class EditProfileStudent : Window
     {
         private Student mStudent;
+
         public EditProfileStudent(Student student)
         {
             InitializeComponent();

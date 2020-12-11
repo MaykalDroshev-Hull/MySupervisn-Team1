@@ -24,6 +24,8 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class LoginWindow : Window
     {
+        SqlConnection mConnection = DatabaseManager.CreateConnectionToDatabase();
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -35,16 +37,13 @@ namespace MySupervisn_Team1
             string username = Username.Text;
             string password = Password.Password;
 
-            SqlConnection connection = new SqlConnection();
-            var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
-            connection.Open();
-
+            mConnection.Open();
             SqlCommand search = new SqlCommand();
+            //search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Users_]";
             search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor,Message.Body,Message.Subject from [Users_] full outer join Message on FirstName+' '+LastName=Message.Receiver ";
-            search.Connection = connection; 
+            search.Connection = mConnection; 
             SqlDataReader reader = search.ExecuteReader();
-            string Classification = ""; // What is it for?
+            string classification = ""; 
             
             while (reader.Read())
             {
@@ -53,7 +52,7 @@ namespace MySupervisn_Team1
                     username_match = true;
                     if (reader[1].ToString() == password)
                     {
-                        Classification = reader[2].ToString();
+                        classification = reader[2].ToString();
                         password_match = true;
                         break;
                     }
@@ -61,44 +60,51 @@ namespace MySupervisn_Team1
                 }
             }
 
-            
             if (username_match && password_match) {
 
                 int userId = int.Parse(reader[0].ToString());
                 string firstName = reader[3].ToString();
                 string lastName = reader[4].ToString();
                 string userName = firstName + " " + lastName;
-                string MessageSubject= reader[9].ToString();
+
+                string MessageSubject = reader[9].ToString();
                 string messageBody = reader[8].ToString();
                 Message message = new Message(0, DateTime.Now, MessageSubject, messageBody, null, null);
-                switch (Classification)
+
+                switch (classification)
                 {
                     case "Student":
+
                         this.Hide();    
                         List<Message> messages = new List<Message>();
                         messages.Add(message);
                         Student student = new Student(userId, userName, messages);
                         StudentDashboard dashboard = new StudentDashboard(student);                        
                         dashboard.Show();
+
                         break;
                     case "Student Hub":
+
                         this.Hide();
-                        Staff staff = new Staff(userId, userName);
-                        StaffDashboard staffDashboard = new StaffDashboard(staff);
+                        StudentHub studentHub = new StudentHub(userId, userName, classification);
+                        StaffDashboard staffDashboard = new StaffDashboard(studentHub);
                         staffDashboard.Show();
+
                         break;
                     case "Personal Supervisor":
+
                         this.Hide();
-                        StaffDashboard staffDashboard_PS = new StaffDashboard();
-                        staffDashboard_PS.Show();
+                        PersonalSupervisor personalSupervisor = new PersonalSupervisor(userId, userName, classification);
+                        StaffDashboard staffDashboard_PS = new StaffDashboard(personalSupervisor);
+                        staffDashboard_PS.Show();                      
                         break;
+
                     case "Director of Study":
                         this.Hide();
-                        StaffDashboard staffDashboard_DoS = new StaffDashboard();
+                        DirectorOfStudy director = new DirectorOfStudy(userId, userName, classification);
+                        StaffDashboard staffDashboard_DoS = new StaffDashboard(director);
                         staffDashboard_DoS.Show();
                         break;
-
-
                 }
             }
             else {
@@ -107,8 +113,7 @@ namespace MySupervisn_Team1
                    InitializeComponent();
             
             }
-
-
         }
+
     }
 }

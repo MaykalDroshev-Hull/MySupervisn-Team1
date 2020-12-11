@@ -20,24 +20,17 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class StudentDashboard : Window
     {
-        Student student1;
+        Student mStudent;
        
-
-        public StudentDashboard()
-        {
-            //FromDatabase();
-            //module_1.Content = mUsername;
-        }
-
-        public StudentDashboard(Student student)
+        public StudentDashboard(Student pStudent)
         { 
             InitializeComponent();
-            student1 = student;
-            Name.Content = "Student Name: " + student.Name.ToString()+"       ID number:"+student1.IdNumber;
+            mStudent = pStudent;
+            Name.Content = "Student Name: " + pStudent.Name.ToString()+"       ID number:"+ mStudent.IdNumber;
             int counter = 1;
-            if (student.mMessages[0].Body != null)//It displays only 1 message
+            if (pStudent.mMessages[0].Body != null)//It displays only 1 message
             {
-                Messages.Items.Add(counter+". "+ student.mMessages[0].Subject + " \n " + student.mMessages[0].Body);
+                Messages.Items.Add(counter+". "+ pStudent.mMessages[0].Subject + " \n " + pStudent.mMessages[0].Body);
                 counter++;
             }
         }
@@ -61,14 +54,14 @@ namespace MySupervisn_Team1
         private void Inbox_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            Inbox inboxWindow = new Inbox();
+            Inbox inboxWindow = new Inbox(mStudent);
             inboxWindow.Show();
         }
 
         public void EditProfileStudent_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            EditProfileStudent editProfileStudentWindow = new EditProfileStudent(student1);
+            EditProfileStudent editProfileStudentWindow = new EditProfileStudent(mStudent);
             editProfileStudentWindow.Show();
         }
 
@@ -77,14 +70,14 @@ namespace MySupervisn_Team1
         private void LectureCheckIn_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            LectureCheckIn lectureCheckInWindow = new LectureCheckIn();
+            LectureCheckIn lectureCheckInWindow = new LectureCheckIn(mStudent);
             lectureCheckInWindow.Show();
         }
 
         private void BookMeeting_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            BookMeeting bookMeetingWindow = new BookMeeting();
+            BookMeeting bookMeetingWindow = new BookMeeting(mStudent);
             bookMeetingWindow.Show();
         }
         private void Canvas_Click(object sender, RoutedEventArgs e)

@@ -19,17 +19,21 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class StaffDashboard : Window
     {
+        private Staff mStaff;
+
         public StaffDashboard()
         {
             InitializeComponent();
         }
 
-        public StaffDashboard(Staff staff)
+        public StaffDashboard(Staff pStaff)
         {
+            mStaff = pStaff;
+
             InitializeComponent();
-            StaffName.Content = "Name: " + staff.Name;
-            StaffRole.Content = "Role: " + staff.Role;
-            switch (staff.Role)
+            StaffName.Content = "Name: " + mStaff.Name;
+            StaffRole.Content = "Role: " + mStaff.Role;
+            switch (mStaff.Role)
             {
                 case "Student Hub":
                     ShowStudentHubControls();
@@ -74,7 +78,8 @@ namespace MySupervisn_Team1
         private void Inbox_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            Inbox inbox = new Inbox();
+
+            Inbox inbox = new Inbox(mStaff);
             inbox.Show();
         }
 
