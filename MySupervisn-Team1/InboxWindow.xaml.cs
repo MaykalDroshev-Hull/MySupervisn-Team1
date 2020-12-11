@@ -20,29 +20,39 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class InboxWindow : Window
     {
+        private SqlConnection mConnection = DatabaseManager.CreateConnectionToDatabase();
+
         private Staff mStaff;
         private Student mStudent;
-        SqlConnection mConnection = DatabaseManager.CreateConnectionToDatabase();
+
+        private int mId;
+        private string mSender;
 
         public InboxWindow(Student pStudent)
         {
             InitializeComponent();
          
             mStudent = pStudent;
+            mId = pStudent.IdNumber;
+            mSender = pStudent.Name;
         }
         public InboxWindow(Staff pStaff)
         {
             InitializeComponent();
        
             mStaff = pStaff;
+            mId = pStaff.IdNumber;
+            mSender = pStaff.Name;
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
             if (MainBody.Text != null)
             {
+                DateTime nowTime = new DateTime();
+
                 mConnection.Open();
-                SqlCommand insert = new SqlCommand("Insert into Messages(body, Subject) Values('" + MainBody.Text + "', '" + Subject.Text + "')", mConnection);
+                SqlCommand insert = new SqlCommand("Insert into Message(Id, Sender, Reciever, Subject, Date, Body) Values('" + mId + "', '" + mSender + "', '"+ Receiver.Text + "', '" + Subject.Text + "', '"+ nowTime +"', '" + MainBody.Text + "')", mConnection);
                 insert.ExecuteNonQuery();
 
                 MessageBox.Show("Message saved and sent");
