@@ -30,9 +30,9 @@ namespace MySupervisn_Team1
 
                 mStudent = pStudent;
 
-                module_1.Content = mStudent.ModulesAndMarks[0].ToString();
+               //module_1.Content = mStudent.ModulesAndMarks[0].ToString();
 
-                LblStudentName.Content += " " + stu.Name;
+                LblStudentName.Content += " " + mStudent.Name;
             }
         }
 

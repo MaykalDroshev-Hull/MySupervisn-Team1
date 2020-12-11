@@ -12,15 +12,12 @@ namespace MySupervisn_Team1
     public partial class EditProfileStudent : Window
     {
         private Student mStudent;
-        Student temp; // ...
-
 
         public EditProfileStudent(Student pStudent)
         {
             InitializeComponent();
 
             mStudent = pStudent;
-            temp = student;
         }
             
         private void BtnChangeName_Click(object sender, RoutedEventArgs e)
@@ -46,7 +43,7 @@ namespace MySupervisn_Team1
             update.Parameters.Add("@LN", System.Data.SqlDbType.VarChar);
             update.Parameters["@LN"].Value = tLastName;
             update.Parameters.Add("@ID", System.Data.SqlDbType.Int);
-            update.Parameters["@ID"].Value = temp.IdNumber;
+            update.Parameters["@ID"].Value = mStudent.IdNumber;
                 
 
             try
