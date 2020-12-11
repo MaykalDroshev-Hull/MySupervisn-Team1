@@ -13,6 +13,7 @@ namespace MySupervisn_Team1
         private Dictionary<string, (byte, bool)> mModuleAttendance;//<Module code,(lecture number,IsAttended)>
         private List<Message> mMessages;
 
+
         public Student(int pIdNumber, string pName, List<(string, byte)> pModulesAndMarks, List<Message> pMessages) : base(pIdNumber, pName)
         {
             Role = "Student";

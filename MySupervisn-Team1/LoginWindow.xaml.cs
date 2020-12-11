@@ -44,7 +44,7 @@ namespace MySupervisn_Team1
             search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Users_]";
             search.Connection = connection; 
             SqlDataReader reader = search.ExecuteReader();
-            string Classification = ""; // What is it for?
+            string Classification = ""; 
             while (reader.Read())
             {
                 if (reader[0].ToString() == username)
@@ -66,8 +66,10 @@ namespace MySupervisn_Team1
                 switch (Classification)
                 {
                     case "Student":
+
                         this.Hide();
-                        Dashboard dashboard = new Dashboard();                        
+                        Student student = new Student(int.Parse(reader[0].ToString()), reader[3].ToString(), null, null);
+                        StudentDashboard dashboard = new StudentDashboard(student);                        
                         dashboard.Show();
                         break;
                     case "Student Hub":
