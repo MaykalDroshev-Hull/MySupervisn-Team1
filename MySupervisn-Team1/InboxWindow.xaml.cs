@@ -52,10 +52,13 @@ namespace MySupervisn_Team1
                 DateTime nowTime = new DateTime();
 
                 mConnection.Open();
-                SqlCommand insert = new SqlCommand("Insert into Message(Id, Sender, Reciever, Subject, Date, Body) Values('" + mId + "', '" + mSender + "', '"+ Receiver.Text + "', '" + Subject.Text + "', '"+ nowTime +"', '" + MainBody.Text + "')", mConnection);
+                SqlCommand insert = new SqlCommand("Insert into Message(Id, Sender, Receiver, Subject, Date, Body) Values('" + mId + "', '" + mSender + "', '"+ Receiver.Text + "', '" + Subject.Text + "', '"+ nowTime +"', '" + MainBody.Text + "')", mConnection);
                 insert.ExecuteNonQuery();
 
                 MessageBox.Show("Message saved and sent");
+                Receiver.Clear();
+                Subject.Clear();
+                MainBody.Clear();
 
                 mConnection.Close();
             }
