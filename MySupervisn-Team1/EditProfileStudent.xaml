@@ -43,13 +43,13 @@
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Margin="0,0,0,-138" Grid.ColumnSpan="2" >
 
                 <StackPanel Margin="-1,25,-1,20"  >
-                    <Label Content="User Name: [User Name]" Margin="0,0,0.4,0"/>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="UserName"  Width="100" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
-                        <Button x:Name="ChangeName" Content="Change" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="50" Click="btnChangeName_Click"/>
+                    <Label Content=" First Name&#x9;&#x9;&#x9;Surname" Margin="0,0,0.4,0"/>
+                    <StackPanel Orientation="Horizontal" Height="39" Margin="0,0,-0.4,0">
+                        <TextBox x:Name="TbFirstName"  Width="165" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
+                        <TextBox x:Name="TbUSurName"  Width="165" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
                     </StackPanel>
                     <Label Content="Email: [Email]"/>
-                    <Button Content="Change" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="50"/>
+                    <Button x:Name="BtnChangeName" Content="Change" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,10" Width="50" Click="BtnChangeName_Click"/>
                 </StackPanel>
 
             </Border>
@@ -57,8 +57,8 @@
 
         </Grid>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Label Content="[Student Name]" FontWeight="Bold"  />
-            <Label Content="[Student Id]" FontWeight="Bold"/>
+            <Label x:Name="LblStdName" Content="[Student Name]" FontWeight="Bold"  />
+            <Label x:Name="LblStdID" Content="[Student Id]" FontWeight="Bold"/>
         </StackPanel>
         <Label Content="Details:" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="67" Grid.ColumnSpan="2"/>
 
@@ -73,9 +73,9 @@
             </Grid.ColumnDefinitions>
             <StackPanel Margin="-1,28,-0.2,-12.4"  >
                 <Label Content="Enter Password" Margin="0,0,0.4,0"/>
-                <TextBox Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Margin="10,0,22.4,0"/>
+                <TextBox x:Name="TbOldPass" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Margin="10,0,22,0"/>
                 <Label Content="Enter new password"/>
-                <TextBox Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Margin="10,0,22.4,0"/>
+                <TextBox x:Name="TbNewPass" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Margin="10,0,22.4,0"/>
                 <Button Content="Change Password" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="150"/>
                 <Button Content="Go Back" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="100" Click="GoBack_Click"/>
             </StackPanel>
