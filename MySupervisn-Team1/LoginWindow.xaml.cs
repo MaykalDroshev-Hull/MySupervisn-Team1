@@ -41,8 +41,8 @@ namespace MySupervisn_Team1
             connection.Open();
 
             SqlCommand search = new SqlCommand();
-            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Users]";
-            search.Connection = connection;
+            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Users_]";
+            search.Connection = connection; 
             SqlDataReader reader = search.ExecuteReader();
             string Classification = "";
             while (reader.Read())
