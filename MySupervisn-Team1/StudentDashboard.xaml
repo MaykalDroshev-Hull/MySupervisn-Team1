@@ -5,27 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MySupervisn_Team1"
         mc:Ignorable="d"
-        Title="Dashboard" Height="450" Width="800">
+        Title="Dashboard" Height="450" Width="400">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+       
         <Grid.RowDefinitions>
             <RowDefinition Height="30*"/>
             <RowDefinition Height="30*"/>
             <RowDefinition Height="198*"/>
             <RowDefinition Height="161*"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" Grid.ColumnSpan="2">
+        <DockPanel Grid.Row="0" Grid.Column="0">
             <ToolBar>
                 <Menu>
                     <MenuItem Header="Profile">
 
-                        <MenuItem Header="Edit Profile"/>
+                        <MenuItem x:Name="Edit" Header="Edit Profile" Click="Edit_Click"/>
                         <Separator/>
-                        <MenuItem Header="LogOut"/>
+                        <MenuItem x:Name ="LogOut" Header="LogOut" Click="LogOut_Click"/>
                     </MenuItem>
 
                 </Menu>
@@ -42,9 +39,9 @@
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" >
 
                 <StackPanel HorizontalAlignment="Left" Height="135"  VerticalAlignment="Bottom" Width="190"  >
-                    <Label Content="[Message 1]"/>
-                    <Label Content="[Message 2]"/>
-                    <Label Content="[Message 3]"/>
+                    <ListBox x:Name="Messages">
+                        
+                    </ListBox>
                 </StackPanel>
 
             </Border>
@@ -53,52 +50,20 @@
                 <Calendar Grid.Row="1" Margin="5,26,12,-15"/>                
             </Border>
         </Grid>      
-        <Label x:Name="LblStudentName" Content="Student Name:" HorizontalAlignment="Right"  Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold" Height="26" Margin="0,2" Width="94"/>
+        <Label Name="Name" Content="Student Name:" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold" Height="26" />
         <Label Content="Messages:" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="67"/>
         <Label Content="Calendar:" FontWeight="Bold" Grid.Row="2" Grid.Column="0" Margin="199,0,127,167" />
-        <Label Content="Lecture Progress" FontWeight="Bold" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <ProgressBar Value="50" Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Height="30"/>
-        <Label Name="ModuleProgress" Content="5 out of 10" Grid.Row="4" Grid.Column="0" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" FontSize="21"/>
-        <Label Grid.Row="2" Grid.Column="1" Content="Module Marks" FontWeight="Bold"/>
-        <Grid Grid.Row="2" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1.5*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Button Content="Canvas" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="Canvas_Click"/>
-            <Border Grid.Row="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="0,-29,-0.2,0.4"></Border>
-            <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1"></Border>
-            <Border Grid.Row="2" BorderBrush="Black" BorderThickness="1"></Border>
-            <Border Grid.Row="3" BorderBrush="Black" BorderThickness="1"></Border>
-            <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1"></Border>
-            <Border Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1"></Border>
-            <Border Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="1"></Border>
-            <Border Grid.Row="2" BorderBrush="Black" BorderThickness="1"></Border>
-            <Border Grid.Row="3" BorderBrush="Black" BorderThickness="1"></Border>
-            <Label Name="module_1" Content="[module_1]" Grid.Row="1"/>
-            <Label Name="module_2" Content="[module_2]" Grid.Row="2"/>
-            <Label Name="module_3" Content="[module_3]" Grid.Row="3"/>
-            <Label Name="module_1_mark" Content="[module_1_mark]" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top"/>
-            <Label Name="module_2_mark" Content="[module_2_mark]" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top"/>
-            <Label Name="module_3_mark" Content="[module_3_mark]" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top"/>
-            <Label Content="/100" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom"/>
-            <Label Content="/100" Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom"/>
-            <Label Content="/100" Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom"/>
-        </Grid>
-        <Grid Grid.Row="4" Grid.Column="1">
+       
+        
+        
+        <Grid Grid.Row="4" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
-                <Label Content="Upcoming Lecture:"  FontWeight="Bold"/>
-                <Label Name="upcomingLecture" Content="[Lecture]"/>
+                <Label Content="Actions:"  FontWeight="Bold"/>
+                
             </StackPanel>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -110,9 +75,8 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Button Content="Edit Profile" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="EditProfileStudent_Click"/>
-                <Button Content="Lecture Check-in" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="LectureCheckIn_Click" />
-                <Button Content="Enquire" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="Enquire_Click"/>
-                <Button Content="Book meeting" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="BookMeeting_Click"/>
+                <Button Content="Lecture Check-in" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="LectureCheckIn_Click" />
+                <Button Content="Book meeting" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="BookMeeting_Click"/>
             </Grid>
             
         </Grid>
