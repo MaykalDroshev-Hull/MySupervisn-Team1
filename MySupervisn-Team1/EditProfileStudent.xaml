@@ -50,6 +50,7 @@
                     </StackPanel>
                     <Label Content="Email: [Email]"/>
                     <Button Content="Change" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="50"/>
+                    <Button x:Name="BtnChangeName" Content="Change" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,10" Width="50" Click="BtnChangeName_Click"/>
                 </StackPanel>
 
             </Border>
@@ -59,6 +60,8 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Label Content="[Student Name]" FontWeight="Bold"  />
             <Label Content="[Student Id]" FontWeight="Bold"/>
+            <Label x:Name="LblStdName" Content="[Student Name]" FontWeight="Bold"  />
+            <Label x:Name="LblStdID" Content="[Student Id]" FontWeight="Bold"/>
         </StackPanel>
         <Label Content="Details:" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="67" Grid.ColumnSpan="2"/>
 
@@ -74,8 +77,10 @@
             <StackPanel Margin="-1,28,-0.2,-12.4"  >
                 <Label Content="Enter Password" Margin="0,0,0.4,0"/>
                 <TextBox Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Margin="10,0,22.4,0"/>
+                <TextBox x:Name="TbOldPass" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Margin="10,0,22,0"/>
                 <Label Content="Enter new password"/>
                 <TextBox Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Margin="10,0,22.4,0"/>
+                <TextBox x:Name="TbNewPass" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Margin="10,0,22.4,0"/>
                 <Button Content="Change Password" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="150"/>
                 <Button Content="Go Back" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="100" Click="GoBack_Click"/>
             </StackPanel>
