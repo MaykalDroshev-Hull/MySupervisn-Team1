@@ -41,10 +41,10 @@ namespace MySupervisn_Team1
             connection.Open();
 
             SqlCommand search = new SqlCommand();
-            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Users]";
+            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Table]";
             search.Connection = connection;
             SqlDataReader reader = search.ExecuteReader();
-            string Classification = ""; // What is it for?
+            string userRole = "";
             while (reader.Read())
             {
                 if (reader[0].ToString() == username)
@@ -52,7 +52,7 @@ namespace MySupervisn_Team1
                     username_match = true;
                     if (reader[1].ToString() == password)
                     {
-                        Classification = reader[2].ToString();
+                        userRole = reader[2].ToString();
                         password_match = true;
                         break;
                     }
@@ -67,7 +67,7 @@ namespace MySupervisn_Team1
                 string lastName = reader[4].ToString();
                 string userName = firstName + " " + lastName;
 
-                switch (Classification)
+                switch (userRole)
                 {
                     case "Student":
                         this.Hide();
@@ -77,6 +77,7 @@ namespace MySupervisn_Team1
                         // SELECT, UPDATE, DELETE
                         //SELECT FirstName,LastName,ModuleName,Mark FROM Users_ INNER JOIN Modules ON User_Id=Modules.StudentID
                         //
+                        /*
                         List<(string, byte)> modulesAndMarks = new List<(string, byte)>();
                         connection.Close();
                         connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
@@ -84,9 +85,10 @@ namespace MySupervisn_Team1
                         search.CommandText = "SELECT ModuleName, Mark FROM Modules";
                         search.Connection = connection;
                         reader = search.ExecuteReader();
-
+                        
                         string moduleChoices = reader[0].ToString();
                         int moduleMarks = int.Parse(reader[1].ToString());
+                        */
                         /*
                         foreach(string module in reader[0].ToString())
                         {
@@ -99,6 +101,12 @@ namespace MySupervisn_Team1
                         */
                         List<Message> messages = new List<Message>();
                         //search.CommandText = "SELECT ModuleName, Mark FROM Users_ INNER JOIN Modules ON User_Id = Modules.StudentID";
+
+                        // TO TEST
+                        string moduleChoices = "AI";
+                        int moduleMarks = 70;
+                        List<(string, byte)> modulesAndMarks = new List<(string, byte)>();
+                        modulesAndMarks.Add((moduleChoices, (byte)moduleMarks));
 
                         Student student = new Student(userId, userName, modulesAndMarks, messages);
                         StudentDashboard dashboard = new StudentDashboard(student);                        

@@ -20,21 +20,20 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class StudentDashboard : Window
     {
-        string mUsername;
+        private Student mStudent;
 
-        public StudentDashboard()
+        public StudentDashboard(Student pStudent)
         {
-            InitializeComponent();
+            if (pStudent.Role == "Student") 
+            {
+                InitializeComponent();
 
-            //FromDatabase();
-            //module_1.Content = mUsername;
+                mStudent = pStudent;
+
+                module_1.Content = mStudent.ModulesAndMarks[0].ToString();
+            }
         }
-
-        public StudentDashboard(Student student)
-        {
-
-        }
-
+  
         // WORK IN PROGRESS!!
         private string FromDatabase()
         {
@@ -54,35 +53,35 @@ namespace MySupervisn_Team1
         private void Inbox_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            InboxWindow inboxWindow = new InboxWindow();
+            InboxWindow inboxWindow = new InboxWindow(mStudent);
             inboxWindow.Show();
         }
 
         private void EditProfileStudent_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            EditProfileStudent editProfileStudentWindow = new EditProfileStudent();
+            EditProfileStudent editProfileStudentWindow = new EditProfileStudent(mStudent);
             editProfileStudentWindow.Show();
         }
 
         private void Enquire_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            Enquire enquireWindow = new Enquire();
+            Enquire enquireWindow = new Enquire(mStudent);
             enquireWindow.Show();
         }
 
         private void LectureCheckIn_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            LectureCheckIn lectureCheckInWindow = new LectureCheckIn();
+            LectureCheckIn lectureCheckInWindow = new LectureCheckIn(mStudent);
             lectureCheckInWindow.Show();
         }
 
         private void BookMeeting_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            BookMeeting bookMeetingWindow = new BookMeeting();
+            BookMeeting bookMeetingWindow = new BookMeeting(mStudent);
             bookMeetingWindow.Show();
         }
         private void Canvas_Click(object sender, RoutedEventArgs e)
