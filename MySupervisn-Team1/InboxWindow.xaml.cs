@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace MySupervisn_Team1
 {
@@ -19,14 +20,30 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class InboxWindow : Window
     {
+        SqlConnection connection = new SqlConnection();
+
         public InboxWindow()
         {
             InitializeComponent();
+
+            var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
+            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
         }
 
-        private void SendBtn_Click(object sender, RoutedEventArgs e)
+        private void Send_Click(object sender, RoutedEventArgs e)
         {
+            if (MainBody.Text != null)
+            {
+                SqlCommand insert = new SqlCommand("Insert into Messages(body, Subject) Values('" + MainBody.Text + "', '" + Subject.Text + "')", connection);
+                connection.Open();
+                insert.ExecuteNonQuery();
 
+                MessageBox.Show("Message saved and sent");
+
+                connection.Close();
+            }
+
+            //insert.Connection = connection;
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
