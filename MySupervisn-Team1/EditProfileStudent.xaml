@@ -46,7 +46,7 @@
                     <Label Content="User Name: [User Name]" Margin="0,0,0.4,0"/>
                     <StackPanel Orientation="Horizontal">
                         <TextBox x:Name="UserName"  Width="100" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
-                        <Button Content="Change" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="50"/>
+                        <Button x:Name="ChangeName" Content="Change" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="50" Click="btnChangeName_Click"/>
                     </StackPanel>
                     <Label Content="Email: [Email]"/>
                     <Button Content="Change" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="50"/>
