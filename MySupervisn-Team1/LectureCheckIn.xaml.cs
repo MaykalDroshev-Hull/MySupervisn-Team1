@@ -30,8 +30,9 @@ namespace MySupervisn_Team1
       
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-                StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
-                studentDashboardWindow.Show();
+            Close();
+            StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
+            studentDashboardWindow.Show();
         }
     }
 }
