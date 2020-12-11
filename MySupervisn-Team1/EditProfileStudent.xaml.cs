@@ -27,6 +27,7 @@ namespace MySupervisn_Team1
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
+            // test
             Close();
             if (mStudent != null)
             {
