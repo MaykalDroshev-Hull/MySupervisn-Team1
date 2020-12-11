@@ -18,6 +18,9 @@ namespace MySupervisn_Team1
             InitializeComponent();
 
             temp = student;
+
+            LblStdName.Content = temp.Name;
+            LblStdID.Content += " "+ temp.IdNumber;
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
@@ -54,8 +57,8 @@ namespace MySupervisn_Team1
 
             try
             {
-                update.ExecuteNonQuery();
-                MessageBox.Show("Changes made.");
+                int rowsAffected = update.ExecuteNonQuery();
+                MessageBox.Show("Changes made. Rows affected:" + rowsAffected.ToString());
             }
             catch(Exception ex)
             {
