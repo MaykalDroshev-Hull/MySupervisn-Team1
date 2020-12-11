@@ -15,23 +15,26 @@ using System.Windows.Shapes;
 namespace MySupervisn_Team1
 {
     /// <summary>
-    /// Interaction logic for Window4.xaml
+    /// Interaction logic for Enquire.xaml
     /// </summary>
-    public partial class Window4 : Window
+    public partial class Enquire : Window
     {
-        public Window4()
+        private Student mStudent;
+
+        public Enquire(Student pStudent)
         {
             InitializeComponent();
+
+            mStudent = pStudent;
         }
 
-        private void Check_in_Click(object sender, RoutedEventArgs e)
+
+        private void GoBack_Click(object sender, RoutedEventArgs e)
         {
+            Close();
 
-        }
-
-        private void Go_Back_Click(object sender, RoutedEventArgs e)
-        {
-
+            StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
+            studentDashboardWindow.Show();
         }
     }
 }
