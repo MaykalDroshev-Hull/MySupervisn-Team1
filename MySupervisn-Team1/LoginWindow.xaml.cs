@@ -70,14 +70,14 @@ namespace MySupervisn_Team1
                 string MessageSubject = reader[9].ToString();
                 string messageBody = reader[8].ToString();
                 Message message = new Message(0, DateTime.Now, MessageSubject, messageBody, null, null);
+                List<Message> messages = new List<Message>();
+                messages.Add(message);
 
                 switch (classification)
                 {
                     case "Student":
 
-                        this.Hide();    
-                        List<Message> messages = new List<Message>();
-                        messages.Add(message);
+                        this.Hide();                          
                         Student student = new Student(userId, userName, messages);
                         StudentDashboard dashboard = new StudentDashboard(student);                        
                         dashboard.Show();
@@ -87,7 +87,7 @@ namespace MySupervisn_Team1
 
                         this.Hide();
                         StudentHub studentHub = new StudentHub(userId, userName, classification);
-                        StaffDashboard staffDashboard = new StaffDashboard(studentHub);
+                        StaffDashboard staffDashboard = new StaffDashboard(studentHub,messages);
                         staffDashboard.Show();
 
                         break;
@@ -115,5 +115,6 @@ namespace MySupervisn_Team1
             }
         }
 
+        
     }
 }

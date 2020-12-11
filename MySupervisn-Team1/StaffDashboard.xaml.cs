@@ -20,19 +20,22 @@ namespace MySupervisn_Team1
     public partial class StaffDashboard : Window
     {
         private Staff mStaff;
+        public List<Message> messages1 { get; set; }
 
         public StaffDashboard()
         {
             InitializeComponent();
         }
 
-        public StaffDashboard(Staff pStaff)
+        public StaffDashboard(Staff pStaff,List<Message> messages)
         {
+            messages1 = messages;
+            MessageInbox.Items.Add("1." + messages[0].Subject + " \n " + messages[0].Body);
             mStaff = pStaff;
 
             InitializeComponent();
-            StaffName.Content = "Name: " + mStaff.Name;
-            StaffRole.Content = "Role: " + mStaff.Role;
+            StaffName.Content = "Name: " + pStaff.Name;
+            StaffRole.Content = "Role: " + pStaff.Role;
             switch (mStaff.Role)
             {
                 case "Student Hub":
@@ -45,11 +48,35 @@ namespace MySupervisn_Team1
                     ShowDirectorControls();
                     break;
             }
+            
+        }
+        public StaffDashboard(Staff pStaff)
+        {
+           
+            MessageInbox.Items.Add("1." + messages1[0].Subject + " \n " + messages1[0].Body);//not the best solution
+            mStaff = pStaff;
+
+            InitializeComponent();
+            StaffName.Content = "Name: " + pStaff.Name;
+            StaffRole.Content = "Role: " + pStaff.Role;
+            switch (mStaff.Role)
+            {
+                case "Student Hub":
+                    ShowStudentHubControls();
+                    break;
+                case "Personal Supervisor":
+                    ShowSupervisorControls();
+                    break;
+                case "Director of Study":
+                    ShowDirectorControls();
+                    break;
+            }
+
         }
 
         private void ShowStudentHubControls()
         {
-
+            
         }
 
         private void ShowSupervisorControls()
@@ -93,6 +120,12 @@ namespace MySupervisn_Team1
             Hide();
             StudentSearch studentSearch = new StudentSearch(this);
             studentSearch.Show();
+        }
+        public void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
         }
     }
 }
