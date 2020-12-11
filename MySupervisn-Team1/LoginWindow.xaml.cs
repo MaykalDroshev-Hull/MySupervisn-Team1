@@ -104,7 +104,7 @@ namespace MySupervisn_Team1
             else {
               
                    MessageBox.Show("Invalid credentials", "Access Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
-                InitializeComponent();
+                   InitializeComponent();
             
             }
 

@@ -20,13 +20,31 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class Inbox
     {
-        SqlConnection connection = new SqlConnection();
+        private Staff mStaff;
+        private Student mStudent;
+        SqlConnection mConnection = new SqlConnection();
 
-        public Inbox()
+        public Inbox(Student pStudent)
         {
             InitializeComponent();
+
+            mStudent = pStudent;
+
+            CreateConnectionToDatabase();
+        }
+        public Inbox(Staff pStaff)
+        {
+            InitializeComponent();
+       
+            mStaff = pStaff;
+
+            CreateConnectionToDatabase();
+        }
+
+        private void CreateConnectionToDatabase()
+        {
             var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
-            this.connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+            this.mConnection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
@@ -34,22 +52,30 @@ namespace MySupervisn_Team1
             if (MainBody.Text != null)
             {
                 SqlCommand insert = new SqlCommand("Insert into Messages(body, Subject) Values('" + MainBody.Text + "', '" + Subject.Text + "')", connection);
-                connection.Open();
+                mConnection.Open();
                 insert.ExecuteNonQuery();
 
                 MessageBox.Show("Message saved and sent");
 
-                connection.Close();
+                mConnection.Close();
             }
-
             //insert.Connection = connection;
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            StudentDashboard studentDashboardWindow = new StudentDashboard();
-            studentDashboardWindow.Show();
+
+            if (mStudent != null)
+            {
+                StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
+                studentDashboardWindow.Show();
+            }
+            else
+            {
+                StaffDashboard staffDashboardWindow = new StaffDashboard(mStaff);
+                staffDashboardWindow.Show();
+            }
         }
     }
 }

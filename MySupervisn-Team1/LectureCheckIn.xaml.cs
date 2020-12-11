@@ -19,16 +19,18 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class LectureCheckIn : Window
     {
-        public LectureCheckIn()
+        private Student mStudent;
+        public LectureCheckIn(Student pStudent)
         {
             InitializeComponent();
-        }
 
+            mStudent = pStudent;
+        }
+      
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            StudentDashboard studentDashboardWindow = new StudentDashboard();
-            studentDashboardWindow.Show();
+                StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
+                studentDashboardWindow.Show();
         }
     }
 }

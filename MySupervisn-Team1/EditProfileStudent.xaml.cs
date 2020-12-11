@@ -11,22 +11,15 @@ namespace MySupervisn_Team1
 {
     public partial class EditProfileStudent : Window
     {
-
-        Student temp; // ...
+        private Student mStudent;
         public EditProfileStudent(Student student)
         {
             InitializeComponent();
 
-            temp = student;
+            mStudent = student;
 
-            LblStdName.Content = temp.Name;
-            LblStdID.Content += " "+ temp.IdNumber;
-        }
-
-        private void GoBack_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-            
+            LblStdName.Content = mStudent.Name;
+            LblStdID.Content += " "+ mStudent.IdNumber;
         }
             
         private void BtnChangeName_Click(object sender, RoutedEventArgs e)
@@ -35,7 +28,7 @@ namespace MySupervisn_Team1
             //"Kunle, edit the database"
             //"???"
 
-            //TODO (If we have time): Refactor so all of this in the DatabaseManager class;
+            //TO DO (If we have time): Refactor so all of this in the DatabaseManager class;
 
             SqlConnection connection = new SqlConnection();
             var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
@@ -52,9 +45,8 @@ namespace MySupervisn_Team1
             update.Parameters.Add("@LN", System.Data.SqlDbType.VarChar);
             update.Parameters["@LN"].Value = tLastName;
             update.Parameters.Add("@ID", System.Data.SqlDbType.Int);
-            update.Parameters["@ID"].Value = temp.IdNumber;
+            update.Parameters["@ID"].Value = mStudent.IdNumber;
                 
-
             try
             {
                 int rowsAffected = update.ExecuteNonQuery();
@@ -64,7 +56,14 @@ namespace MySupervisn_Team1
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
 
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+
+            StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
+            studentDashboardWindow.Show();
         }
 
     }
