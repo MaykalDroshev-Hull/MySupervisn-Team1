@@ -20,16 +20,35 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class BookMeeting : Window
     {
-        public BookMeeting()
+        private Student mStudent;
+        private Staff mStaff;
+
+        public BookMeeting(Student pStudent)
         {
             InitializeComponent();
+
+            mStudent = pStudent;
+        }
+        public BookMeeting(Staff pStaff)
+        {
+            InitializeComponent();
+
+            mStaff = pStaff;
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            StudentDashboard studentDashboardWindow = new StudentDashboard();
-            studentDashboardWindow.Show();
+            if(mStudent != null)
+            {
+                StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
+                studentDashboardWindow.Show();
+            }
+            else
+            {
+                StaffDashboard staffDashboardWindow = new StaffDashboard(mStaff);
+                staffDashboardWindow.Show();
+            }
         }
     }
 }

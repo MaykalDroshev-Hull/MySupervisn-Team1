@@ -241,6 +241,8 @@
   <ItemGroup>
     <Folder Include="Windows\" />
   </ItemGroup>
+<<<<<<< HEAD
+=======
   <ItemGroup>
     <Content Include="DataBase\Users.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -250,6 +252,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+>>>>>>> master
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
