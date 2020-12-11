@@ -12,7 +12,7 @@ namespace MySupervisn_Team1
     public partial class EditProfileStudent : Window
     {
         private Student mStudent;
-        private Staff mStaff;
+       
         Student temp; // ...
 
 
@@ -22,28 +22,15 @@ namespace MySupervisn_Team1
 
             mStudent = pStudent;
             temp = student;
-        }
-        public EditProfileStudent(Staff pStaff)
-        {
-            InitializeComponent();
-
-            mStaff = pStaff;
-        }   
+        } 
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
             // test
             Close();
-            if (mStudent != null)
-            {
-                StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
-                studentDashboardWindow.Show();
-            }
-            else
-            {
-                StaffDashboard staffDashboardWindow = new StaffDashboard(mStaff);
-                staffDashboardWindow.Show();
-            }
+
+            StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
+            studentDashboardWindow.Show();
         }
             
         private void BtnChangeName_Click(object sender, RoutedEventArgs e)
