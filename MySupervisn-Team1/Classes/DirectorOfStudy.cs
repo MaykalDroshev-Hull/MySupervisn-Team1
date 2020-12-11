@@ -8,14 +8,14 @@ namespace MySupervisn_Team1
 {
     public class DirectorOfStudy: Staff
     {
-        public DirectorOfStudy(int pIdNumber, string pName) : base(pIdNumber, pName)
+        public DirectorOfStudy(int pIdNumber, string pName, string pRole) : base(pIdNumber, pName, pRole)
         {
-            Role = "Director of Study";
+            Role = pRole;
             IdNumber = pIdNumber;
             Name = pName;
         }
 
-        public dynamic GenerateOverview()//
+        public dynamic GenerateOverview()
         {
             throw new NotImplementedException();
         }
