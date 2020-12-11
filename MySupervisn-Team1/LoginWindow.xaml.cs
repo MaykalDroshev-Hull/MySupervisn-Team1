@@ -24,6 +24,8 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class LoginWindow : Window
     {
+        SqlConnection mConnection = DatabaseManager.CreateConnectionToDatabase();
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -35,17 +37,15 @@ namespace MySupervisn_Team1
             string username = Username.Text;
             string password = Password.Password;
 
-            SqlConnection connection = new SqlConnection();
-            var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
-            connection.Open();
+            //var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
+            //mConnection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
 
+            mConnection.Open();
             SqlCommand search = new SqlCommand();
-
             search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Users_]";
-            search.Connection = connection; 
+            search.Connection = mConnection; 
             SqlDataReader reader = search.ExecuteReader();
-            string Classification = ""; 
+            string classification = ""; 
             while (reader.Read())
             {
                 if (reader[0].ToString() == username)
@@ -53,7 +53,7 @@ namespace MySupervisn_Team1
                     username_match = true;
                     if (reader[1].ToString() == password)
                     {
-                        userRole = reader[2].ToString();
+                        classification = reader[2].ToString();
                         password_match = true;
                         break;
                     }
@@ -68,7 +68,7 @@ namespace MySupervisn_Team1
                 string lastName = reader[4].ToString();
                 string userName = firstName + " " + lastName;
 
-                switch (Classification)
+                switch (classification)
                 {
                     case "Student":
                         this.Hide();
@@ -116,19 +116,19 @@ namespace MySupervisn_Team1
                         break;
                     case "Student Hub":
                         this.Hide();
-                        StudentHub studentHub = new StudentHub(userId, userName, Classification);
+                        StudentHub studentHub = new StudentHub(userId, userName, classification);
                         StaffDashboard staffDashboard = new StaffDashboard(studentHub);
                         staffDashboard.Show();
                         break;
                     case "Personal Supervisor":
                         this.Hide();
-                        Supervisor supervisor = new Supervisor(userId, userName, Classification);
-                        StaffDashboard staffDashboard_PS = new StaffDashboard(supervisor);
+                        PersonalSupervisor personalSupervisor = new PersonalSupervisor(userId, userName, classification);
+                        StaffDashboard staffDashboard_PS = new StaffDashboard(personalSupervisor);
                         staffDashboard_PS.Show();                      
                         break;
                     case "Director of Study":
                         this.Hide();
-                        DirectorOfStudy director = new DirectorOfStudy(userId, userName, Classification);
+                        DirectorOfStudy director = new DirectorOfStudy(userId, userName, classification);
                         StaffDashboard staffDashboard_DoS = new StaffDashboard(director);
                         staffDashboard_DoS.Show();
                         break;
