@@ -19,20 +19,20 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Button Content="Add User" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Width="75"/>
-        <Label Content="Name" HorizontalAlignment="Left"  VerticalAlignment="Top"  Grid.Row="1"/>
-        <Label Content="Surname" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" />
-        <Label Content="Id-Number" HorizontalAlignment="Left"  Grid.Row="3" VerticalAlignment="Top" />
+        <Label Content="Name" HorizontalAlignment="Left" Margin="30 0 0 0"  VerticalAlignment="Top"  Grid.Row="1"/>
+        <Label Content="Surname" HorizontalAlignment="Left" Margin="30 0 0 0"  Grid.Row="2" VerticalAlignment="Top" />
+        <Label Content="Id-Number" HorizontalAlignment="Left" Margin="30 0 0 0"  Grid.Row="3" VerticalAlignment="Top" />
         <Label Content="Email" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" Grid.Column="1"/>
-        <Label Content="Supervisor(type N/A if the user is not a student)" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Column="1"/>
+        <!--<Label Content="Supervisor(type N/A if the user is not a student)" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Column="1"/>-->
         <Label Content="Classification" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Grid.Column="1"/>
-        <Label Content="Password" HorizontalAlignment="Left"  Grid.Row="3" VerticalAlignment="Top"  Grid.Column="1" />
-        <Label Content="Add/Delete User" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Height="23"  Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23"  Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23"  Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23"  Grid.Row="0" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="120" Grid.Column="1"/>
+        <!--<Label Content="Password" HorizontalAlignment="Left"  Grid.Row="3" VerticalAlignment="Top"  Grid.Column="1" />-->
+        <Label Content="Add/Delete User" HorizontalAlignment="Left" Margin="30 0 0 0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <TextBox HorizontalAlignment="Left" Margin="30 0 0 0" Height="23"  Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="30 0 0 0" Height="23"  Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="30 0 0 0" Height="23"  Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="120"/>
+        <!--<TextBox HorizontalAlignment="Left" Height="23"  Grid.Row="0" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="120" Grid.Column="1"/>-->
         <TextBox HorizontalAlignment="Left" Height="23"  Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="120" Grid.Column="1"/>
-        <TextBox HorizontalAlignment="Left" Height="23"  Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="120" Grid.Column="1"/>
+        <!--<TextBox HorizontalAlignment="Left" Height="23"  Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="120" Grid.Column="1"/>-->
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <RadioButton x:Name="student" Content="Student" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Bottom"/>
             <RadioButton x:Name="supervisor" Content="Supervisor" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Bottom"/>

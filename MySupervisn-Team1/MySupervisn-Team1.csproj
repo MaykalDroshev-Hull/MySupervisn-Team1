@@ -101,6 +101,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddDeleteUserWindow_Different.xaml.cs">
+      <DependentUpon>AddDeleteUserWindow_Different.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddDELETEUserWindow.xaml.cs">
       <DependentUpon>AddDELETEUserWindow.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
     <Compile Include="StudentSearch.xaml.cs">
       <DependentUpon>StudentSearch.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddDeleteUserWindow_Different.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AddDELETEUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
