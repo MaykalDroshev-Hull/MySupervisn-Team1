@@ -122,7 +122,8 @@ namespace MySupervisn_Team1
         private void AddDelete_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            AddUserWindow userWindow = new AddUserWindow();
+            //AddUserWindow userWindow = new AddUserWindow();
+            AddDeleteUserWindow userWindow = new AddDeleteUserWindow();
             userWindow.Show();
         }
 
