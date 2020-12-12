@@ -11,7 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.IO;
+using System.Data.SqlClient;
 namespace MySupervisn_Team1
 {
     /// <summary>
@@ -92,7 +93,30 @@ namespace MySupervisn_Team1
         }
         private void GenerateOverview_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            using (FileStream fileStream = new FileStream("report.txt",FileMode.CreateNew))
+            {
+                using (StreamWriter writer = new StreamWriter(fileStream))
+                {
+                    writer.WriteLine("Student Report");
+
+                    SqlConnection connection = new SqlConnection();
+                    var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
+                    connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+                    connection.Open();
+
+                    SqlCommand search = new SqlCommand();
+                    search.CommandText = " select User_Id, password, Classification, FirstName, LastName, email, password, Supervisor from[Users_]";
+                    search.Connection = connection;
+                    SqlDataReader reader = search.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        writer.WriteLine($"Id={reader[0]} password={reader[1]} classification={reader[2]} Name={reader[3]} {reader[4]} Email:{reader[5]} Supervisor:{reader[7]}");
+                    }
+                    writer.WriteLine("End of Document");
+
+                }
+            }
         }
 
         private void AddDelete_Click(object sender, RoutedEventArgs e)
