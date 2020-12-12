@@ -24,7 +24,7 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class LoginWindow : Window
     {
-        SqlConnection mConnection = DatabaseManager.CreateConnectionToDatabase();
+        private SqlConnection mConnection = DatabaseManager.CreateConnectionToDatabase();
 
         public LoginWindow()
         {
