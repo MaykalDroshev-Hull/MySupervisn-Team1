@@ -95,14 +95,14 @@ namespace MySupervisn_Team1
 
                         this.Hide();
                         PersonalSupervisor personalSupervisor = new PersonalSupervisor(userId, userName, classification);
-                        StaffDashboard staffDashboard_PS = new StaffDashboard(personalSupervisor);
+                        StaffDashboard staffDashboard_PS = new StaffDashboard(personalSupervisor,messages);
                         staffDashboard_PS.Show();                      
                         break;
 
                     case "Director of Study":
                         this.Hide();
                         DirectorOfStudy director = new DirectorOfStudy(userId, userName, classification);
-                        StaffDashboard staffDashboard_DoS = new StaffDashboard(director);
+                        StaffDashboard staffDashboard_DoS = new StaffDashboard(director,messages);
                         staffDashboard_DoS.Show();
                         break;
                 }

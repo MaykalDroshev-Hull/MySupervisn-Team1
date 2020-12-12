@@ -76,7 +76,7 @@
         </Grid>
 
         <Button Content="Add User" Grid.Column="1" HorizontalAlignment="Left" Margin="160,0,0,0"  Grid.Row="4" VerticalAlignment="Center" Width="75" Click="Add_Click"/>
-        <Button Content="Delete User" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,160,0" Grid.Row="4" VerticalAlignment="Center" Width="75" Click="Delete_Click" />
+        <Button Content="Delete User" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,160,0" Grid.Row="4" VerticalAlignment="Center" Width="75"  />
 
 
 

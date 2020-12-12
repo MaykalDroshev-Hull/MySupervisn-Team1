@@ -29,12 +29,13 @@ namespace MySupervisn_Team1
         }
 
         public StaffDashboard(Staff pStaff,List<Message> messages)
-        {
+        { 
+            InitializeComponent();
             messages1 = messages;
             MessageInbox.Items.Add("1." + messages[0].Subject + " \n " + messages[0].Body);
             mStaff = pStaff;
 
-            InitializeComponent();
+           
             StaffName.Content = "Name: " + pStaff.Name;
             StaffRole.Content = "Role: " + pStaff.Role;
             switch (mStaff.Role)
