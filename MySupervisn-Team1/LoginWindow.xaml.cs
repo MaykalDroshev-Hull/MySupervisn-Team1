@@ -114,7 +114,17 @@ namespace MySupervisn_Team1
             
             }
         }
+        private void DataWindow_Closing(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
 
-        
+        private void Username_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.Tab))
+            {
+                Password.Focus();
+            }
+        }
     }
 }

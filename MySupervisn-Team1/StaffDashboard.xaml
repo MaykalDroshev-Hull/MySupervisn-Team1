@@ -36,7 +36,9 @@
         </DockPanel>
         <Label Name="StaffName" Content="[Staff Name]" Grid.Column="0" HorizontalAlignment="Right"/>
         <Label Name="StaffRole" Content="[Staff Role]" Grid.Column="2" HorizontalAlignment="Right" FontWeight="Bold"/>
-        <Border BorderBrush="Black" Grid.Column="0" Grid.Row="1" BorderThickness="1"/>
+        <Border BorderBrush="Black" Grid.Column="0" Grid.Row="1" BorderThickness="1">
+            <Button Content="Inbox" HorizontalAlignment="Right" Name="Inbox" Click="Inbox_Click_1" Height="20" Width="40"/>
+        </Border>
         <Border BorderBrush="Black" Grid.Column="1" Grid.Row="1" BorderThickness="1"/>
 
         <Label Content="Messages:" HorizontalAlignment="Left" Margin="10,5.6,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="67"/>
@@ -44,7 +46,7 @@
         <Calendar Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="166" Width="178"/>
         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="2"/>
         <StackPanel HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" >
-            <ListBox x:Name="MessageInbox" Width="196" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox x:Name="MessageInbox" Width="196">
             </ListBox>
         </StackPanel>
         <Button Name="SearchStudent" Content="Search for student" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Click="SearchStudent_Click"/>

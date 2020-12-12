@@ -13,6 +13,7 @@ namespace MySupervisn_Team1
             Role = pRole;
             IdNumber = pIdNumber;
             Name = pName;
+            
         }
 
         public void DeleteMessage()

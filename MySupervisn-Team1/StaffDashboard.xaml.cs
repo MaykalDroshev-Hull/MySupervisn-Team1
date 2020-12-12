@@ -52,29 +52,7 @@ namespace MySupervisn_Team1
             }
             
         }
-        public StaffDashboard(Staff pStaff)
-        {
-           
-            MessageInbox.Items.Add("1." + messages1[0].Subject + " \n " + messages1[0].Body);//not the best solution
-            mStaff = pStaff;
-
-            InitializeComponent();
-            StaffName.Content = "Name: " + pStaff.Name;
-            StaffRole.Content = "Role: " + pStaff.Role;
-            switch (mStaff.Role)
-            {
-                case "Student Hub":
-                    ShowStudentHubControls();
-                    break;
-                case "Personal Supervisor":
-                    ShowSupervisorControls();
-                    break;
-                case "Director of Study":
-                    ShowDirectorControls();
-                    break;
-            }
-
-        }
+        
 
         private void ShowStudentHubControls()
         {
@@ -94,30 +72,33 @@ namespace MySupervisn_Team1
         }
         private void GenerateOverview_Click(object sender, RoutedEventArgs e)
         {
-            using (FileStream fileStream = new FileStream("report.txt",FileMode.CreateNew))
+            if (File.Exists("Report.txt")) { File.Delete("Report.txt"); }
+            using (FileStream fileStream = new FileStream("Report.txt",FileMode.Create))
             {
+              
                 using (StreamWriter writer = new StreamWriter(fileStream))
                 {
-                    writer.WriteLine("Student Report");
-
+                    writer.WriteLine($"Student Report. Created at {DateTime.Now}");
+                    
                     SqlConnection connection = new SqlConnection();
                     var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
                     connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
                     connection.Open();
 
                     SqlCommand search = new SqlCommand();
-                    search.CommandText = " select User_Id, password, Classification, FirstName, LastName, email, password, Supervisor from[Users_]";
+                    search.CommandText = " select Classification, FirstName, LastName, email, Supervisor from[Users_] where Classification!='Director of Study'";
                     search.Connection = connection;
                     SqlDataReader reader = search.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        writer.WriteLine($"Id={reader[0]} password={reader[1]} classification={reader[2]} Name={reader[3]} {reader[4]} Email:{reader[5]} Supervisor:{reader[7]}");
+                        writer.WriteLine($"Classification: {reader[0]} Name: {reader[1]} {reader[2]} Email: {reader[3]} Supervisor: {reader[4]}");
                     }
                     writer.WriteLine("End of Document");
 
                 }
             }
+            MessageBox.Show("Report Generated", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void AddDelete_Click(object sender, RoutedEventArgs e)
@@ -130,9 +111,9 @@ namespace MySupervisn_Team1
 
         private void Inbox_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
+           
 
-            Inbox inbox = new Inbox(mStaff);
+            Inbox inbox = new Inbox(mStaff,messages1);
             inbox.Show();
         }
 
@@ -152,6 +133,13 @@ namespace MySupervisn_Team1
             Close();
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
+        }
+
+        private void Inbox_Click_1(object sender, RoutedEventArgs e)
+        {
+            Close();
+            Inbox inboxWindow = new Inbox(mStaff,messages1);
+            inboxWindow.Show();
         }
     }
 }

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MySupervisn_Team1"
         mc:Ignorable="d"
+        Closing="DataWindow_Closing"  
         Icon="Visuals/icon.png"
         Title="Login" Height="438.989" Width="273.892">
     <Grid>
@@ -26,9 +27,9 @@
 
         <Image Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="181" Source="Visuals/Logo.png"/>
         <Label Grid.Row="1" Grid.Column="0" Content="User ID" HorizontalAlignment="Right"  VerticalAlignment="Center" FontWeight="Bold" Height="23"/>
-        <PasswordBox Name="Password" Grid.Row="2" Grid.Column="1"  HorizontalAlignment="Left"  VerticalAlignment="Center" Width="118" Height="23"/>
+        <PasswordBox Name="Password" Grid.Row="2" Grid.Column="1"  HorizontalAlignment="Left"  VerticalAlignment="Center" Width="118" Height="23" />
 
-        <TextBox  Name="Username" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="118"/>
+        <TextBox  Name="Username" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="118" KeyDown="Username_KeyDown"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Password:" HorizontalAlignment="Right"  VerticalAlignment="Center" FontWeight="Bold"/>
 
         <Button Grid.Row="4" Grid.Column="1" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="25" Click="Login_Click"/>

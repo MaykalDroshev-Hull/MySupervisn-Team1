@@ -19,7 +19,7 @@
         <Label Content="Messages" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
         <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" Grid.Row="1">
             <StackPanel>
-                <ListBox Height="100">
+                <ListBox x:Name="Messages" Height="100">
                 </ListBox>
             </StackPanel>
         </Border>
@@ -33,7 +33,7 @@
             <TextBox Name="MainBody" Width="350" Height="200" HorizontalAlignment="Left" Margin="10"/>
             <StackPanel Orientation="Horizontal">
                 <Button Name="SendButton" Content="Send" Width="50" HorizontalAlignment="Left" Margin="5" Click="Send_Click"/>
-                <Button Name="Clear" Content="Clear" Width="50" HorizontalAlignment="Left" Margin="5"/>
+                <Button Name="Clear" Content="Clear" Width="50" HorizontalAlignment="Left" Margin="5" Click="Clear_Click"/>
                 <Button Name="GoBack" Content="Go Back" IsEnabled="true" Margin="135,5,20,5"  Width="100" Click="GoBack_Click" />
             </StackPanel>
         </StackPanel>

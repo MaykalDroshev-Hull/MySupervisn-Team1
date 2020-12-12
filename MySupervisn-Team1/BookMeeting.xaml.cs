@@ -46,7 +46,7 @@ namespace MySupervisn_Team1
             }
             else
             {
-                StaffDashboard staffDashboardWindow = new StaffDashboard(mStaff);
+                StaffDashboard staffDashboardWindow = new StaffDashboard(mStaff,null);
                 staffDashboardWindow.Show();
             }
         }

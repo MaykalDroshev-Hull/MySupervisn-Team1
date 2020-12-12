@@ -54,7 +54,7 @@ namespace MySupervisn_Team1
         private void Inbox_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            Inbox inboxWindow = new Inbox(mStudent);
+            Inbox inboxWindow = new Inbox(mStudent,mStudent.mMessages);
             inboxWindow.Show();
         }
 

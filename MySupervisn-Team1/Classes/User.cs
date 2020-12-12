@@ -12,7 +12,7 @@ namespace MySupervisn_Team1
         private string mRole;
         private int mIdNumber;
         private string mName;
-        private List<string> _Notifications;
+        private List<Message> _Notifications;
         private string _Password;
 
         public string Role { set { mRole = value; }get{return mRole; } }

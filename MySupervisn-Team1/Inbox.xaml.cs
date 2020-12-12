@@ -25,43 +25,71 @@ namespace MySupervisn_Team1
         private Staff mStaff;
         private Student mStudent;
 
+
+        public List<Message> Messages1
+        {
+            get;
+            set;
+        }
+
         private int mId;
         private string mSender;
 
-        public Inbox(Student pStudent)
+        public Inbox(Student pStudent, List<Message> messages)
         {
             InitializeComponent();
-
+            Messages1 = messages;
             mStudent = pStudent;
             mId = pStudent.IdNumber;
             mSender = pStudent.Name;
+            Messages.Items.Add($"Subject: {messages[0].Subject} \n Body:{messages[0].Body}");
         }
-        public Inbox(Staff pStaff)
+        public Inbox(Staff pStaff, List<Message> messages)
         {
             InitializeComponent();
-       
+            Messages1 = messages;
             mStaff = pStaff;
             mId = pStaff.IdNumber;
             mSender = pStaff.Name;
+            Messages.Items.Add($"Subject: {messages[0].Subject} \n Body:{messages[0].Body}");
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
-            if (MainBody.Text != null)
+            if (MainBody.Text != string.Empty||Subject.Text!=string.Empty|| Receiver.Text!=string.Empty)
             {
-                DateTime nowTime = new DateTime();
 
+                mId = 8;
                 mConnection.Open();
-                SqlCommand insert = new SqlCommand("INSERT into Message(Id, Sender, Receiver, Subject, Date, Body) Values('" + mId + "', '" + mSender + "', '"+ Receiver.Text + "', '" + Subject.Text + "', '"+ nowTime +"', '" + MainBody.Text + "')", mConnection);
-                insert.ExecuteNonQuery();
+                using (mConnection)
+                {
+                    string query = "INSERT INTO Message (Id, Sender, Receiver, Subject, Date, Body) VALUES (@id,@sender,@receiver,@subject,GETDATE(),@body)";
+                    using (SqlCommand command = new SqlCommand(query, mConnection))
+                    {
+                        command.Parameters.AddWithValue("@id", mId.ToString());
+                        command.Parameters.AddWithValue("@sender", mSender.ToString());
+                        command.Parameters.AddWithValue("@receiver", Receiver.Text);
+                        command.Parameters.AddWithValue("@subject", Subject.Text);
+                        command.Parameters.AddWithValue("@body", MainBody.Text);
 
-                MessageBox.Show("Message saved and sent");
+                        int result = command.ExecuteNonQuery();
+
+                        if (result < 0)
+                        {
+                            Console.WriteLine("Error inserting data into Database!");
+                        }
+                    }
+                }
                 Receiver.Clear();
                 Subject.Clear();
                 MainBody.Clear();
 
                 mConnection.Close();
+                MessageBox.Show("Message saved and sent");
             }
+            else { MessageBox.Show("Empty field detected,please fill in everything"); }
+               
+              
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
@@ -75,9 +103,16 @@ namespace MySupervisn_Team1
             }
             else
             {
-                StaffDashboard staffDashboardWindow = new StaffDashboard(mStaff);
+                StaffDashboard staffDashboardWindow = new StaffDashboard(mStaff, Messages1);
                 staffDashboardWindow.Show();
             }
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            Subject.Text = "";
+            Receiver.Text = "";
+            MainBody.Text = "";
         }
     }
 }

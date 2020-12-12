@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using System.Configuration;
 
 namespace MySupervisn_Team1
 {
@@ -19,17 +22,59 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class StudentSearch : Window
     {
+        private SqlConnection mConnection = DatabaseManager.CreateConnectionToDatabase();
         private StaffDashboard Dashboard { get; set; }
         public StudentSearch(StaffDashboard dashboard)
         {
             Dashboard = dashboard;
             InitializeComponent();
+
+            ShowAll();
+           
         }
 
         private void ReturnToDashboard_Click(object sender, RoutedEventArgs e)
         {
             Close();
             Dashboard.Show();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            if (Name.Text == string.Empty)
+            {
+                ShowAll();
+            }
+            else
+            {
+                mConnection.Close();
+                mConnection.Open();
+                SqlCommand search = new SqlCommand();
+
+                search.CommandText = "select User_Id, Classification, FirstName, LastName,email,Supervisor from [Users_] where Classification='Student' and FirstName=@name";
+                search.Parameters.AddWithValue("@name", Name.Text);
+                search.Connection = mConnection;
+                SqlDataReader reader = search.ExecuteReader();
+
+                Students.ItemsSource = reader;
+            }
+        }
+        private void ShowAll()
+        {
+            mConnection.Close();
+            mConnection.Open();
+            SqlCommand search = new SqlCommand();
+
+            search.CommandText = "select User_Id, Classification, FirstName, LastName,email,Supervisor from [Users_] where Classification='Student'";
+            search.Connection = mConnection;
+            SqlDataReader reader = search.ExecuteReader();
+
+            Students.ItemsSource = reader;
         }
     }
 }
