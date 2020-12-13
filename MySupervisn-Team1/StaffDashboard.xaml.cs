@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.Data.SqlClient;
+using System.Windows;
+using Microsoft.Win32;
 namespace MySupervisn_Team1
 {
     /// <summary>
@@ -70,15 +72,18 @@ namespace MySupervisn_Team1
             AddDeleteUsers.Visibility = Visibility.Hidden;
             GenerateOverview.Visibility = Visibility.Visible;
         }
+        /*private void btnSaveFile_Click(object sender, RoutedEventArgs e)
+		{
+			SaveFileDialog saveFileDialog = new SaveFileDialog();
+			if(saveFileDialog.ShowDialog() == true)
+				File.WriteAllText(saveFileDialog.FileName, txtEditor.Text);
+		}*/
         private void GenerateOverview_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists("Report.txt")) { File.Delete("Report.txt"); }
-            using (FileStream fileStream = new FileStream("Report.txt",FileMode.Create))
-            {
-              
-                using (StreamWriter writer = new StreamWriter(fileStream))
-                {
-                    writer.WriteLine($"Student Report. Created at {DateTime.Now}");
+            
+            string report = "";
+         
+                    report+=($"Student Report. Created at {DateTime.Now}\n");
 
                     SqlConnection connection = DatabaseManager.CreateConnectionToDatabase();
                     
@@ -91,14 +96,20 @@ namespace MySupervisn_Team1
 
                     while (reader.Read())
                     {
-                        writer.WriteLine($"Classification: {reader[0]} Name: {reader[1]} {reader[2]} Email: {reader[3]} Supervisor: {reader[4]}");
+                        report+=($"Classification: {reader[0]} Name: {reader[1]} {reader[2]} Email: {reader[3]} Supervisor: {reader[4]}\n");
                     }
-                    writer.WriteLine("End of Document");
+                    report+=("End of Document\n");
 
-                }
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text file (*.txt)|*.txt|C# file (*.cs)|*.cs";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                File.WriteAllText(saveFileDialog.FileName, report);
+                MessageBox.Show("Report Generated", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            MessageBox.Show("Report Generated", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+           
+        
 
         private void AddDelete_Click(object sender, RoutedEventArgs e)
         {
