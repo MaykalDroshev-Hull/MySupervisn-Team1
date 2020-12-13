@@ -29,7 +29,7 @@
         <Label Grid.Row="1" Grid.Column="0" Content="User ID" HorizontalAlignment="Right"  VerticalAlignment="Center" FontWeight="Bold" Height="23"/>
         <PasswordBox Name="Password" Grid.Row="2" Grid.Column="1"  HorizontalAlignment="Left"  VerticalAlignment="Center" Width="118" Height="23" />
 
-        <TextBox  Name="Username" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="118" KeyDown="Username_KeyDown"/>
+        <TextBox  Name="Username" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="118" />
         <Label Grid.Row="2" Grid.Column="0" Content="Password:" HorizontalAlignment="Right"  VerticalAlignment="Center" FontWeight="Bold"/>
 
         <Button Grid.Row="4" Grid.Column="1" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="25" Click="Login_Click"/>

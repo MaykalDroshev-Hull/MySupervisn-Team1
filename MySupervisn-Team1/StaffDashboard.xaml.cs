@@ -141,5 +141,11 @@ namespace MySupervisn_Team1
             Inbox inboxWindow = new Inbox(mStaff,messages1);
             inboxWindow.Show();
         }
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            EditProfileStudent editProfile = new EditProfileStudent(mStaff);
+            editProfile.Show();
+        }
     }
 }

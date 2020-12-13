@@ -55,6 +55,7 @@ namespace MySupervisn_Team1
         }
         public Inbox(Staff staff, string receiver)
         {
+            mStaff = staff;
             InitializeComponent();
             try
             {
@@ -118,7 +119,7 @@ namespace MySupervisn_Team1
             }
             else
             {
-                StaffDashboard staffDashboardWindow = new StaffDashboard(mStaff, Messages1);
+                StaffDashboard staffDashboardWindow = new StaffDashboard(mStaff, mStaff.messages1);
                 staffDashboardWindow.Show();
             }
         }

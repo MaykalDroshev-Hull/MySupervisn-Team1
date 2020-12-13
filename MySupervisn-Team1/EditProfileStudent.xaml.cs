@@ -12,6 +12,7 @@ namespace MySupervisn_Team1
     public partial class EditProfileStudent : Window
     {
         private Student mStudent;
+        private Staff staff;
 
         public EditProfileStudent(Student student)
         {
@@ -20,16 +21,37 @@ namespace MySupervisn_Team1
             mStudent = student;
 
             LblStdName.Content = mStudent.Name;
-            LblStdID.Content += " "+ mStudent.IdNumber;
+            LblStdID.Content = "ID: "+ mStudent.IdNumber;
+            LblStdName.Content = "Name: " + student.Name;
+            string email = student.Name.ToLower();
+            string[] namearr = email.Split(' ');
+            email = "";
+            email += namearr[0];
+            email += namearr[1];
+            email += "@hull.ac.uk";
+
+            Email.Content = "email: " + email;
         }
-            
+        public EditProfileStudent(Staff pStaff)
+        {
+            InitializeComponent();
+
+            this.staff = pStaff;
+
+            LblStdName.Content = pStaff.Name;
+            LblStdID.Content += "ID: " + pStaff.IdNumber;
+            LblStdName.Content = "Name: " + pStaff.Name;
+            string email = pStaff.Name.ToLower();
+            string[] namearr = email.Split(' ');
+            email = "";
+            email += namearr[0];
+            email += namearr[1];
+            email += "@hull.ac.uk";
+        }
+
         private void BtnChangeName_Click(object sender, RoutedEventArgs e)
         {
-            //"I'll work on the staff dashboard"
-            //"Kunle, edit the database"
-            //"???"
-
-            //TO DO (If we have time): Refactor so all of this in the DatabaseManager class;
+          
 
             SqlConnection connection = new SqlConnection();
             var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
@@ -63,8 +85,16 @@ namespace MySupervisn_Team1
         {
             Close();
 
+            if (mStudent.Equals(null))
+            {
+                StaffDashboard staffDashboard = new StaffDashboard(staff, staff.messages1);
+                staffDashboard.Show();
+            }
+            //if it is staff this should be null and goto catch block
             StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
             studentDashboardWindow.Show();
+            
+            
         }
 
     }

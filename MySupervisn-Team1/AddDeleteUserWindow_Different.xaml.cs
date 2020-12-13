@@ -48,20 +48,43 @@ namespace MySupervisn_Team1
 
             mConnection.Close();
         }
+        /*System.Data.SqlClient.SqlConnection sqlConnection1 = 
+    new System.Data.SqlClient.SqlConnection("YOUR CONNECTION STRING");
 
+System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
+cmd.CommandType = System.Data.CommandType.Text;
+cmd.CommandText = "INSERT Region (RegionID, RegionDescription) VALUES (5, 'NorthWestern')";
+cmd.Connection = sqlConnection1;
+
+sqlConnection1.Open();
+cmd.ExecuteNonQuery();
+sqlConnection1.Close();
+        INSERT into Users_(User_Id, FirstName, LastName, email,password,Supervisor,Classification) Values('" + mId + "', '" + NameSplit[0] + "','" + NameSplit[1] + "','" + emailInput.Text + "','Team1','John Grey','Student')"*/
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             mId = int.Parse(idInput.Text);
             mName = nameInput.Text;
             mEmail = emailInput.Text;
 
+            
+            string[] NameSplit = mName.Split(' ');
+            SqlCommand insert = new SqlCommand();
+            insert.CommandType = System.Data.CommandType.Text;
+            insert.CommandText= "INSERT into Users_(User_Id, FirstName, LastName, email,[password],Supervisor,Classification) Values(5,'Maykal','Droshev','mdroshev@gmail.com','Team1','John Grey','Student')";
+            insert.Connection = mConnection;
             mConnection.Open();
-            SqlCommand insert = new SqlCommand("INSERT into Users_(User_Id, FirstName, LastName, email ) Values('" + mId + "', '" + mName + "', '" + mEmail + "')", mConnection);
-            insert.ExecuteNonQuery();
-
-            MessageBox.Show("User added"); // + user id number
+            try
+            {
+                insert.ExecuteNonQuery();
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
             mConnection.Close();
+            MessageBox.Show("User added"); // + user id number
+
+            
         }
 
         private void Delete_Click_1(object sender, RoutedEventArgs e)

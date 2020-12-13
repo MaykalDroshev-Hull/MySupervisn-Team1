@@ -36,7 +36,7 @@ namespace MySupervisn_Team1
         {
             string username = Username.Text;
             string password = Password.Password;
-
+           
             mConnection.Open();
             SqlCommand search = new SqlCommand();
             //search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Users_]";
@@ -113,18 +113,14 @@ namespace MySupervisn_Team1
                    InitializeComponent();
             
             }
+            mConnection.Close();
         }
         private void DataWindow_Closing(object sender, EventArgs e)
         {
+            mConnection.Close();
             Environment.Exit(1);
         }
 
-        private void Username_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (Keyboard.IsKeyDown(Key.Tab))
-            {
-                Password.Focus();
-            }
-        }
+      
     }
 }

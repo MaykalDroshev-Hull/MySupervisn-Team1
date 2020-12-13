@@ -44,7 +44,7 @@ namespace MySupervisn_Team1
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SendMessage.IsEnabled = true;
-            ViewProfile.IsEnabled = true;
+           
             CreateMeeting.IsEnabled = true;
         }
 
@@ -54,7 +54,7 @@ namespace MySupervisn_Team1
             {
                 ShowAll();
                 SendMessage.IsEnabled = false;
-                ViewProfile.IsEnabled = false;
+             
                 CreateMeeting.IsEnabled = false;
             }
             else
@@ -92,14 +92,25 @@ namespace MySupervisn_Team1
             inbox.Show();
                 }
 
-        private void CreateMeeting_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void ViewProfile_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        private void CreateMeeting_Click(object sender, RoutedEventArgs e)
+        {
+            IDataRecord student = (IDataRecord)Students.SelectedItems[0];
+            string Name = $"{student[2].ToString()} {student[3].ToString()}";
+            BookMeeting bookMeeting = new BookMeeting(staff, Name);
+            bookMeeting.Show();
+        }
+
+        private void Go_Back_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            StaffDashboard staffDashboard = new StaffDashboard(staff, staff.messages1);
+            staffDashboard.Show();
         }
     }
 }
