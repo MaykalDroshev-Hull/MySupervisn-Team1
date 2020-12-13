@@ -36,6 +36,12 @@ namespace MySupervisn_Team1
             mStaff = pStaff;
         }
 
+        public BookMeeting(Staff pStaff, string name) : this(pStaff)
+        {
+            InitializeComponent();
+            people.Text = ($"{pStaff.Name};{name}");
+        }
+
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
             Close();
