@@ -86,7 +86,7 @@ namespace MySupervisn_Team1
                     case "Student Hub":
 
                         this.Hide();
-                        StudentHub studentHub = new StudentHub(userId, userName, classification);
+                        StudentHub studentHub = new StudentHub(userId, userName, classification,messages);
                         StaffDashboard staffDashboard = new StaffDashboard(studentHub,messages);
                         staffDashboard.Show();
 
@@ -94,14 +94,14 @@ namespace MySupervisn_Team1
                     case "Personal Supervisor":
 
                         this.Hide();
-                        PersonalSupervisor personalSupervisor = new PersonalSupervisor(userId, userName, classification);
+                        PersonalSupervisor personalSupervisor = new PersonalSupervisor(userId, userName, classification, messages);
                         StaffDashboard staffDashboard_PS = new StaffDashboard(personalSupervisor,messages);
                         staffDashboard_PS.Show();                      
                         break;
 
                     case "Director of Study":
                         this.Hide();
-                        DirectorOfStudy director = new DirectorOfStudy(userId, userName, classification);
+                        DirectorOfStudy director = new DirectorOfStudy(userId, userName, classification, messages);
                         StaffDashboard staffDashboard_DoS = new StaffDashboard(director,messages);
                         staffDashboard_DoS.Show();
                         break;

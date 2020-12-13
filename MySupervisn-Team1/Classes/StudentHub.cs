@@ -9,11 +9,12 @@ namespace MySupervisn_Team1
     public class StudentHub : Staff
     {
         
-        public StudentHub(int pIdNumber, string pName, string pRole) : base(pIdNumber, pName, pRole)
+        public StudentHub(int pIdNumber, string pName, string pRole,List<Message> messages) : base(pIdNumber, pName, pRole,messages)
         {
             Role = pRole;
             IdNumber = pIdNumber;
             Name = pName;
+            this.messages1 = messages;
         }
         
         public void AssignStudentToPS(Student pStudent, PersonalSupervisor pPersonalSupervisor)

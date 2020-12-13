@@ -10,8 +10,9 @@ namespace MySupervisn_Team1
     {
         private List<Student> mStudents;
 
-        public PersonalSupervisor(int pIdNumber, string pName, string pRole) : base(pIdNumber, pName, pRole)
+        public PersonalSupervisor(int pIdNumber, string pName, string pRole,List<Message> messages) : base(pIdNumber, pName, pRole,messages)
         {
+            this.messages1 = messages;
             Role = pRole;
             IdNumber = pIdNumber;
             Name = pName;

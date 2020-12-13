@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Data;
 
 namespace MySupervisn_Team1
 {
@@ -22,13 +23,14 @@ namespace MySupervisn_Team1
     /// </summary>
     public partial class StudentSearch : Window
     {
+        public Staff staff;
         private SqlConnection mConnection = DatabaseManager.CreateConnectionToDatabase();
         private StaffDashboard Dashboard { get; set; }
-        public StudentSearch(StaffDashboard dashboard)
+        public StudentSearch(StaffDashboard dashboard,Staff staff)
         {
             Dashboard = dashboard;
             InitializeComponent();
-
+            this.staff = staff;
             ShowAll();
            
         }
@@ -80,6 +82,24 @@ namespace MySupervisn_Team1
             SqlDataReader reader = search.ExecuteReader();
 
             Students.ItemsSource = reader;
+        }
+
+        private void SendMessage_Click(object sender, RoutedEventArgs e)
+        {
+            IDataRecord student = (IDataRecord)Students.SelectedItems[0];
+            string Name = $"{student[2].ToString()} {student[3].ToString()}";
+            Inbox inbox = new Inbox(staff,Name);
+            inbox.Show();
+                }
+
+        private void CreateMeeting_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ViewProfile_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -53,6 +53,21 @@ namespace MySupervisn_Team1
             mSender = pStaff.Name;
             Messages.Items.Add($"Subject: {messages[0].Subject} \n Body:{messages[0].Body}");
         }
+        public Inbox(Staff staff, string receiver)
+        {
+            InitializeComponent();
+            try
+            {
+                Messages.Items.Add($"Subject: {staff.messages1[0].Subject} \n Body:{staff.messages1[0].Body}");
+            }
+            catch(System.NullReferenceException)
+            {
+                Messages.Items.Add("No messages to show");
+            }
+            
+            Receiver.Text = receiver;
+            Subject.Focus();
+        }
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {

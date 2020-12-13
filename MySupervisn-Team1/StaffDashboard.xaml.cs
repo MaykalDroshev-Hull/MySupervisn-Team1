@@ -125,7 +125,7 @@ namespace MySupervisn_Team1
         private void SearchStudent_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            StudentSearch studentSearch = new StudentSearch(this);
+            StudentSearch studentSearch = new StudentSearch(this,mStaff);
             studentSearch.Show();
         }
         public void LogOut_Click(object sender, RoutedEventArgs e)

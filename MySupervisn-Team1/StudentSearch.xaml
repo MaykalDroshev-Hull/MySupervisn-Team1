@@ -20,9 +20,9 @@
         </Grid.RowDefinitions>
         <TextBox  x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="268,14,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
         <Button Name="Search" Content="Search" Width="75" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="Search_Click" />
-        <Button x:Name="SendMessage" IsEnabled="False" Content="Send Message" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center" Width="auto" />
-        <Button x:Name="CreateMeeting"  IsEnabled="False" Content="Create Meeting" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="3" VerticalAlignment="Center" Width="auto"/>
-        <Button  x:Name="ViewProfile" IsEnabled="False" Content="View Profile" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="75"/>
+        <Button x:Name="SendMessage" IsEnabled="False" Content="Send Message" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center" Width="auto" Click="SendMessage_Click" />
+        <Button x:Name="CreateMeeting"  IsEnabled="False" Content="Create Meeting" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="3" VerticalAlignment="Center" Width="auto" Click="CreateMeeting_Click"/>
+        <Button  x:Name="ViewProfile" IsEnabled="False" Content="View Profile" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="75" Click="ViewProfile_Click"/>
         <Button Name="ReturnToDashboard" IsEnabled="True" Content="Return to dashboard" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Click="ReturnToDashboard_Click"/>
         <ListBox HorizontalAlignment="Left"  Grid.Row="1" Grid.RowSpan="4" Grid.Column="0" />
         <DataGrid AutoGenerateColumns="True" x:Name="Students" Grid.Row="1" Grid.RowSpan="4" SelectionChanged="DataGrid_SelectionChanged" />
