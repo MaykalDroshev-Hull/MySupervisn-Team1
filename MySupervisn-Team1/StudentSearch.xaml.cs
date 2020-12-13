@@ -41,7 +41,9 @@ namespace MySupervisn_Team1
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            SendMessage.IsEnabled = true;
+            ViewProfile.IsEnabled = true;
+            CreateMeeting.IsEnabled = true;
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
@@ -49,6 +51,9 @@ namespace MySupervisn_Team1
             if (Name.Text == string.Empty)
             {
                 ShowAll();
+                SendMessage.IsEnabled = false;
+                ViewProfile.IsEnabled = false;
+                CreateMeeting.IsEnabled = false;
             }
             else
             {
