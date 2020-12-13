@@ -121,6 +121,11 @@ namespace MySupervisn_Team1
         {
 
         }
+
+        private void Students_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            delete.IsEnabled = true;
+        }
     }
 }
 /*  mConnection.Close();

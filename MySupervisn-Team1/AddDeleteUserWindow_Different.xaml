@@ -34,8 +34,8 @@
                 <RowDefinition Height="1*"/>
 
             </Grid.RowDefinitions>
-            <Button Content="Add User" HorizontalAlignment="Center"  Grid.Row="4" VerticalAlignment="Center" Width="75" Click="Add_Click"/>
-            <Button Content="Delete User" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Width="75"  />
+            <Button x:Name="add" Content="Add User" HorizontalAlignment="Center"  Grid.Row="4" VerticalAlignment="Center" Width="75" Click="Add_Click"/>
+            <Button x:Name="delete" IsEnabled="False" Content="Delete User" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Width="75"  />
             <Label Content="First Name" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <Label Content="Last Name" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center"/>
             <Label Content="Email" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center"/>
@@ -70,7 +70,7 @@
             </Grid.RowDefinitions>
 
 
-            <DataGrid  AutoGenerateColumns="True" x:Name="Students" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" ItemsSource="{Binding}"  />
+            <DataGrid IsManipulationEnabled="False" SelectionChanged="Students_SelectionChanged" AutoGenerateColumns="True" x:Name="Students" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" ItemsSource="{Binding}"  />
 
             <!-- To Input user to delete or add-->
             <Label Content="Enter User to add or Delete" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Margin="0 0 0 0" VerticalAlignment="Top" FontWeight="Bold" FontSize="12"/>
@@ -78,7 +78,6 @@
         </Grid>
 
        
-        <Button Content="Save Table" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="75" Grid.Column="1" Click="Button_Click"  />
 
 
 
