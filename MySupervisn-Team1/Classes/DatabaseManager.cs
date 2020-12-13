@@ -31,7 +31,7 @@ namespace MySupervisn_Team1
         public static SqlConnection CreateConnectionToDatabase()
         {
             SqlConnection connection = new SqlConnection();
-            var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
+            var path = Environment.CurrentDirectory + @"\DataBase\Users-2.0.mdf";
             connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
 
             return connection;
