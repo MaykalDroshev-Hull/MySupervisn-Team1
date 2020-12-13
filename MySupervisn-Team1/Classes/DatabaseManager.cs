@@ -31,9 +31,9 @@ namespace MySupervisn_Team1
         public static SqlConnection CreateConnectionToDatabase()
         {
             SqlConnection connection = new SqlConnection();
-            var path = Environment.CurrentDirectory + @"\DataBase\Users-2.0.mdf";
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
-
+            //   var path = Environment.CurrentDirectory + @"\DataBase\Users-2.0.mdf";
+            //   connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\micha\Documents\GitHub\MySupervisn-Team1\MySupervisn-Team1\DataBase\Users-2.0.mdf;Integrated Security=True";
             return connection;
         }
 

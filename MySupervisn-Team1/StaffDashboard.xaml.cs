@@ -79,10 +79,9 @@ namespace MySupervisn_Team1
                 using (StreamWriter writer = new StreamWriter(fileStream))
                 {
                     writer.WriteLine($"Student Report. Created at {DateTime.Now}");
+
+                    SqlConnection connection = DatabaseManager.CreateConnectionToDatabase();
                     
-                    SqlConnection connection = new SqlConnection();
-                    var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
-                    connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
                     connection.Open();
 
                     SqlCommand search = new SqlCommand();
@@ -103,8 +102,8 @@ namespace MySupervisn_Team1
 
         private void AddDelete_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            //AddUserWindow userWindow = new AddUserWindow();
+            Close();
+            
             AddDeleteUserWindow userWindow = new AddDeleteUserWindow();
             userWindow.Show();
         }

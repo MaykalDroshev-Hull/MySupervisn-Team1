@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MySupervisn_Team1"
         mc:Ignorable="d"
-        Title="Add/Delete User" Height="400" Width="800" Icon="Visuals/icon.png">
-    <Grid Margin="11,0,0,0" >
+        Title="Add/Delete User" Height="400" Width="800" Icon="Visuals/icon.png" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:_Users_2_0DataSet x:Key="_Users_2_0DataSet"/>
+        <CollectionViewSource x:Key="users_ViewSource" Source="{Binding Users_, Source={StaticResource _Users_2_0DataSet}}"/>
+    </Window.Resources>
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
@@ -17,33 +21,32 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Label Content="Add/Delete User" Grid.Column="1" HorizontalAlignment="Left" Margin="30 0 0 0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
 
-        <Label Content="Select a Supervisor to output the students" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Margin="0, 50, 0, 0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11.5"/>
+            </Grid.RowDefinitions>
+            <Button Content="Add User" HorizontalAlignment="Center"  Grid.Row="4" VerticalAlignment="Center" Width="75" Click="Add_Click"/>
+            <Button Content="Delete User" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Width="75"  />
+            <Label Content="First Name" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="Last Name" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center"/>
+            <Label Content="Email" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center"/>
+            <Label Content="Supervisor" HorizontalAlignment="Center"  Grid.Row="3" VerticalAlignment="Center"/>
+            <TextBox  Name="FirstName" Grid.Column="1" HorizontalAlignment="Center" Width="95"  MaxWidth="300"  Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" />
 
-        <MenuItem Header="Personal Supervisors" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 80, 0, 40" Width="200" Height="30">
-            <ScrollViewer HorizontalScrollBarVisibility="Visible" Height="100">
-                <StackPanel>
-                    <MenuItem Header="Ps1"></MenuItem>
-                    <MenuItem Header="PS2"></MenuItem>
-                    <MenuItem Header="Ps3"></MenuItem>
-                    <MenuItem Header="Ps4"></MenuItem>
-                    <MenuItem Header="Ps5"></MenuItem>
-                    <MenuItem Header="Ps6"></MenuItem>
-                    <MenuItem Header="Ps7"></MenuItem>
-                    <MenuItem Header="Ps8"></MenuItem>
-                    <MenuItem Header="PS9"></MenuItem>
-                    <MenuItem Header="Ps10"></MenuItem>
-                    <MenuItem Header="Ps11"></MenuItem>
-                    <MenuItem Header="Ps12"></MenuItem>
-                    <MenuItem Header="Ps13"></MenuItem>
-                    <MenuItem Header="Ps14"></MenuItem>
-                    <MenuItem Header="Ps15"></MenuItem>
-                    <MenuItem Header="Ps16"></MenuItem>
-                </StackPanel>
-            </ScrollViewer>
-        </MenuItem>
+            <TextBox  Name="LastName" Grid.Row="1" HorizontalAlignment="Center"  Width="95"  Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Column="1"/>
+            <TextBox  x:Name="emailInput_Copy" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Width="95"  MaxWidth="300" Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" />
 
-
+            <TextBox  Name="Supervisor" Grid.Row="3" HorizontalAlignment="Center" Width="95"  MaxWidth="300" Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Grid.Column="1"/>
+        </Grid>
         <Grid Margin="11,0,0,0" Grid.Column="1" Grid.Row="1">
             <Grid.Resources>
                 <Style TargetType="{x:Type Control}">
@@ -51,32 +54,31 @@
                     <Setter Property="Control.FontSize" Value="12"/>
                 </Style>
             </Grid.Resources>
+            <Grid.DataContext>
+                <StaticResource ResourceKey="users_ViewSource"/>
+            </Grid.DataContext>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="31*"/>
+                <RowDefinition Height="154*"/>
+                <RowDefinition Height="31*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="ID" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin="0 0 0 0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-            <Label Content="NAME" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin="0 0 0 0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-            <Label Content="EMAIL" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Margin="0 0 0 0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-            <TextBox  Name="idRow" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Width="150" MinWidth="100" MaxWidth="300"  Height="148" TextWrapping="Wrap" Text="" VerticalAlignment="top" Margin="10,0"/>
-            <TextBox  Name="nameRow" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  Width="150" MinWidth="100" MaxWidth="300"  Height="145" TextWrapping="Wrap" Text="" VerticalAlignment="top" Margin="10,0"/>
-            <TextBox  Name="emailRow" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Width="150" MinWidth="100" MaxWidth="300" Height="149" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="10,0"/>
+
+
+            <DataGrid  AutoGenerateColumns="True" x:Name="Students" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" ItemsSource="{Binding}"  />
+
             <!-- To Input user to delete or add-->
             <Label Content="Enter User to add or Delete" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Margin="0 0 0 0" VerticalAlignment="Top" FontWeight="Bold" FontSize="12"/>
-            <TextBox  Name="idInput" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" Width="150" MinWidth="100" MaxWidth="300"  Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="top"/>
-            <TextBox  Name="nameInput" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center"  Width="150" MinWidth="100" MaxWidth="300"  Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="top"/>
-            <TextBox  Name="emailInput" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" Width="150" MinWidth="100" MaxWidth="300" Height="20" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+            
         </Grid>
 
-        <Button Content="Add User" Grid.Column="1" HorizontalAlignment="Left" Margin="160,0,0,0"  Grid.Row="4" VerticalAlignment="Center" Width="75" Click="Add_Click"/>
-        <Button Content="Delete User" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,160,0" Grid.Row="4" VerticalAlignment="Center" Width="75"  />
+       
+        <Button Content="Save Table" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="75" Grid.Column="1" Click="Button_Click"  />
 
 
 

@@ -8,11 +8,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQLiteDemo", "SQLiteDemo\SQLiteDemo.csproj", "{0FFEE168-965F-47F6-9918-AEF83E901E5B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EB396289-BE51-43BF-88BC-F65441A051B8}"
-	ProjectSection(SolutionItems) = preProject
-		EditProfileStudent.xaml = EditProfileStudent.xaml
-	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySupervisn_Testing", "MySupervisn_Testing\MySupervisn_Testing.csproj", "{748527D2-86F0-4682-8614-058774923B61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySupervisn_Testing", "MySupervisn_Testing\MySupervisn_Testing.csproj", "{748527D2-86F0-4682-8614-058774923B61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

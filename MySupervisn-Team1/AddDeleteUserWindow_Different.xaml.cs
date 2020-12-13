@@ -27,56 +27,42 @@ namespace MySupervisn_Team1
         private string mEmail;
 
         public AddDeleteUserWindow()
-        {
+        { 
+           
             InitializeComponent();
-
-            mConnection.Open();
-
-            string personalSupervisor = MenuItem.HeaderProperty.Name; // Not sure, want assign name of PS selected from the scroll down menu
-
-            SqlCommand search = new SqlCommand();
-            search.CommandText = "select User_Id, FirstName, LastName, email from [Users_]";
-            search.Connection = mConnection;
-            SqlDataReader reader = search.ExecuteReader();
-
-            while (reader.Read())
-            {
-                idRow.Text += reader[0].ToString() + "\n";
-                nameRow.Text += reader[1].ToString() + " " + reader[2].ToString() + "\n";
-                emailRow.Text += reader[3].ToString() + "\n";
-            }
-
+                    
+            SqlCommand supervisors_ = new SqlCommand();
+            supervisors_.CommandText = "select FirstName, LastName from [Users_] where Classification='Personal Supervisor';";
+            supervisors_.Connection = mConnection;
+            mConnection.Open();           
+            SqlDataReader supervisorReader = supervisors_.ExecuteReader();    
+                      
+            supervisorReader.Close();
             mConnection.Close();
+
+
+
+           
+
         }
-        /*System.Data.SqlClient.SqlConnection sqlConnection1 = 
-    new System.Data.SqlClient.SqlConnection("YOUR CONNECTION STRING");
 
-System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
-cmd.CommandType = System.Data.CommandType.Text;
-cmd.CommandText = "INSERT Region (RegionID, RegionDescription) VALUES (5, 'NorthWestern')";
-cmd.Connection = sqlConnection1;
-
-sqlConnection1.Open();
-cmd.ExecuteNonQuery();
-sqlConnection1.Close();
-        INSERT into Users_(User_Id, FirstName, LastName, email,password,Supervisor,Classification) Values('" + mId + "', '" + NameSplit[0] + "','" + NameSplit[1] + "','" + emailInput.Text + "','Team1','John Grey','Student')"*/
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            mId = int.Parse(idInput.Text);
-            mName = nameInput.Text;
-            mEmail = emailInput.Text;
+            
+            
+
 
             
-            string[] NameSplit = mName.Split(' ');
             SqlCommand insert = new SqlCommand();
             insert.CommandType = System.Data.CommandType.Text;
-            insert.CommandText= "INSERT into Users_(User_Id, FirstName, LastName, email,[password],Supervisor,Classification) Values(5,'Maykal','Droshev','mdroshev@gmail.com','Team1','John Grey','Student')";
+            insert.CommandText = $"INSERT into Users_( FirstName, LastName, email,[password],Supervisor,Classification) Values('{FirstName.Text}','{LastName.Text}','{emailInput_Copy.Text}','Team1','{Supervisor.Text}','Student')";
             insert.Connection = mConnection;
             mConnection.Open();
             try
             {
                 insert.ExecuteNonQuery();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
@@ -84,14 +70,12 @@ sqlConnection1.Close();
             mConnection.Close();
             MessageBox.Show("User added"); // + user id number
 
-            
+
         }
 
         private void Delete_Click_1(object sender, RoutedEventArgs e)
         {
-            mId = int.Parse(idInput.Text);
-            mName = nameInput.Text;
-            mEmail = emailInput.Text;
+           
 
             mConnection.Open();
             SqlCommand delete = new SqlCommand("DELETE From Users_(User_Id, FirstName, LastName, email) Values('" + mId + "', '" + mName + "', '" + mEmail + "')", mConnection);
@@ -101,5 +85,50 @@ sqlConnection1.Close();
 
             mConnection.Close();
         }
+        private void ShowAll()
+        {
+            mConnection.Close();
+            mConnection.Open();
+            SqlCommand search = new SqlCommand();
+
+            search.CommandText = "select User_Id, Classification, FirstName, LastName,email,Supervisor from [Users_] where Classification='Student'";
+            search.Connection = mConnection;
+            SqlDataReader reader = search.ExecuteReader();
+
+            Students.ItemsSource = reader;
+            reader.Close();
+            
+            mConnection.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            MySupervisn_Team1._Users_2_0DataSet _Users_2_0DataSet = ((MySupervisn_Team1._Users_2_0DataSet)(this.FindResource("_Users_2_0DataSet")));
+            // Load data into the table Users_. You can modify this code as needed.
+            MySupervisn_Team1._Users_2_0DataSetTableAdapters.Users_TableAdapter _Users_2_0DataSetUsers_TableAdapter = new MySupervisn_Team1._Users_2_0DataSetTableAdapters.Users_TableAdapter();
+            _Users_2_0DataSetUsers_TableAdapter.Fill(_Users_2_0DataSet.Users_);
+            System.Windows.Data.CollectionViewSource users_ViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("users_ViewSource")));
+            users_ViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void Supervisors_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
+/*  mConnection.Close();
+            mConnection.Open();
+            SqlCommand search = new SqlCommand();
+
+            search.CommandText = "select User_Id, Classification, FirstName, LastName,email,Supervisor from [Users_] where Classification='Student'";
+            search.Connection = mConnection;
+            SqlDataReader reader = search.ExecuteReader();
+
+            Students.ItemsSource = reader;*/

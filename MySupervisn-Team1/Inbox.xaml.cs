@@ -61,33 +61,49 @@ namespace MySupervisn_Team1
             {
                 Messages.Items.Add($"Subject: {staff.messages1[0].Subject} \n Body:{staff.messages1[0].Body}");
             }
-            catch(System.NullReferenceException)
+            catch (System.NullReferenceException)
             {
                 Messages.Items.Add("No messages to show");
             }
-            
+
             Receiver.Text = receiver;
             Subject.Focus();
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
-            if (MainBody.Text != string.Empty||Subject.Text!=string.Empty|| Receiver.Text!=string.Empty)
+            if (MainBody.Text != string.Empty || Subject.Text != string.Empty || Receiver.Text != string.Empty)
             {
 
-                mId = 8;
+                int maxid = 0;
                 mConnection.Open();
                 using (mConnection)
+                {//SELECT TOP 1 * FROM Table ORDER BY ID DESC
+                    string queryMax = "SELECT TOP 1 id FROM Message ORDER BY id DESC";
+                    using (SqlCommand command1 = new SqlCommand(queryMax, mConnection))
+                    {
+
+                        SqlDataReader reader = command1.ExecuteReader();
+                        reader.Read();
+                        maxid = int.Parse(reader[0].ToString());
+                        maxid++;
+                        mConnection.Close();
+                    }
+                }
+
+                mConnection = DatabaseManager.CreateConnectionToDatabase();
+                using (mConnection)
                 {
-                    string query = "INSERT INTO Message (Id, Sender, Receiver, Subject, Date, Body) VALUES (@id,@sender,@receiver,@subject,GETDATE(),@body)";
+                    string query = "INSERT INTO Message ( id,Sender, Receiver, Subject, Date, Body) VALUES (@id,@sender,@receiver,@subject,GETDATE(),@body)";
+                    mConnection.Open();
                     using (SqlCommand command = new SqlCommand(query, mConnection))
                     {
-                        command.Parameters.AddWithValue("@id", mId.ToString());
+                        command.Parameters.AddWithValue("@id", maxid);
                         command.Parameters.AddWithValue("@sender", mSender.ToString());
                         command.Parameters.AddWithValue("@receiver", Receiver.Text);
                         command.Parameters.AddWithValue("@subject", Subject.Text);
                         command.Parameters.AddWithValue("@body", MainBody.Text);
-
+                      
                         int result = command.ExecuteNonQuery();
 
                         if (result < 0)
@@ -96,18 +112,19 @@ namespace MySupervisn_Team1
                         }
                     }
                 }
-                Receiver.Clear();
-                Subject.Clear();
-                MainBody.Clear();
-
-                mConnection.Close();
-                MessageBox.Show("Message saved and sent");
             }
             else { MessageBox.Show("Empty field detected,please fill in everything"); }
-               
-              
+            Receiver.Clear();
+            Subject.Clear();
+            MainBody.Clear();
+
+            mConnection.Close();
+            MessageBox.Show("Message saved and sent");
         }
 
+
+
+    
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
             Close();

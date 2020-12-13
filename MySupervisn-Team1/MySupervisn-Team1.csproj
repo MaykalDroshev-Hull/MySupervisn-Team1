@@ -104,9 +104,6 @@
     <Compile Include="AddDeleteUserWindow_Different.xaml.cs">
       <DependentUpon>AddDeleteUserWindow_Different.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddDELETEUserWindow.xaml.cs">
-      <DependentUpon>AddDELETEUserWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="BookMeeting.xaml.cs">
       <DependentUpon>BookMeeting.xaml</DependentUpon>
     </Compile>
@@ -136,13 +133,14 @@
     <Compile Include="StudentSearch.xaml.cs">
       <DependentUpon>StudentSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="_Users_2_0DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Users_2_0DataSet.xsd</DependentUpon>
+    </Compile>
     <Page Include="AddDeleteUserWindow_Different.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="AddDELETEUserWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BookMeeting.xaml">
       <SubType>Designer</SubType>
@@ -212,6 +210,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="_Users_2_0DataSet.xsc">
+      <DependentUpon>_Users_2_0DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_Users_2_0DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Users_2_0DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Users_2_0DataSet.xss">
+      <DependentUpon>_Users_2_0DataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
