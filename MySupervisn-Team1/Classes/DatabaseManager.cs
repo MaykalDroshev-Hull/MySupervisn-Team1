@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Reflection;
 
 namespace MySupervisn_Team1
 {
@@ -31,11 +31,8 @@ namespace MySupervisn_Team1
         public static SqlConnection CreateConnectionToDatabase()
         {
             SqlConnection connection = new SqlConnection();
-          //var path = Environment.CurrentDirectory + @"\DataBase\Users-2.0.mdf";
-          //connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
-          //connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\micha\Documents\GitHub\MySupervisn-Team1\MySupervisn-Team1\DataBase\Users-2.0.mdf;Integrated Security=True";
-          // Francois connection string
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\micha\Documents\GitHub\MySupervisn-Team1\MySupervisn-Team1\DataBase\Users-2.0.mdf;Integrated Security=True";
+            var path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\DataBase\Users-2.0.mdf";
+            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
             
             return connection;
         }
