@@ -29,10 +29,7 @@ namespace MySupervisn_Team1
         private StudentHub mStudentHub;
         public List<Message> messages1 { get; set; }
 
-        public StaffDashboard()
-        {
-            InitializeComponent();
-        }
+        
         public StaffDashboard(PersonalSupervisor pPersonalSupervisor)
         {
             InitializeComponent();
@@ -58,7 +55,7 @@ namespace MySupervisn_Team1
         { 
             InitializeComponent();
             messages1 = messages;
-            MessageInbox.Items.Add("1." + messages[0].Subject + " \n " + messages[0].Body);
+            MessageInbox.Items.Add( messages[0].Subject + " \n " + messages[0].Body);
             mStaff = pStaff;
 
            

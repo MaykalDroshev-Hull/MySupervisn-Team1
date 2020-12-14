@@ -36,6 +36,7 @@ namespace MySupervisn_Team1
           //connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\micha\Documents\GitHub\MySupervisn-Team1\MySupervisn-Team1\DataBase\Users-2.0.mdf;Integrated Security=True";
           // Francois connection string
             connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\micha\Documents\GitHub\MySupervisn-Team1\MySupervisn-Team1\DataBase\Users-2.0.mdf;Integrated Security=True";
+            
             return connection;
         }
 

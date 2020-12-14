@@ -33,23 +33,12 @@ namespace MySupervisn_Team1
                 Messages.Items.Add(counter+". "+ pStudent.mMessages[0].Subject + " \n " + pStudent.mMessages[0].Body);
                 counter++;
             }
-        }
-
-        // WORK IN PROGRESS!!
-        private string FromDatabase()
-        {
-            SqlConnection connection = new SqlConnection();
-            var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
-            connection.Open();
-
-            SqlCommand search = new SqlCommand();
-            search.CommandText = "select User_Id, Module1, Module2, Module3, from [Table]";
-            search.Connection = connection;
-            SqlDataReader reader = search.ExecuteReader();
-
-            return reader.ToString();
-        }
+            else
+            {
+                Messages.Items.Add("No messages");
+            }
+        }     
+     
 
         private void Inbox_Click(object sender, RoutedEventArgs e)
         {
@@ -79,11 +68,7 @@ namespace MySupervisn_Team1
             Close();
             BookMeeting bookMeetingWindow = new BookMeeting(mStudent);
             bookMeetingWindow.Show();
-        }
-        private void Canvas_Click(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://canvas.hull.ac.uk/");
-        }
+        }        
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
