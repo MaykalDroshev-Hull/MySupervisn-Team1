@@ -26,62 +26,103 @@ namespace MySupervisn_Team1
         private string mName;
         private string mEmail;
 
-        public AddDeleteUserWindow()
-        { 
-           
+        //private Staff mStaff;
+        //private StudentHub mStudentHub;
+
+        private StaffDashboard mDashboard;
+
+        public AddDeleteUserWindow(StaffDashboard dashboard)
+        {
             InitializeComponent();
-                    
+
+            mDashboard = dashboard;
+
+            Supervisor.Text += "Write N/A if not applicable";
+
             SqlCommand supervisors_ = new SqlCommand();
             supervisors_.CommandText = "select FirstName, LastName from [Users_] where Classification='Personal Supervisor';";
             supervisors_.Connection = mConnection;
-            mConnection.Open();           
-            SqlDataReader supervisorReader = supervisors_.ExecuteReader();    
-                      
+            mConnection.Open();
+            SqlDataReader supervisorReader = supervisors_.ExecuteReader();
+
             supervisorReader.Close();
             mConnection.Close();
-
-
-
-           
-
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+            mConnection = DatabaseManager.CreateConnectionToDatabase();
 
+            if (FirstName.Text != string.Empty && LastName.Text != string.Empty && Email.Text != string.Empty && Supervisor.Text != string.Empty)
+            {
+                int newId = 0;
+                mConnection.Open();
+                using (mConnection)
+                {//SELECT TOP 1 * FROM Table ORDER BY ID DESC
+                    string queryMax = "SELECT TOP 1 User_Id FROM Users_ ORDER BY User_Id DESC";
+                    using (SqlCommand command1 = new SqlCommand(queryMax, mConnection))
+                    {
+                        SqlDataReader reader = command1.ExecuteReader();
+                        reader.Read();
+                        newId = int.Parse(reader[0].ToString());
+                        newId++;
+                        mConnection.Close();
+                    }
+                }
 
-            
-            SqlCommand insert = new SqlCommand();
-            insert.CommandType = System.Data.CommandType.Text;
-            insert.CommandText = $"INSERT into Users_( FirstName, LastName, email,[password],Supervisor,Classification) Values('{FirstName.Text}','{LastName.Text}','{emailInput_Copy.Text}','Team1','{Supervisor.Text}','Student')";
-            insert.Connection = mConnection;
-            mConnection.Open();
-            try
-            {
-                insert.ExecuteNonQuery();
+                mConnection = DatabaseManager.CreateConnectionToDatabase();
+                using (mConnection)
+                {
+                    string query = "INSERT INTO Users_ (User_Id, FirstName, LastName, email, Supervisor, Classification) VALUES (@User_Id, @FirstName, @LastName, @email, @Supervisor, @Classification)";
+                    mConnection.Open();
+                    using (SqlCommand command = new SqlCommand(query, mConnection))
+                    {
+                        command.Parameters.AddWithValue("@User_Id", newId);
+                        command.Parameters.AddWithValue("@FirstName", FirstName.Text);
+                        command.Parameters.AddWithValue("@LastName", LastName.Text);
+                        command.Parameters.AddWithValue("@email", Email.Text);
+                        command.Parameters.AddWithValue("@Supervisor", Supervisor.Text);
+                        command.Parameters.AddWithValue("@Classification", Classification.Text);
+
+                        int result = command.ExecuteNonQuery();
+
+                        if (result < 0)
+                        {
+                            Console.WriteLine("Error inserting data into Database!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("User successfully saved! Id number: " + newId);
+
+                            FirstName.Clear();
+                            LastName.Clear();
+                            Email.Clear();
+                            Supervisor.Clear();
+                        }
+                    }
+                }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
+            else { MessageBox.Show("Empty field detected, please fill in everything"); }
 
             mConnection.Close();
-            MessageBox.Show("User added"); // + user id number
-
-
         }
 
-        private void Delete_Click_1(object sender, RoutedEventArgs e)
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
-           
+                mConnection = DatabaseManager.CreateConnectionToDatabase();
 
-            mConnection.Open();
-            SqlCommand delete = new SqlCommand("DELETE From Users_(User_Id, FirstName, LastName, email) Values('" + mId + "', '" + mName + "', '" + mEmail + "')", mConnection);
-            delete.ExecuteNonQuery();
+                using (mConnection)
+                {
+                    mConnection.Open();
 
-            MessageBox.Show("User deleted");
+                    string userId = DeleteInput.Text;
+
+                    using (SqlCommand command = new SqlCommand("DELETE FROM  Users_ WHERE User_Id = " + userId + "", mConnection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("User successfully deleted!");
 
             mConnection.Close();
         }
@@ -97,7 +138,7 @@ namespace MySupervisn_Team1
 
             Students.ItemsSource = reader;
             reader.Close();
-            
+
             mConnection.Close();
         }
 
@@ -112,28 +153,28 @@ namespace MySupervisn_Team1
             users_ViewSource.View.MoveCurrentToFirst();
         }
 
-        private void Supervisors_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DeleteInput_TextChanged(object sender, TextChangedEventArgs e)
         {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
+            if (DeleteInput.Text != string.Empty)
+            {
+                Delete.IsEnabled = true;
+            }
+            else
+            {
+                Delete.IsEnabled = false;
+            }
         }
 
         private void Students_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            delete.IsEnabled = true;
+            //Delete.IsEnabled = true;
         }
+
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            mDashboard.Show();
+        }
+       
     }
 }
-/*  mConnection.Close();
-            mConnection.Open();
-            SqlCommand search = new SqlCommand();
-
-            search.CommandText = "select User_Id, Classification, FirstName, LastName,email,Supervisor from [Users_] where Classification='Student'";
-            search.Connection = mConnection;
-            SqlDataReader reader = search.ExecuteReader();
-
-            Students.ItemsSource = reader;*/

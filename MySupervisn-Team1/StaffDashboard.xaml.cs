@@ -23,14 +23,38 @@ namespace MySupervisn_Team1
     public partial class StaffDashboard : Window
     {
         private Staff mStaff;
+
+        private PersonalSupervisor mPersonalSupervisor;
+        private DirectorOfStudy mDirectorOfStudy;
+        private StudentHub mStudentHub;
         public List<Message> messages1 { get; set; }
 
         public StaffDashboard()
         {
             InitializeComponent();
         }
+        public StaffDashboard(PersonalSupervisor pPersonalSupervisor)
+        {
+            InitializeComponent();
 
-        public StaffDashboard(Staff pStaff,List<Message> messages)
+            mPersonalSupervisor = pPersonalSupervisor;
+            ShowSupervisorControls();
+        }
+        public StaffDashboard(DirectorOfStudy pDirectorOfStudy)
+        {
+            InitializeComponent();
+
+            mDirectorOfStudy = pDirectorOfStudy;
+            ShowDirectorControls();
+        }
+        public StaffDashboard(StudentHub pStudentHub)
+        {
+            InitializeComponent();
+
+            mStudentHub = pStudentHub;
+            ShowStudentHubControls();
+        }
+        public StaffDashboard(Staff pStaff, List<Message> messages)
         { 
             InitializeComponent();
             messages1 = messages;
@@ -55,7 +79,6 @@ namespace MySupervisn_Team1
             
         }
         
-
         private void ShowStudentHubControls()
         {
             
@@ -109,20 +132,15 @@ namespace MySupervisn_Team1
             }
         }
            
-        
-
         private void AddDelete_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            
-            AddDeleteUserWindow userWindow = new AddDeleteUserWindow();
-            userWindow.Show();
+            Hide();
+            AddDeleteUserWindow addDeleteWindow = new AddDeleteUserWindow(this);
+            addDeleteWindow.Show();
         }
 
         private void Inbox_Click(object sender, RoutedEventArgs e)
         {
-           
-
             Inbox inbox = new Inbox(mStaff,messages1);
             inbox.Show();
         }
