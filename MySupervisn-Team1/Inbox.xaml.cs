@@ -74,7 +74,6 @@ namespace MySupervisn_Team1
         {
             if (MainBody.Text != string.Empty || Subject.Text != string.Empty || Receiver.Text != string.Empty)
             {
-
                 int maxid = 0;
                 mConnection.Open();
                 using (mConnection)
@@ -82,7 +81,6 @@ namespace MySupervisn_Team1
                     string queryMax = "SELECT TOP 1 id FROM Message ORDER BY id DESC";
                     using (SqlCommand command1 = new SqlCommand(queryMax, mConnection))
                     {
-
                         SqlDataReader reader = command1.ExecuteReader();
                         reader.Read();
                         maxid = int.Parse(reader[0].ToString());
@@ -94,7 +92,7 @@ namespace MySupervisn_Team1
                 mConnection = DatabaseManager.CreateConnectionToDatabase();
                 using (mConnection)
                 {
-                    string query = "INSERT INTO Message ( id,Sender, Receiver, Subject, Date, Body) VALUES (@id,@sender,@receiver,@subject,GETDATE(),@body)";
+                    string query = "INSERT INTO Message (id, Sender, Receiver, Subject, Date, Body) VALUES (@id,@sender,@receiver,@subject,GETDATE(),@body)";
                     mConnection.Open();
                     using (SqlCommand command = new SqlCommand(query, mConnection))
                     {
@@ -110,20 +108,20 @@ namespace MySupervisn_Team1
                         {
                             Console.WriteLine("Error inserting data into Database!");
                         }
+                        else
+                        {
+                            MessageBox.Show("Message saved and sent");
+                        }
                     }
                 }
             }
-            else { MessageBox.Show("Empty field detected,please fill in everything"); }
+            else { MessageBox.Show("Empty field detected, please fill in everything"); }
             Receiver.Clear();
             Subject.Clear();
             MainBody.Clear();
 
             mConnection.Close();
-            MessageBox.Show("Message saved and sent");
         }
-
-
-
     
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
