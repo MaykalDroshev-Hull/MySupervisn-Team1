@@ -99,7 +99,7 @@ namespace MySupervisn_Team1
 
         private void ChangePass_Click(object sender, RoutedEventArgs e)
         {
-            if(TbOldPass.Text == TbNewPass.Text)
+            if(TbOldPass.Text != TbNewPass.Text)
             {
                 SqlConnection connection = new SqlConnection();
 
@@ -123,6 +123,10 @@ namespace MySupervisn_Team1
                 {
                     MessageBox.Show("Changes failed.");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Passwords match, please try again.");
             }
         }
     }
