@@ -51,16 +51,16 @@ namespace MySupervisn_Team1
 
         private void BtnChangeName_Click(object sender, RoutedEventArgs e)
         {
-          
 
-            SqlConnection connection = new SqlConnection();
-            var path = Environment.CurrentDirectory + @"\DataBase\Users.mdf";
+
+            SqlConnection connection = DatabaseManager.CreateConnectionToDatabase();
+            var path = Environment.CurrentDirectory + @"\DataBase\Users-2.0.mdf";
             connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
             connection.Open();
 
             string tFirstName = TbFirstName.Text;
             string tLastName = TbUSurName.Text;
-            string commandtext = "UPDATE Users_ SET FirstName = @FN, LastName = @LN " + "WHERE User_Id = @ID;";
+            string commandtext = "UPDATE Users SET FirstName = @FN, LastName = @LN " + "WHERE User_Id = @ID;";
 
             SqlCommand update = new SqlCommand(commandtext, connection);
             update.Parameters.Add("@FN", System.Data.SqlDbType.VarChar);
@@ -73,7 +73,7 @@ namespace MySupervisn_Team1
             try
             {
                 int rowsAffected = update.ExecuteNonQuery();
-                MessageBox.Show("Changes made. Rows affected:" + rowsAffected.ToString());
+                MessageBox.Show("Changes made.)");
             }
             catch(Exception ex)
             {
@@ -97,5 +97,33 @@ namespace MySupervisn_Team1
             
         }
 
+        private void ChangePass_Click(object sender, RoutedEventArgs e)
+        {
+            if(TbOldPass.Text == TbNewPass.Text)
+            {
+                SqlConnection connection = new SqlConnection();
+
+                var path = Environment.CurrentDirectory + @"\DataBase\Users-2.0.mdf";
+                connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+                connection.Open();
+
+                string commandtext = "UPDATE Users SET PassWord = @PW " + "WHERE User_Id = @ID;";
+
+                SqlCommand update = new SqlCommand(commandtext, connection);
+                update.Parameters.Add("@PW", System.Data.SqlDbType.VarChar);
+                update.Parameters["@PW"].Value = TbNewPass;
+                update.Parameters.Add("@ID", System.Data.SqlDbType.Int);
+                update.Parameters["@ID"].Value = mStudent.IdNumber;
+                try
+                {
+                    update.ExecuteNonQuery();
+                    MessageBox.Show("Changes successful.");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Changes failed.");
+                }
+            }
+        }
     }
 }
