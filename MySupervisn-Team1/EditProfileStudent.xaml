@@ -32,7 +32,7 @@
             </ToolBar>
         </DockPanel>
         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="2" >
-            <Label Content="Change Details" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Content="Change Password" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         </Border>
         <Grid Grid.Row="2" RenderTransformOrigin="0.768,0.457" Grid.ColumnSpan="3"  >
             <Grid.ColumnDefinitions>
@@ -63,7 +63,7 @@
         <Label Content="Details:" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="67" Grid.ColumnSpan="2"/>
 
 
-        <Label Grid.Row="2" Grid.Column="2" Content="When updating details, please provide your password" FontWeight="Normal" Margin="0.2,0,-0.4,0" Grid.RowSpan="2" RenderTransformOrigin="0.511,0.738"/>
+        <Label Grid.Row="2" Grid.Column="2" Content="" FontWeight="Normal" Margin="0.2,0,-0.4,0" Grid.RowSpan="2" RenderTransformOrigin="0.511,0.738"/>
         <Grid Grid.Row="2" Grid.Column="2" Margin="0.2,0.2,-0.4,10" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
