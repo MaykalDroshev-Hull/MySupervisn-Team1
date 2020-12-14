@@ -12,16 +12,16 @@
             <Label Content="Subject"/>
             <TextBox x:Name="Subject" Width="200" HorizontalAlignment="Left" Margin="10,5"/>
             <Label Content="Date"/>
-            <DatePicker Name="Datetime" Margin="10,5"/>
+            <DatePicker Name="_Datetime" Margin="10,5"/>
             <Label Content="Time"/>
             <TextBox x:Name="Time" Width="200" HorizontalAlignment="Left" Margin="10,5"/>
-            <Label Content="People(divide with semilolon ( ; ))"/>
+            <Label Content="Who to meet with"/>
             <TextBox x:Name="people" Width="200" HorizontalAlignment="Left" Margin="10,5"/>
             <StackPanel Orientation="Horizontal">
                 <Label/>
                 <Button x:Name="GoBack" Content="Go back" Width="100" Click="GoBack_Click" />
                 <Label/>
-                <Button x:Name="Set" Content="Accept" Width="100"/>
+                <Button x:Name="Set" Content="Accept" Width="100" Click="Set_Click"/>
             </StackPanel>
 
 

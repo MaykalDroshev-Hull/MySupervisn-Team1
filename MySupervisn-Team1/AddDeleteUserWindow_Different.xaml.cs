@@ -73,7 +73,7 @@ namespace MySupervisn_Team1
                 mConnection = DatabaseManager.CreateConnectionToDatabase();
                 using (mConnection)
                 {
-                    string query = "INSERT INTO Users_ (User_Id, FirstName, LastName, email, Supervisor, Classification) VALUES (@User_Id, @FirstName, @LastName, @email, @Supervisor, @Classification)";
+                    string query = "INSERT INTO Users_ (User_Id, FirstName, LastName, email,password, Supervisor, Classification) VALUES (@User_Id, @FirstName, @LastName, @email, 'Team1',@Supervisor, @Classification)";
                     mConnection.Open();
                     using (SqlCommand command = new SqlCommand(query, mConnection))
                     {

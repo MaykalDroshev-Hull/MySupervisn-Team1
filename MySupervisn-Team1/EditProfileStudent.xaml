@@ -22,7 +22,7 @@
         <DockPanel Grid.Row="0" Grid.ColumnSpan="3" >
             <ToolBar>
                 <Menu>
-                    <MenuItem Header="Profile">
+                    <MenuItem Header="Profile" Height="30" Margin="0">
                         <MenuItem Header="Dashboard"/>
                         <Separator/>
                         <MenuItem Header="LogOut"/>
@@ -32,7 +32,7 @@
             </ToolBar>
         </DockPanel>
         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="2" >
-            <Label Content="Change Details" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Content="Change Details" HorizontalAlignment="Left" VerticalAlignment="Center" Height="29" Margin="0,0,0,-8"/>
         </Border>
         <Grid Grid.Row="2" RenderTransformOrigin="0.768,0.457" Grid.ColumnSpan="3"  >
             <Grid.ColumnDefinitions>
@@ -47,8 +47,6 @@
                         <TextBox x:Name="TbFirstName"  Width="165" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
                         <TextBox x:Name="TbUSurName"  Width="165" Height="20" HorizontalAlignment="Left" Margin="10,0"/>
                     </StackPanel>
-                    <Label x:Name="Email" Content="Email: [Email]"/>
-                    <TextBox x:Name="EmailCh"  Width="165" HorizontalAlignment="Left" Margin="10,0"/>
                     <Button x:Name="BtnChangeName" Content="Change" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,10" Width="50" Click="BtnChangeName_Click"/>
                 </StackPanel>
 
@@ -72,7 +70,7 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Margin="-1,28,-0.2,-12.4"  >
-                <Label Content="Enter new password" Margin="0,0,0.4,0"/>
+                <Label Content="Enter old password" Margin="0,0,0.4,0"/>
                 <TextBox x:Name="TbOldPass" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Margin="10,0,22,0"/>
                 <Label Content="Confirm new password"/>
                 <TextBox x:Name="TbNewPass" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Margin="10,0,22.4,0"/>

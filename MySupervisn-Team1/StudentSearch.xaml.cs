@@ -94,10 +94,7 @@ namespace MySupervisn_Team1
 
        
 
-        private void ViewProfile_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+  
         private void CreateMeeting_Click(object sender, RoutedEventArgs e)
         {
             IDataRecord student = (IDataRecord)Students.SelectedItems[0];

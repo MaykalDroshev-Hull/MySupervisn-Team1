@@ -30,7 +30,6 @@ namespace MySupervisn_Team1
             email += namearr[1];
             email += "@hull.ac.uk";
 
-            Email.Content = "email: " + email;
         }
         public EditProfileStudent(Staff pStaff)
         {
@@ -53,14 +52,12 @@ namespace MySupervisn_Team1
         {
 
 
-            SqlConnection connection = DatabaseManager.CreateConnectionToDatabase();
-            var path = Environment.CurrentDirectory + @"\DataBase\Users-2.0.mdf";
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+            SqlConnection connection = DatabaseManager.CreateConnectionToDatabase();            
             connection.Open();
 
             string tFirstName = TbFirstName.Text;
             string tLastName = TbUSurName.Text;
-            string commandtext = "UPDATE Users SET FirstName = @FN, LastName = @LN " + "WHERE User_Id = @ID;";
+            string commandtext = "UPDATE Users_ SET FirstName = @FN, LastName = @LN " + "WHERE User_Id = @ID;";
 
             SqlCommand update = new SqlCommand(commandtext, connection);
             update.Parameters.Add("@FN", System.Data.SqlDbType.VarChar);
@@ -73,7 +70,7 @@ namespace MySupervisn_Team1
             try
             {
                 int rowsAffected = update.ExecuteNonQuery();
-                MessageBox.Show("Changes made.)");
+                MessageBox.Show("Changes made. Restart system to update.");
             }
             catch(Exception ex)
             {
@@ -101,17 +98,16 @@ namespace MySupervisn_Team1
         {
             if(TbOldPass.Text != TbNewPass.Text)
             {
-                SqlConnection connection = new SqlConnection();
+                SqlConnection connection = DatabaseManager.CreateConnectionToDatabase();
 
-                var path = Environment.CurrentDirectory + @"\DataBase\Users-2.0.mdf";
-                connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+               
                 connection.Open();
 
-                string commandtext = "UPDATE Users SET PassWord = @PW " + "WHERE User_Id = @ID;";
+                string commandtext = "UPDATE Users_ SET password = @PW " + "WHERE User_Id = @ID;";
 
                 SqlCommand update = new SqlCommand(commandtext, connection);
                 update.Parameters.Add("@PW", System.Data.SqlDbType.VarChar);
-                update.Parameters["@PW"].Value = TbNewPass;
+                update.Parameters["@PW"].Value = TbNewPass.Text;
                 update.Parameters.Add("@ID", System.Data.SqlDbType.Int);
                 update.Parameters["@ID"].Value = mStudent.IdNumber;
                 try
@@ -119,9 +115,9 @@ namespace MySupervisn_Team1
                     update.ExecuteNonQuery();
                     MessageBox.Show("Changes successful.");
                 }
-                catch (Exception)
+                catch (Exception exc)
                 {
-                    MessageBox.Show("Changes failed.");
+                    MessageBox.Show(exc.ToString()) ;
                 }
             }
             else
