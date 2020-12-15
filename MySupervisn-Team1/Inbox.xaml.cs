@@ -32,7 +32,7 @@ namespace MySupervisn_Team1
             set;
         }
 
-        private int mId;
+        private  int mId;
         private string mSender;
 
         public Inbox(Student pStudent, List<Message> messages)

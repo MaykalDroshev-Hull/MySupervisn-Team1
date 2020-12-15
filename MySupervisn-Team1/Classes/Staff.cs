@@ -18,13 +18,6 @@ namespace MySupervisn_Team1
             messages1 = messages;
         }
 
-        public void DeleteMessage()
-        {
-            throw new NotImplementedException();
-        }
-        public User SearchForUser()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

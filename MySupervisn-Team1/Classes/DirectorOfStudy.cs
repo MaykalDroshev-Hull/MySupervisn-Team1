@@ -14,11 +14,6 @@ namespace MySupervisn_Team1
             IdNumber = pIdNumber;
             Name = pName;
             this.messages1 = messages;
-        }
-
-        public dynamic GenerateOverview()
-        {
-            throw new NotImplementedException();
-        }
+        }       
     }
 }

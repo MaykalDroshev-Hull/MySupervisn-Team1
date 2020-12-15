@@ -123,8 +123,6 @@
     <Compile Include="Classes\DatabaseManager.cs" />
     <Compile Include="Classes\DirectorOfStudy.cs" />
     <Compile Include="Classes\Message.cs" />
-    <Compile Include="Classes\RecordEngagement.cs" />
-    <Compile Include="Classes\Meeting.cs" />
     <Compile Include="Classes\Search.cs" />
     <Compile Include="Classes\Staff.cs" />
     <Compile Include="Classes\Student.cs" />

@@ -8,7 +8,7 @@ namespace MySupervisn_Team1
 {
     public class PersonalSupervisor:Staff
     {
-        private List<Student> mStudents;
+        
 
         public PersonalSupervisor(int pIdNumber, string pName, string pRole,List<Message> messages) : base(pIdNumber, pName, pRole,messages)
         {

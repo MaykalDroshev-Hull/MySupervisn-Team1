@@ -22,12 +22,7 @@ namespace MySupervisn_Team1
     {
         private SqlConnection mConnection = DatabaseManager.CreateConnectionToDatabase();
 
-        private int mId;
-        private string mName;
-        private string mEmail;
-
-        //private Staff mStaff;
-        //private StudentHub mStudentHub;
+      
 
         private StaffDashboard mDashboard;
 
@@ -125,22 +120,7 @@ namespace MySupervisn_Team1
                 MessageBox.Show("User successfully deleted!");
 
             mConnection.Close();
-        }
-        private void ShowAll()
-        {
-            mConnection.Close();
-            mConnection.Open();
-            SqlCommand search = new SqlCommand();
-
-            search.CommandText = "select User_Id, Classification, FirstName, LastName,email,Supervisor from [Users_] where Classification='Student'";
-            search.Connection = mConnection;
-            SqlDataReader reader = search.ExecuteReader();
-
-            Students.ItemsSource = reader;
-            reader.Close();
-
-            mConnection.Close();
-        }
+        }        
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
