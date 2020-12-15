@@ -37,7 +37,7 @@ namespace MySupervisn_Team1
 
         private void ReturnToDashboard_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
             Dashboard.Show();
         }
 
@@ -83,7 +83,11 @@ namespace MySupervisn_Team1
 
             Students.ItemsSource = reader;
         }
-
+        private void DataWindow_Closing(object sender, EventArgs e)
+        {
+            mConnection.Close();
+            Environment.Exit(1);
+        }
         private void SendMessage_Click(object sender, RoutedEventArgs e)
         {
             IDataRecord student = (IDataRecord)Students.SelectedItems[0];
@@ -105,7 +109,7 @@ namespace MySupervisn_Team1
 
         private void Go_Back_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
             StaffDashboard staffDashboard = new StaffDashboard(staff, staff.messages1);
             staffDashboard.Show();
         }

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
         xmlns:local="clr-namespace:MySupervisn_Team1"
-        mc:Ignorable="d" ResizeMode="NoResize"
+        mc:Ignorable="d" ResizeMode="NoResize" Closing="DataWindow_Closing"  
+        Icon="Visuals/icon.png"
         Title="BookMeeting" Height="287.95" Width="236.565">
     <Grid>
         <StackPanel >

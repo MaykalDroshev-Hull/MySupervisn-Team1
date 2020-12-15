@@ -172,9 +172,14 @@ namespace MySupervisn_Team1
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
             mDashboard.Show();
         }
-       
+        private void DataWindow_Closing(object sender, EventArgs e)
+        {
+            mConnection.Close();
+            Environment.Exit(1);
+        }
+
     }
 }

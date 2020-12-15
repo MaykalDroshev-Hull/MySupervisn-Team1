@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MySupervisn_Team1" ResizeMode="NoResize"
-        mc:Ignorable="d" 
+        mc:Ignorable="d"  Closing="DataWindow_Closing"  
+        Icon="Visuals/icon.png"
         Title="Lecture Check In" Height="336.821" Width="249.497">
     <Grid >
         <StackPanel Orientation="Vertical" Margin="0,0,0,-2">

@@ -75,7 +75,10 @@ namespace MySupervisn_Team1
             }
             
         }
-        
+        private void DataWindow_Closing(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
         private void ShowStudentHubControls()
         {
             
@@ -91,13 +94,7 @@ namespace MySupervisn_Team1
         {
             AddDeleteUsers.Visibility = Visibility.Hidden;
             GenerateOverview.Visibility = Visibility.Visible;
-        }
-        /*private void btnSaveFile_Click(object sender, RoutedEventArgs e)
-		{
-			SaveFileDialog saveFileDialog = new SaveFileDialog();
-			if(saveFileDialog.ShowDialog() == true)
-				File.WriteAllText(saveFileDialog.FileName, txtEditor.Text);
-		}*/
+        }        
         private void GenerateOverview_Click(object sender, RoutedEventArgs e)
         {
             
@@ -144,7 +141,8 @@ namespace MySupervisn_Team1
 
         private void CreateMeeting_Click(object sender, RoutedEventArgs e)
         {
-
+            BookMeeting bookMeeting = new BookMeeting(mStaff);
+            bookMeeting.Show();
         }
 
         private void SearchStudent_Click(object sender, RoutedEventArgs e)
@@ -155,20 +153,20 @@ namespace MySupervisn_Team1
         }
         public void LogOut_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
         }
 
         private void Inbox_Click_1(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
             Inbox inboxWindow = new Inbox(mStaff,messages1);
             inboxWindow.Show();
         }
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
             EditProfileStudent editProfile = new EditProfileStudent(mStaff);
             editProfile.Show();
         }

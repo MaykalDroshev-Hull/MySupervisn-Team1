@@ -25,8 +25,12 @@ namespace MySupervisn_Team1
     {
         private SqlConnection mConnection = DatabaseManager.CreateConnectionToDatabase();
         private User mUser;
-        
 
+        private void DataWindow_Closing(object sender, EventArgs e)
+        {
+            mConnection.Close();
+            Environment.Exit(1);
+        } 
         public BookMeeting(Student pStudent)
         {
             InitializeComponent();
@@ -47,7 +51,7 @@ namespace MySupervisn_Team1
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
            if(mUser is Student)
             {
                 StudentDashboard studentDashboardWindow = new StudentDashboard((Student)mUser);

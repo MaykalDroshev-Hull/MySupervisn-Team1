@@ -122,10 +122,14 @@ namespace MySupervisn_Team1
 
             mConnection.Close();
         }
-    
+        private void DataWindow_Closing(object sender, EventArgs e)
+        {
+            mConnection.Close();
+            Environment.Exit(1);
+        }
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
 
             if (mStudent != null)
             {

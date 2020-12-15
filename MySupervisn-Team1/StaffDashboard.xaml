@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MySupervisn_Team1"
-        mc:Ignorable="d" Icon="Visuals/icon.png"
+        mc:Ignorable="d" Closing="DataWindow_Closing"  
+        Icon="Visuals/icon.png"
         ResizeMode="NoResize"
         Title="Dashboard" Height="450" Width="400">
 

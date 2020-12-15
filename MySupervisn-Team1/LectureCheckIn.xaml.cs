@@ -26,10 +26,13 @@ namespace MySupervisn_Team1
 
             mStudent = pStudent;
         }
-      
+        private void DataWindow_Closing(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
             StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
             studentDashboardWindow.Show();
         }

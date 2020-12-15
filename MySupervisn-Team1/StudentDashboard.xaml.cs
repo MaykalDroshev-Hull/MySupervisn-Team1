@@ -37,19 +37,22 @@ namespace MySupervisn_Team1
             {
                 Messages.Items.Add("No messages");
             }
-        }     
-     
+        }
 
+        private void DataWindow_Closing(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
         private void Inbox_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
             Inbox inboxWindow = new Inbox(mStudent,mStudent.mMessages);
             inboxWindow.Show();
         }
 
         public void EditProfileStudent_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
             EditProfileStudent editProfileStudentWindow = new EditProfileStudent(mStudent);
             editProfileStudentWindow.Show();
         }
@@ -58,21 +61,21 @@ namespace MySupervisn_Team1
 
         private void LectureCheckIn_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
             LectureCheckIn lectureCheckInWindow = new LectureCheckIn(mStudent);
             lectureCheckInWindow.Show();
         }
 
         private void BookMeeting_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
             BookMeeting bookMeetingWindow = new BookMeeting(mStudent);
             bookMeetingWindow.Show();
         }        
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Hide();
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
         }

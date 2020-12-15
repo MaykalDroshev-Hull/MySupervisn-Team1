@@ -80,7 +80,7 @@ namespace MySupervisn_Team1
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
 
             if (mStudent.Equals(null))
             {
@@ -124,6 +124,11 @@ namespace MySupervisn_Team1
             {
                 MessageBox.Show("Passwords match, please try again.");
             }
+            
+        }
+        private void DataWindow_Closing(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
         }
     }
 }
