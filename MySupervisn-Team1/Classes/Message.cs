@@ -12,19 +12,26 @@ namespace MySupervisn_Team1
         private DateTime mDateTime;
         private string mSubject;
         private string mBody;
-        private string mModuleCode; // Are we keeping it?
+        private string mModuleCode; 
         private User mSender;
         private User mRecipient;
-        private string mDescription; // Is It the same as Body?
+        private string mDescription; 
 
         public int MessageID {set{ mMessageID = value; } get{ return mMessageID; } }
         public DateTime DateTime { set { mDateTime = value; } get { return mDateTime; } }
-        public string Subject { set { mSubject = value; } get { return mSubject; } } //
+        public string Subject { set { mSubject = value; } get { return mSubject; } } 
         public string Body { set { mBody = value; } get { return mBody; } }
-        public string ModuleCode { set { mModuleCode = value; } get { return mModuleCode; } } // Are we keeping it?
+        public string ModuleCode { set { mModuleCode = value; } get { return mModuleCode; } } 
         public User Sender { set { mSender = value; } get { return mSender; } }
         public User Recipient { set { mRecipient = value; } get { return mRecipient; } }
-        public string Description { set { mDescription = value; } get { return mDescription; } } // Is It the same as Body?
+        public string Description { set { mDescription = value; } get { return mDescription; } }
+
+        public int V { get; }
+        public DateTime Now { get; }
+        public string MessageSubject { get; }
+        public string MessageBody { get; }
+        public string Sender1 { get; }
+        public object P { get; }
 
         public Message(int pMessageID, DateTime pDateTime, string pSubject, string pBody, User pSender, User pRecipient )
         {
@@ -34,6 +41,16 @@ namespace MySupervisn_Team1
             mBody = pBody;
             mSender = pSender;
             mRecipient = pRecipient;
+        }
+
+        public Message(int v, DateTime now, string messageSubject, string messageBody, string sender, object p)
+        {
+            V = v;
+            Now = now;
+            MessageSubject = messageSubject;
+            MessageBody = messageBody;
+            Sender1 = sender;
+            P = p;
         }
     }
 }

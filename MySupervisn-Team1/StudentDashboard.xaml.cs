@@ -59,12 +59,7 @@ namespace MySupervisn_Team1
 
        
 
-        private void LectureCheckIn_Click(object sender, RoutedEventArgs e)
-        {
-            Hide();
-            LectureCheckIn lectureCheckInWindow = new LectureCheckIn(mStudent);
-            lectureCheckInWindow.Show();
-        }
+      
 
         private void BookMeeting_Click(object sender, RoutedEventArgs e)
         {

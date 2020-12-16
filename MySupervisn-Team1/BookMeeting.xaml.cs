@@ -94,8 +94,8 @@ namespace MySupervisn_Team1
                         command.Parameters.AddWithValue("@id", maxid);
                         command.Parameters.AddWithValue("@sender", mUser.Name.ToString());
                         command.Parameters.AddWithValue("@receiver", people.Text);
-                        command.Parameters.AddWithValue("@subject", Subject.Text);
-                        command.Parameters.AddWithValue("@body", _Datetime.Text+" "+Time.Text);
+                        command.Parameters.AddWithValue("@subject","Meeting-"+ Subject.Text);
+                        command.Parameters.AddWithValue("@body", _Datetime.Text+" at "+Time.Text);
 
                         int result = command.ExecuteNonQuery();
 

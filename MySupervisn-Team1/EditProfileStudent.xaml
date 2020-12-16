@@ -55,8 +55,8 @@
 
         </Grid>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Label x:Name="LblStdName" Content="[Student Name]" FontWeight="Bold"  />
-            <Label x:Name="LblStdID" Content="[Student Id]" FontWeight="Bold"/>
+            <Label x:Name="LblStdName" Content="" FontWeight="Bold"  />
+            <Label x:Name="LblStdID" Content="" FontWeight="Bold"/>
         </StackPanel>
         <Label Content="Details:" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="67" Grid.ColumnSpan="2"/>
 

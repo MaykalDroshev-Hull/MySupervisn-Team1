@@ -107,11 +107,6 @@ namespace MySupervisn_Team1
             bookMeeting.Show();
         }
 
-        private void Go_Back_Click(object sender, RoutedEventArgs e)
-        {
-            Hide();
-            StaffDashboard staffDashboard = new StaffDashboard(staff, staff.messages1);
-            staffDashboard.Show();
-        }
+        
     }
 }

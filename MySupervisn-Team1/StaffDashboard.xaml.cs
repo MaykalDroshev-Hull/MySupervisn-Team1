@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.Data.SqlClient;
-using System.Windows;
 using Microsoft.Win32;
 namespace MySupervisn_Team1
 {
@@ -55,7 +54,11 @@ namespace MySupervisn_Team1
         { 
             InitializeComponent();
             messages1 = messages;
-            MessageInbox.Items.Add( messages[0].Subject + " \n " + messages[0].Body);
+            if (messages[0].Subject != string.Empty)
+            {
+                MessageInbox.Items.Add(messages[0].Subject + " \n " + messages[0].Body + "from" + messages[0].Sender);
+            }
+            else { MessageInbox.Items.Add("No messages"); }
             mStaff = pStaff;
 
            

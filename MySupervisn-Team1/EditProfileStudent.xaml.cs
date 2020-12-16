@@ -11,17 +11,16 @@ namespace MySupervisn_Team1
 {
     public partial class EditProfileStudent : Window
     {
-        private Student mStudent;
-        private Staff staff;
+        private User mUser;
 
         public EditProfileStudent(Student student)
         {
             InitializeComponent();
 
-            mStudent = student;
+            mUser = student;
 
-            LblStdName.Content = mStudent.Name;
-            LblStdID.Content = "ID: "+ mStudent.IdNumber;
+            LblStdName.Content = mUser.Name;
+            LblStdID.Content = "ID: "+ mUser.IdNumber;
             LblStdName.Content = "Name: " + student.Name;
             string email = student.Name.ToLower();
             string[] namearr = email.Split(' ');
@@ -35,7 +34,7 @@ namespace MySupervisn_Team1
         {
             InitializeComponent();
 
-            this.staff = pStaff;
+            mUser = pStaff;
 
             LblStdName.Content = pStaff.Name;
             LblStdID.Content += "ID: " + pStaff.IdNumber;
@@ -65,7 +64,7 @@ namespace MySupervisn_Team1
             update.Parameters.Add("@LN", System.Data.SqlDbType.VarChar);
             update.Parameters["@LN"].Value = tLastName;
             update.Parameters.Add("@ID", System.Data.SqlDbType.Int);
-            update.Parameters["@ID"].Value = mStudent.IdNumber;
+            update.Parameters["@ID"].Value = mUser.IdNumber;
                 
             try
             {
@@ -80,15 +79,14 @@ namespace MySupervisn_Team1
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-
-            if (mStudent.Equals(null))
+            if (mUser is Staff)
             {
-                StaffDashboard staffDashboard = new StaffDashboard(staff, staff.messages1);
-                staffDashboard.Show();
+                Staff staff = mUser as Staff;
+               StaffDashboard staffDashboard = new StaffDashboard((Staff)mUser,staff.messages1);
+               staffDashboard.Show();
             }
             //if it is staff this should be null and goto catch block
-            StudentDashboard studentDashboardWindow = new StudentDashboard(mStudent);
+            StudentDashboard studentDashboardWindow = new StudentDashboard((Student)mUser);
             studentDashboardWindow.Show();
             
             
@@ -109,7 +107,7 @@ namespace MySupervisn_Team1
                 update.Parameters.Add("@PW", System.Data.SqlDbType.VarChar);
                 update.Parameters["@PW"].Value = TbNewPass.Text;
                 update.Parameters.Add("@ID", System.Data.SqlDbType.Int);
-                update.Parameters["@ID"].Value = mStudent.IdNumber;
+                update.Parameters["@ID"].Value = mUser.IdNumber;
                 try
                 {
                     update.ExecuteNonQuery();

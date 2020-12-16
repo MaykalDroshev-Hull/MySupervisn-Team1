@@ -32,7 +32,7 @@ namespace MySupervisn_Team1
         }
         bool username_match = false;
         bool password_match = false;
-        private void Login_Click(object sender, RoutedEventArgs e)
+        public void Login_Click(object sender, RoutedEventArgs e)
         {
             string username = Username.Text;
             string password = Password.Password;
@@ -40,7 +40,7 @@ namespace MySupervisn_Team1
             mConnection.Open();
             SqlCommand search = new SqlCommand();
             //search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor from [Users_]";
-            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor,Message.Body,Message.Subject from [Users_] full outer join Message on FirstName+' '+LastName=Message.Receiver ";
+            search.CommandText = "select User_Id, password, Classification, FirstName, LastName,email,password,Supervisor,Message.Body,Message.Subject,Message.Sender from [Users_] full outer join Message on FirstName+' '+LastName=Message.Receiver ";
             search.Connection = mConnection; 
             SqlDataReader reader = search.ExecuteReader();
             string classification = ""; 
@@ -69,7 +69,8 @@ namespace MySupervisn_Team1
 
                 string MessageSubject = reader[9].ToString();
                 string messageBody = reader[8].ToString();
-                Message message = new Message(0, DateTime.Now, MessageSubject, messageBody, null, null);
+                string _sender = reader[10].ToString();
+                Message message = new Message(0, DateTime.Now, MessageSubject, messageBody, _sender, null);
                 List<Message> messages = new List<Message>();
                 messages.Add(message);
 

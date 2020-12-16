@@ -123,7 +123,6 @@
     <Compile Include="Classes\DatabaseManager.cs" />
     <Compile Include="Classes\DirectorOfStudy.cs" />
     <Compile Include="Classes\Message.cs" />
-    <Compile Include="Classes\Search.cs" />
     <Compile Include="Classes\Staff.cs" />
     <Compile Include="Classes\Student.cs" />
     <Compile Include="Classes\StudentHub.cs" />
@@ -137,9 +136,6 @@
     </Compile>
     <Compile Include="StaffDashboard.xaml.cs">
       <DependentUpon>StaffDashboard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="LectureCheckIn.xaml.cs">
-      <DependentUpon>LectureCheckIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="StudentSearch.xaml.cs">
       <DependentUpon>StudentSearch.xaml</DependentUpon>
@@ -166,10 +162,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditProfileStudent.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LectureCheckIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

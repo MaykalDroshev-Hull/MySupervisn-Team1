@@ -10,7 +10,6 @@ namespace MySupervisn_Team1
     {
 
 
-        private Dictionary<string, (byte, bool)> mModuleAttendance;//<Module code,(lecture number,IsAttended)>,Just concept,don't put into program
         public List<Message> mMessages;
 
         public Student(int pIdNumber, string pName, List<Message> pMessages) : base(pIdNumber, pName)
